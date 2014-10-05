@@ -1,0 +1,308 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ 
+<html>
+ 
+<head>
+		<meta name=viewport content="width=700">
+		<link href='https://fonts.googleapis.com/css?family=Cabin|Hind' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script>
+        <script type="text/javascript" src="https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/herotips_files/typeahead.jquery.js"> </script>
+		<script type="text/javascript" src="herotips_files/quotegen.js"> </script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-54725251-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		
+		
+	<link href="https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/herotips_files/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="icon" href="https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/herotips_files/favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/herotips_files/favicon.ico" type="image/x-icon" />
+    <title>Tsunami's Hero Tips and Counters</title>
+	<style type="text/css">
+	/* scaffolding */
+	/* ----------- */
+
+	body {
+		margin: 0px;
+		text-align:center;
+		background-color: white;
+	}
+	
+	html {
+		overflow-y: scroll;
+		*overflow-x: hidden;
+	}
+
+	.tt-dropdown-menu,
+	.gist {
+		text-align: left;
+	}
+
+	/* base styles */
+	/* ----------- */
+
+	html {
+		font-family: 'Cabin', sans-serif;
+		font-size: 24px;
+		color: #333;
+	}
+	
+	@font-face {
+		font-family: 'dice';
+        src:url('herotips_files/fontello.eot');
+        src:url('herotips_files/fontello.eot?#iefix') format('embedded-opentype'),
+            url('herotips_files/fontello.woff') format('woff'),
+            url('herotips_files/fontello.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+	}
+
+	a {
+		color: #03739c;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	/* site theme */
+	/* ---------- */
+
+	.typeahead,
+	.tt-query,
+	.tt-hint {
+		font-family: 'Cabin', sans-serif;
+		width: 300px;
+		height: 40px;
+		padding: 0px 12px;
+		font-size: 24px;
+		line-height: 30px;
+		border: 2px solid #ccc;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+			border-radius: 8px;
+		outline: none;
+	}
+
+	.typeahead {
+		background-color: #fff;
+	}
+
+	.typeahead:focus {
+		border: 2px solid #0097cf;
+	}
+
+	.tt-query {
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	}
+
+	.tt-hint {
+		color: #999
+	}
+
+	.tt-dropdown-menu {
+		width: 298px;
+		margin-top: 7px;
+		padding: 8px 0;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+				border-radius: 8px;
+		-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+			-moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+				box-shadow: 0 5px 10px rgba(0,0,0,.2);
+	}
+
+	.tt-suggestion {
+		padding: 3px 20px;
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	.tt-suggestion.tt-cursor {
+		color: #fff;
+		background-color: #0097cf;
+	}
+
+	.tt-suggestion p {
+		margin: 0;
+	}
+
+	.gist {
+		font-size: 14px;
+	}
+	
+	.hero-typeahead {
+		align-items: baseline;
+	}
+	
+	#inputline{
+		padding: 130px 10px 15px;
+		line-height: 1.5;
+	}
+	
+	#heroinput{
+		
+	}
+	
+	#tipcontainer{
+		background-color: #EBEBEB;
+		padding-top: 30px;
+		width: 100%;
+		display:none;
+	}
+	
+	#herotitle{
+		display: inline-flex;
+	}
+	
+	#portrait{
+		padding-right: 35px;
+		padding-left: 5px;
+	}
+	
+	#portrait>img{
+		/* box-shadow: 0px 0px 2px #888888; */
+		display: block;
+		-webkit-border-radius: 13px;
+		-moz-border-radius: 13px;
+		border-radius: 13px;
+		padding: 2px;
+	}
+	
+	#name{
+		text-transform: uppercase;
+		font-family: Georgia, serif;
+		font-size: 1.879em;
+		letter-spacing: 7px;
+		align-self: center;
+		max-width: 50px;
+		display: inline-table;
+		font-style: normal;
+	}
+	
+	#tips{
+		font: 18px/1.5 Hind, sans-serif;
+		text-align: justify;
+		margin-left: auto;
+		margin-right: auto;
+		width: 60%;
+		min-width: 600px;
+	}
+	
+	#logo{
+		display: inline-block;
+		/*width: 100px;
+		height: 100px;
+		background-size: 105%;
+		border-radius: 50px;
+		box-shadow: inset 1px 1px 8px rgba(0,0,0,0.7), 0 0 3px rgba(0,0,0,1);
+		border: 1px solid rgba(255,255,255,0.3);*/
+	}
+	
+	#logo>img{
+		width: 100px;
+		height: 100px;
+	}
+	
+	#footer{
+		font-family: 'Hind', sans-serif;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 13px;
+	}
+	
+	.arrow_box {
+		position: relative;
+		display: none;
+	}
+
+	.arrow_box:before {
+		bottom: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.arrow_box:before {
+		border-color: rgba(194, 225, 245, 0);
+		border-bottom-color: #ebebeb;
+		border-width: 20px;
+	}
+	
+	#allheroes{
+		position: absolute;
+		top: 5px;
+		right: 40px;
+		font-size: 16px;
+	}
+	
+	#randomhero{
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		font-size: 24px;
+		font-family: 'dice';
+		
+		-webkit-transition: all .5s ease-out;
+		-moz-transition: all .5s ease-out;
+		-ms-transition: all .5s ease-out;
+		-o-transition: all .5s ease-out;
+		transition: all .5s ease-out;
+	}
+	
+	#randomhero a{
+		text-decoration: none;
+		color: #CFCFCF;
+	}
+	
+	#randomhero:hover{
+		cursor:pointer;
+	}
+	
+	#patch{
+		position: fixed;
+	}
+	
+	#patch>img{
+		position: relative;
+		left: -60px;
+		bottom: 30px;
+		height: 60;
+	}
+
+	#tips h1 { font-style:italic; font-family:Georgia, Times, serif; font-size:24px;  }
+	#tips ul li { }
+	#tips ul li p { padding-left:20px;}
+    </style>
+
+</head>
+ 
+<body>
+<div id="inputline">
+<span id="StartQuote"></span>
+<span id="heroinput">
+<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
+</span><span id="patch"><img src="https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/herotips_files/star-shape-sticker.png"></span>
+<span id="EndQuote"></span></div>
+<div class="arrow_box">
+</div>
+<div id ="tipcontainer"> </div>
+<div id="randomhero"><a></a></div>
+<div id="footer"><span id="FooterQuote"></span> Let me know <a href="https://twitter.com/tsunami643">@tsunami643</a>.</font></div>
+
+</body></html>
