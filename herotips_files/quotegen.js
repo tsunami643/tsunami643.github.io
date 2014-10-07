@@ -154,7 +154,7 @@ function QuoteGen() {
 			$( "#tipcontainer" ).slideUp(300, function()
 			{
 				$( ".arrow_box" ).hide();
-				$( "#tipcontainer" ).load( "https://dl.dropboxusercontent.com/u/11778482/HEROTIPS/tips.html #"+hero, function() {
+				$( "#tipcontainer" ).load( "https://github.com/tsunami643/tsunami643.github.io/raw/master/tips.html #"+hero, function() {
                     $(this).slideDown(500);
 					$( "#tipcontainer" ).css({display: "inline-block"});
 					$( ".arrow_box" ).css({display: "block"});
