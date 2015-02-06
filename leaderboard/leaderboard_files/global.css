@@ -1,0 +1,131 @@
+
+*, html, body, td {
+	font-family:arial, helvetica, sans-serif;
+}
+
+body {
+	margin:0;
+	padding:0;
+	background-color:#2d2d2b;
+	color:#939393;
+}
+
+#liveFeedHeader {
+	width:700px;
+	background-color:#000000;
+	padding:10px;
+}
+
+.watchLiveLink, .watchLiveLink:hover, .watchLiveLink:active, .watchLiveLink:visited {
+	font-size:16px;
+	font-weight:bold;
+	color:#ffa800;
+}
+
+.teamNameLink, .teamNameLink:hover, .teamNameLink:active, .teamNameLink:visited {
+	text-decoration:none;
+}
+
+#userInfo {
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:auto;
+	background-color:black;
+	padding:4px 10px;
+	font-size:11px;
+	color:#ffffff;
+	line-height:16px;
+	text-align:left;
+}
+
+.menu
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	border:0;
+	margin-left:73px;
+}
+.menu li
+{ 
+	float:left;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top:21px;
+	margin-right:8px;
+	color:#cccccc;
+	font-size: 14px;
+	color: #b8b6b4;
+	text-transform: uppercase;
+}
+
+.menu a, .menu a:active, .menu a:visited, .menu a:link, .menu a:focus
+{
+	color:#959595;
+	text-decoration:none;
+}
+
+a, a:active, a:visited, a:focus
+{
+	color:#959595;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:#ffffff;
+	text-decoration:none;
+	-webkit-transition: color .15s ease-in-out;
+	-moz-transition: color .15s ease-in-out;
+	-o-transition: color .15s ease-in-out;
+	transition: color .15s ease-in-out;
+}
+
+a.intmenu,a.intmenu:link,a.intmenu:visited,a.intmenu:active,a.intmenu:hover {
+	display:inline-block;
+	padding:21px 6px 0px 6px;
+	margin-right:8px;
+	font-size:14px;
+	color:#b8b6b4;
+	text-transform:uppercase;
+}
+a.intmenu:hover {
+	color:#ffffff;
+}
+
+
+#centerContent {
+	width:958px;
+	margin:0;
+	padding:0;
+	text-align:left;
+	font-size:12px;
+	line-height:18px;
+}
+
+.centered {
+	text-align:center;
+}
+
+form {
+	margin:0;
+	padding:0;
+}
+
+.perf_timing_area {
+	position: relative;
+	width: 936px;
+	margin: 0px auto 48px auto;
+	text-align: center;
+	color: #B0AEAC;
+}
+
+.perf_timing_link {
+}
+
+.perf_timing_data {
+	text-align: left;
+	background-color: #000000;
+	padding: 8px;
+}

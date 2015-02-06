@@ -1,0 +1,167 @@
+	
+a:link,visited,active  {    /* unvisited link */
+	color: #969aa1;
+	text-decoration: none
+}
+
+a:hover {  /* mouse over link */
+	color: #cfcfcf;
+	text-decoration: none
+}
+
+body {
+	background-color: #0a1010;
+	padding: 0;
+	margin: 0;
+	font-family: georgia,serif;
+	text-align: left;
+	font-size: 14px;
+	line-height: 24px;
+	color: #5e5e5e;
+	background-position:top center;
+}
+
+#bottomContainer_1 {
+	background-image: url('http://cdn.dota2.com/apps/dota2/images//leaderboards/bg_bottom.jpg');
+	background-position:top center;
+	background-repeat:no-repeat;
+	margin-right:auto;
+	margin-left:auto;
+	position:relative;
+	height:224px;
+}
+
+#bottomContainer_2 {
+	background-image: url('http://cdn.dota2.com/apps/dota2/images//leaderboards/bg_bottom.jpg');
+	background-position:top center;
+	background-repeat:no-repeat;
+	margin-right:auto;
+	margin-left:auto;
+	position:relative;
+	width:938px;
+}
+
+#outerContainer {
+	background-image: url('http://cdn.dota2.com/apps/dota2/images//leaderboards/bg_repeat.jpg');
+	background-repeat:repeat-y;
+	background-position:top center;
+}	
+#contentContainer {
+	background-image: url('http://cdn.dota2.com/apps/dota2/images//leaderboards/bg_top.jpg');
+	background-position:top center;
+	background-repeat:no-repeat;
+}	
+#content {
+	background-image: url('http://cdn.dota2.com/apps/dota2/images//leaderboards/bg_top.jpg');
+	background-position:top center;
+	background-repeat:no-repeat;
+	position:relative;
+	width: 938px;
+	min-height:700px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+}
+
+#globe {
+	position:absolute;
+	top:230px;
+	right:30px;
+	z-index:1;
+}
+
+#faqArea {
+	text-align:left;
+	padding:10px 50px;
+}
+#faqArea ul {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.question {
+	padding: 0px 90px;
+	font-size:16px;
+	color:#b7b7b4;
+}
+
+.answer {
+	padding:0px 90px 20px 120px;
+	font-size:14px;
+	line-height:20px;
+}
+
+#logoValve {
+	position:absolute;
+	left:20px;
+	top:320px;
+	width:110px;
+	height:36px;
+}
+
+#legal {
+	position:absolute;
+	left:140px;
+	color:#525050;
+	font-size:12px;
+	line-height:16px;
+}
+
+#content h1 {
+	font-weight:normal;
+	font-size:36px;
+	color:#b7b7b4;
+	margin:0;
+	padding:48px 0px 16px 0px;
+}
+
+#content h2 {
+	font-weight:normal;
+	font-size:24px;
+	color:#555555;
+	margin:0;
+	padding:0px 0px 0px 0px;
+}
+
+#regionSelect {
+	position:relative;
+	padding:100px 0px 20px 0px;
+	z-index:2;
+	font-size:24px;
+}
+#regionSelect span {
+	display:inline-block;
+	padding:0px 24px;
+	color:#ffffff;
+	text-decoration:underline;
+}
+#regionSelect a {
+	display:inline-block;
+}
+#regionSelect a.unselected_division {
+	text-decoration: none;
+}
+#regionSelect a.selected_division {
+	color: #e0e0e0;
+	text-decoration: underline;
+}
+
+th {
+	background-color:#000000;
+	color:#b7b7b4;
+	line-height:16px;
+	font-size:14px;
+}
+
+td {
+	color:#a4a4a4;
+}
+
+.player_name {
+	color: #d0d0d0;
+	font-weight: 700;
+}
+
+.no_official_data {
+	color: #404040;
+}
