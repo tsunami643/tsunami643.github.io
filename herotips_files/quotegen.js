@@ -158,7 +158,7 @@ function QuoteGen() {
 			$( "#tipcontainer" ).slideUp(300, function()
 			{
 				$( ".arrow_box" ).hide();
-				$( "#tipcontainer" ).load( "https://www.howdoiplay.com/herotips_files/tips.html #"+hero, function() {
+				$( "#tipcontainer" ).load( "http://tsunami643.github.io/herotips_files/tips.html #"+hero, function() {
                     $(this).slideDown(500);
 					
 					var sortedhero = $.inArray( heroes[hero], alphasort );
