@@ -401,7 +401,7 @@
         };
         _.mixin(Input.prototype, EventEmitter, {
             _onBlur: function onBlur() {
-                this.resetInputValue();
+                //this.resetInputValue();
                 this.trigger("blurred");
             },
             _onFocus: function onFocus() {
@@ -933,9 +933,9 @@
                 if (cursorDatum) {
                     this._select(cursorDatum);
                     $e.preventDefault();
-                } else if (this.autoselect && topSuggestionDatum) {
-                    this._select(topSuggestionDatum);
-                    $e.preventDefault();
+                } else {
+                    this._autocomplete(true);
+					$e.preventDefault();
                 }
             },
             _onTabKeyed: function onTabKeyed(type, $e) {
@@ -945,6 +945,7 @@
                     $e.preventDefault();
                 } else {
                     this._autocomplete(true);
+					$e.preventDefault();
                 }
             },
             _onEscKeyed: function onEscKeyed() {
@@ -1004,7 +1005,7 @@
                 hint = this.input.getHint();
                 query = this.input.getQuery();
                 isCursorAtEnd = laxCursor || this.input.isCursorAtEnd();
-                if (hint && query !== hint && isCursorAtEnd) {
+                if (query !== hint && isCursorAtEnd) {
                     datum = this.dropdown.getDatumForTopSuggestion();
                     datum && this.input.setInputValue(datum.value);
                     this.eventBus.trigger("autocompleted", datum.raw, datum.datasetName);
