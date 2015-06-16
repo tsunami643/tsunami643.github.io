@@ -109,7 +109,7 @@ var heroes = ['Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Axe',
   'Timbersaw', 'Tinker', 'Tiny', 'Treant Protector', 'Troll Warlord', 'Tusk',
   'Undying', 'Ursa', 'Vengeful Spirit', 'Venomancer', 'Viper', 'Visage',
   'Warlock', 'Weaver', 'Windranger', 'Witch Doctor', 'Wraith King', 'Zeus',
-  'Techies', 'Oracle', 'Winter Wyvern', 'dank memes'
+  'Techies', 'Oracle', 'Winter Wyvern', 'Dank Memes'
 ];
 
 function QuoteGen() {
@@ -178,7 +178,7 @@ function QuoteGen() {
 					}
 					
 					if (sortedhero == 110){
-						$( "#tips" ).css("font-family", "Comic Sans MS, cursive, sans-serif");
+						$( "#inputline" ).css("font-family", "Comic Sans MS, cursive, sans-serif");
 					}
 					
 					if(jQuery.browser.mobile == false){
