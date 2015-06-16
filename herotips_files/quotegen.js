@@ -170,7 +170,7 @@ function QuoteGen() {
 						$( "#herotitle" ).css("padding-left", "55px");
 					}
 
-					if (sortedhero != 106 || sortedhero != 110){
+					if (sortedhero < heroes.length-1 && sortedhero != 106){
 						$( "#herotitle" ).append('<span id="nexthero" style="width: 55px;"><a style="width: 55px; color: #BEBEBE; text-decoration: none; cursor:pointer; position: relative; font-size: 110px; padding-left: 10px;">></a></span>');
 					}
 					else {
