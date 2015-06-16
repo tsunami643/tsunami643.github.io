@@ -109,7 +109,7 @@ var heroes = ['Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Axe',
   'Timbersaw', 'Tinker', 'Tiny', 'Treant Protector', 'Troll Warlord', 'Tusk',
   'Undying', 'Ursa', 'Vengeful Spirit', 'Venomancer', 'Viper', 'Visage',
   'Warlock', 'Weaver', 'Windranger', 'Witch Doctor', 'Wraith King', 'Zeus',
-  'Techies', 'Oracle', 'Winter Wyvern', 'Dank Memes'
+  'Techies', 'Oracle', 'Winter Wyvern', 'dank memes'
 ];
 
 function QuoteGen() {
@@ -163,14 +163,14 @@ function QuoteGen() {
 					
 					var sortedhero = $.inArray( heroes[hero], alphasort );
 					
-					if (sortedhero > 0){
+					if (sortedhero > 0 && sortedhero != 110){
 						$( "#herotitle" ).prepend('<span id="prevhero" style="width: 55px;"><a style="color: #BEBEBE; text-decoration: none; cursor:pointer; position: relative; font-size: 110px; padding-right: 10px;"><</a></span>');
 					}
 					else {
 						$( "#herotitle" ).css("padding-left", "55px");
 					}
 
-					if (sortedhero < heroes.length-1){
+					if (sortedhero < heroes.length-1 && sortedhero != 110 && sortedhero != 106){
 						$( "#herotitle" ).append('<span id="nexthero" style="width: 55px;"><a style="width: 55px; color: #BEBEBE; text-decoration: none; cursor:pointer; position: relative; font-size: 110px; padding-left: 10px;">></a></span>');
 					}
 					else {
