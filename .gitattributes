@@ -5,8 +5,13 @@
 *.gif binary
 *.png binary
 *.jpg binary
+
 *.webm binary
+
 *.ico binary
+
+*.eot binary
 *.ttf binary
 *.woff binary
+
 *.pdf binary
