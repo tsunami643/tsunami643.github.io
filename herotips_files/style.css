@@ -33,7 +33,7 @@ html {
 }
 
 html, body {
-	height: 100%;
+    height: 100%;
 }
 
 @font-face {
@@ -146,7 +146,7 @@ a:hover {
 }
 
 .hero {
-    padding-top: 30px;
+    padding: 30px 0;
 }
 
 .herotitle {
@@ -189,14 +189,14 @@ a:hover {
 }
 
 .wrapper {
-	min-height: 100%;
-	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
-	height: 100%;
-	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+    min-height: 100%;
+    height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
 }
 
 #footer, .push {
-	height: 144px; /* .push must be the same height as .footer */
+    height: 144px; /* .push must be the same height as .footer */
 }
 
 #footer {
@@ -285,4 +285,23 @@ a:hover {
 
 .tips ul li p {
     padding-left: 20px;
+}
+
+.nexthero,
+.prevhero {
+    width: 55px;
+    color: #BEBEBE;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 110px;
+    display: inline-block;
+}
+
+.prevhero {
+    padding-right: 10px;
+}
+
+.nexthero {
+    padding-left: 10px;
 }
