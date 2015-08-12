@@ -1,71 +1,3 @@
-var startquotearray = [
- "I JUST RANDOMED",
- "MY CAPTAIN PICKED ME",
- "I TOLD MY TEAM I KNOW HOW TO PLAY",
- "I'M GETTING OWNED BY",
- "CREEPS ARE SPAWNING. QUICK, TELL ME HOW TO",
- "I'VE GOT 40 SECONDS TO LEARN HOW TO",
- "WHAT THE HELL IS A",
- "GOD DAMN IT, I'M SICK OF LOSING TO",
- "I'VE NEVER PLAYED",
- "OF COURSE I KNOW HOW TO PLAY",
- "HOW DO I COUNTER",
- "HOW DO I COUNTER",
- "HOW DO I COUNTER",
- "ICEFROG PLS NERF",
- "ICEFROG PLS BUFF",
- "NO MORE 0% DOTABUFF WIN RATE ON",
- "WHY DOES",
- "WHY I ALWAYS LOSE WITH",
- "THEY CALL ME THE ADMIRALBULLDOG OF",
- "OH BOY, MY FIRST DRAFT!",
- "BLESSED BE THY",
- "MY STACK BANNED ME FROM PLAYING",
- "ANYONE WANT",
- "GIVE ME THE SPARKNOTES ON PLAYING",
- "I NEVER WIN WITH",
- "BET ALL MY RARES AND GOT SOME DOPE",
- "TO REPICK IS TO ADMIT WEAKNESS."
-];
-
-var endquotearray = [
- ". NOW WHAT?",
- "AND NOW I'M PANICKING.",
- "BUT I REALLY DON'T.",
- ". WHAT DO?",
- ".",
- "LIKE DENDI.",
- "?",
- ".",
- "BEFORE. GUESS I'LL LEARN IN THIS RANKED MATCH.",
- ". I'M JUST REFRESHING MY MEMORY.",
- "? DAGON 5, RIGHT?",
- "? STACK RAPIERS, RIGHT?",
- "? WARD THEIR JUNGLE, RIGHT?",
- ".",
- ".",
- "FROM NOW ON.",
- "EVEN EXIST? GARBAGE HERO IMO.",
- "? I COPY SING'S BUILDERINO PERFECT.",
- ".",
- "IS WEAK AGAINST GRASS TYPE, RIGHT?",
- ". GUIDE ME ON THIS RIGHTEOUS PATH TO 4K.",
- "BUT I'LL SHOW 'EM.",
- "? NO? THEN YOU BROUGHT THIS UPON YOURSELF.",
- ".",
- ". I BLAME BAD TEAMMATES.",
- "HATS. TIME TO USE 'EM.",
- "TRIAL BY FIRE."
-];
-
-var footerquotearray = [
- "Did I pull you out of the trench?  Let me know ",
- "Found a mistake?  Let me know ",
- "Have a suggestion? Let me know ",
- "Got a tip to add? Let me know ",
- "Discover a new counter? Let me know "
-];
-
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substrRegex;
@@ -113,12 +45,8 @@ var heroes = ['Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Axe',
 ];
 
 function QuoteGen() {
-  var quotenum= Math.floor(Math.random()*startquotearray.length);
   var currenthero;
   var heroindex;
-  $('#StartQuote').text( startquotearray[quotenum] );
-  $('#EndQuote').text( endquotearray[quotenum] );
-  $('#FooterQuote').text( footerquotearray[Math.floor(Math.random()*footerquotearray.length)] );
   
   var alphasort = heroes.concat().sort(); //Alphabetized copy of hero array
   
@@ -214,7 +142,9 @@ function QuoteGen() {
 			});
 	}
 	
-  $( "#randomhero" ).click(function() {
+  $( "#randomhero" ).click(function(e) {
+        e.preventDefault();
+
 		angle+=360;
 		$(this).css ({
 			'-webkit-transform': 'rotate(' + angle + 'deg)',
