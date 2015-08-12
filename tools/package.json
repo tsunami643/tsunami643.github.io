@@ -1,0 +1,6 @@
+{
+  "description": "Just some simple tools for the project",
+  "devDependencies": {
+    "line-reader": "^0.2.4"
+  }
+}
