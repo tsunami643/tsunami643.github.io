@@ -192,7 +192,6 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     max-width: 960px;
-    min-width: 600px;
 }
 
 .wrapper {
@@ -316,6 +315,26 @@ a:hover {
     padding-left: 10px;
 }
 
+.theme-dark {
+    color: #9d9d9d;
+}
+
+.theme-dark .tt-input {
+    color: #333
+}
+
+.theme-dark body {
+    background-color: #111;
+}
+
+.theme-dark #tipcontainer {
+    background-color: #222;
+}
+
+.theme-dark #heroinput:after {
+    border-bottom-color: #222;
+}
+
 @media screen and (max-width: 800px) {
     #heroinput,
     .twitter-typeahead,
@@ -380,5 +399,10 @@ a:hover {
     .tt-hint {
         width: 100%;
     }
+}
 
+@media screen and (max-width: 600px) {
+    .herotitle {
+        font-size: 3vw;
+    }
 }
