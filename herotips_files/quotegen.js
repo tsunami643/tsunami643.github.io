@@ -29,7 +29,7 @@
 
             $("#heroinput").removeClass('show-arrow');
 
-            $("#tipcontainer").load("tips/" + heroName.toLowerCase().replace(/ /ig, '_') + '.html?do_not_cache=' + new Date().getTime(), function () {
+            $("#tipcontainer").load("tips/" + heroName.toLowerCase().replace(/ /ig, '_') + '.html', function () {
                 $(this).slideDown(skipAnimation ? 0 : 500);
 
                 $(".herotitle").prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
