@@ -27,8 +27,8 @@
         if (!cached[heroName]) {
             setTimeout(function () {
                 cached[heroName] = true;
-                $.get(heroUrlFromHeroName(heroName));
-            }, 100);
+                $('#preload').load(heroUrlFromHeroName(heroName));
+            }, 200);
         }
     }
 
@@ -102,15 +102,14 @@
             source: heroes
         });
 
-        $heroinput.on("keyup typeahead:change typeahead:select typeahead:autocomplete", function (e) {
+        $heroinput.on("keyup typeahead:change typeahead:select typeahead:autocomplete typeahead:cursorchange", function (e, data) {
             var herotext = $heroinput.typeahead('val');
 
             if (herotext) {
                 heroindex = $.inArray(herotext.toLowerCase(), HEROES_LOWERCASE);
 
-                heroes.search(herotext, function (datums) {
+                heroes.search(data || herotext, function (datums) {
                     if(datums[0]) {
-                        console.log(datums[0]);
                         preload(datums[0]);
                     }
                 });
