@@ -408,5 +408,6 @@ a:hover {
     .nexthero,
     .prevhero {
         font-size: 86px;
+        margin-top: -95px;
     }
 }
