@@ -404,4 +404,9 @@ a:hover {
     .tt-hint {
         width: 100%;
     }
+    
+    .nexthero,
+    .prevhero {
+        font-size: 86px;
+    }
 }
