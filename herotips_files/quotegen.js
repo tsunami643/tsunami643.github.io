@@ -17,6 +17,25 @@
         History.replaceState(null, hero + ' - ' + originalTitle, '?' + hero.replace(/ /ig, '+'));
     }
 
+    var timer = null;
+
+    var cached = {};
+
+    function preload(heroName) {
+        clearTimeout(timer);
+
+        if (!cached[heroName]) {
+            setTimeout(function () {
+                cached[heroName] = true;
+                $.get(heroUrlFromHeroName(heroName));
+            }, 100);
+        }
+    }
+
+    function heroUrlFromHeroName(heroName) {
+        return 'tips/' + heroName.toLowerCase().replace(/ /ig, '_') + '.html';
+    }
+
     function loadHero(heroIndex, skipAnimation) {
         restored = false;
 
@@ -29,7 +48,7 @@
 
             $("#heroinput").removeClass('show-arrow');
 
-            $("#tipcontainer").load("tips/" + heroName.toLowerCase().replace(/ /ig, '_') + '.html', function () {
+            $("#tipcontainer").load(heroUrlFromHeroName(heroName), function () {
                 $(this).slideDown(skipAnimation ? 0 : 500);
 
                 $(".herotitle").prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
@@ -68,11 +87,33 @@
 
         var $heroinput = $('#heroinput .typeahead');
 
+        var heroes = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          local: HEROES
+        });
+
+        $heroinput.typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        }, {
+            name: 'HEROES',
+            source: heroes
+        });
+
         $heroinput.on("keyup typeahead:change typeahead:select typeahead:autocomplete", function (e) {
             var herotext = $heroinput.typeahead('val');
 
             if (herotext) {
                 heroindex = $.inArray(herotext.toLowerCase(), HEROES_LOWERCASE);
+
+                heroes.search(herotext, function (datums) {
+                    if(datums[0]) {
+                        console.log(datums[0]);
+                        preload(datums[0]);
+                    }
+                });
             }
 
             if (heroindex > -1) {
@@ -91,25 +132,13 @@
             }
         });
 
-        var heroes = new Bloodhound({
-          datumTokenizer: Bloodhound.tokenizers.whitespace,
-          queryTokenizer: Bloodhound.tokenizers.whitespace,
-          local: HEROES
-        });
-
-        $heroinput.typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'HEROES',
-            source: heroes
-        });
+        $heroinput.focus();
     }
 
     function manuallyInputHero(heroIndex, skipAnimation) {
         loadHero(heroIndex, !!skipAnimation);
         $("#heroinput .typeahead").typeahead('val', HEROES[heroIndex]);
+        $("#heroinput .typeahead").typeahead('close');
     }
 
     function loadHeroFromHash() {
@@ -117,7 +146,7 @@
         var hero = state.cleanUrl && state.cleanUrl.split('?')[1];
 
         if (hero) {
-            var index = $.inArray(hero.replace(/\+/ig, ' '), HEROES);
+            var index = $.inArray(hero.toLowerCase().replace(/\+/ig, ' '), HEROES_LOWERCASE);
 
             if (index !== -1) {
                 manuallyInputHero(index, true);
@@ -140,7 +169,6 @@
     }
 
     function restoreBlankState() {
-        // TODO: can't get this to work correctly at the moment
         if (restored) {
             return;
         }
@@ -162,6 +190,5 @@
     loadHeroFromHash();
     setupRandomButton();
     setupPrevNext();
-    $("#heroinput .typeahead").focus();
 
 }(this.document, this.jQuery, this.HEROES, this.History, this.Bloodhound);
