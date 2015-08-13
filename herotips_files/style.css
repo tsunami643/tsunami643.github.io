@@ -133,10 +133,11 @@ a:hover {
 #inputline {
     padding: 130px 10px 15px;
     line-height: 1.5;
+    white-space: nowrap;
 }
 
 #heroinput {
-
+    position: relative;
 }
 
 #tipcontainer {
@@ -146,22 +147,28 @@ a:hover {
 }
 
 .hero {
-    padding: 30px 0;
+    padding: 30px 50px;
 }
 
 .herotitle {
-    display: inline-flex;
+    /*display: inline-flex;*/
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 100px;
 }
 
 .portrait {
     padding-right: 35px;
     padding-left: 5px;
+    text-align: center;
+    width: 100%;
 }
 
 .portrait-img {
     /* box-shadow: 0px 0px 2px #888888; */
     max-width: 100%;
-    display: block;
+    display: inline-block;
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 13px;
@@ -174,17 +181,17 @@ a:hover {
     font-size: 1.879em;
     letter-spacing: 7px;
     align-self: center;
-    max-width: 50px;
-    display: inline-table;
     font-style: normal;
+    width: 100%;
+    display: block;
 }
 
 .tips {
     font: 18px/1.5 Hind, sans-serif;
-    text-align: justify;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    max-width: 960px;
     min-width: 600px;
 }
 
@@ -207,26 +214,24 @@ a:hover {
     font-size: 13px;
 }
 
-.arrow_box {
-    position: relative;
-    display: none;
-}
-
-.arrow_box:before {
-    bottom: 100%;
+#heroinput:after {
     left: 50%;
-    border: solid transparent;
+    border: 20px solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
+    top: 100%;
+    border-top-width: 0;
+    border-bottom: solid 20px #ebebeb;
+    margin-left: -20px;
+    margin-top: 20px;
+    display: none;
 }
 
-.arrow_box:before {
-    border-color: rgba(194, 225, 245, 0);
-    border-bottom-color: #ebebeb;
-    border-width: 20px;
+#heroinput.show-arrow:after {
+    display: block;
 }
 
 #allheroes {
@@ -296,12 +301,83 @@ a:hover {
     position: relative;
     font-size: 110px;
     display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -78px;
 }
 
 .prevhero {
+    left: 30px;
     padding-right: 10px;
 }
 
 .nexthero {
+    right: 30px;
     padding-left: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    #heroinput,
+    .hero-typeahead {
+        width: 100%;
+    }
+
+    #hero-input-quote-start,
+    #hero-input-quote-end {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .herotitle {
+        display: block;
+    }
+
+    .name,
+    .portrait {
+        width: 100%;
+        display: block;
+    }
+
+    .portrait {
+        padding: 0;
+    }
+
+    .portrait-img {
+        padding: 0;
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .tips {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .tips h1 {
+        text-align: center;
+    }
+
+    .tips ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .tips li {
+        padding: 10px;
+    }
+
+    .tips li + li {
+        border-top: solid 1px #ccc;
+    }
+    
+    .typeahead,
+    .tt-query,
+    .tt-hint {
+        width: 100%;
+    }
+
 }

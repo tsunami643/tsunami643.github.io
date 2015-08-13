@@ -27,20 +27,14 @@
 
             updateState(heroName);
 
-            $(".arrow_box").hide();
+            $("#heroinput").removeClass('show-arrow');
 
             $("#tipcontainer").load("/tips/" + heroName.toLowerCase().replace(/ /ig, '_') + '.html?do_not_cache=' + new Date().getTime(), function () {
                 $(this).slideDown(skipAnimation ? 0 : 500);
 
                 $(".herotitle").prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
-
-                if (jQuery.browser.mobile == false) {
-                    $('.prevhero').fadeTo(1200, 0);
-                    $('.nexthero').fadeTo(1200, 0);
-                }
-
-                $("#tipcontainer").css({ display: "inline-block" });
-                $(".arrow_box").css({ display: "block" });
+                $("#tipcontainer").css({ display: "block" });
+                $("#heroinput").addClass('show-arrow');
 
                 currenthero = heroIndex;
             });
@@ -69,7 +63,7 @@
         });
     }
 
-    function setupTypeaheadInput() {
+    function setupTypeAheadInput() {
         function substringMatcher(strs) {
             return function findMatches(q, cb) {
                 var matches, substrRegex;
@@ -96,14 +90,6 @@
 
         var heroindex;
 
-        var rect = heroinput.getBoundingClientRect().left;
-
-        //Wait for webfont to load before positioning arrow
-        $(window).load(function () {
-            rect = heroinput.getBoundingClientRect().left;
-            $('head').append("<style>.arrow_box:before{left: " + (rect + 144) + "px;}</style>");
-        });
-
         $('#heroinput .typeahead').on("keyup typeahead:selected typeahead:autocompleted", function () {
             var herotext = $('#heroinput .typeahead').typeahead('val');
             heroindex = $.inArray(herotext.toLowerCase(), HEROES_LOWERCASE);
@@ -119,7 +105,7 @@
                 }
             }
 
-            if ($('#heroinput .typeahead').val() === '') {
+            if ($('#heroinput .typeahead').typeahead('val') === '') {
                 restoreBlankState();
             }
         });
@@ -164,14 +150,6 @@
             .on('click', '.nexthero', function (e) {
                 e.preventDefault();
                 manuallyInputHero(mod(currenthero + 1, HEROES.length));
-            })
-            .on('mouseenter', '.herotitle', function () {
-                $tipcontainer.find('.prevhero').fadeTo(100, 1);
-                $tipcontainer.find('.nexthero').fadeTo(100, 1);
-            })
-            .on('mouseexit', '.herotitle', function () {
-                $tipcontainer.find('.prevhero').fadeTo(100, 0);
-                $tipcontainer.find('.nexthero').fadeTo(100, 0);
             });
     }
 
@@ -190,12 +168,13 @@
     }
 
     function mod(a, b) {
-        return ((a % b) + b) % b
+        return ((a % b) + b) % b;
     }
 
-    setupTypeaheadInput();
+    setupTypeAheadInput();
     loadHeroFromHash();
     setupRandomButton();
     setupPrevNext();
     $("#heroinput .typeahead").focus();
+
 }(this.document, this.jQuery, this.HEROES);
