@@ -64,24 +64,29 @@
     }
 
     function setupTypeAheadInput() {
-        var heroindex;
+        var heroindex = -1;
 
-        $('#heroinput .typeahead').on("keyup typeahead:selected typeahead:autocompleted", function () {
-            var herotext = $('#heroinput .typeahead').typeahead('val');
-            heroindex = $.inArray(herotext.toLowerCase(), HEROES_LOWERCASE);
+        var $heroinput = $('#heroinput .typeahead');
+
+        $heroinput.on("keyup typeahead:change typeahead:select typeahead:autocomplete", function (e) {
+            var herotext = $heroinput.typeahead('val');
+
+            if (herotext) {
+                heroindex = $.inArray(herotext.toLowerCase(), HEROES_LOWERCASE);
+            }
 
             if (heroindex > -1) {
-                $('#heroinput .typeahead').typeahead('close');
+                $heroinput.typeahead('close');
 
                 if (heroindex > -1 && heroindex != currenthero) {
                     loadHero(heroindex);
                     if (jQuery.browser.mobile == true) {
-                        $("#heroinput .typeahead").blur();
+                        $heroinput.blur();
                     }
                 }
             }
 
-            if ($('#heroinput .typeahead').typeahead('val') === '') {
+            if (herotext === '') {
                 restoreBlankState();
             }
         });
@@ -92,7 +97,7 @@
           local: HEROES
         });
 
-        $('#heroinput .typeahead').typeahead({
+        $heroinput.typeahead({
             hint: true,
             highlight: true,
             minLength: 1
@@ -136,17 +141,17 @@
 
     function restoreBlankState() {
         // TODO: can't get this to work correctly at the moment
-//        if (restored) {
-//            return;
-//        }
-//
-//        document.title = originalTitle;
-//        History.replaceState(null, originalTitle, '?');
-//        $('#inputline').animate({ padding: originalPadding }, 800);
-//        $("#tipcontainer").slideUp();
-//        $(".arrow_box").hide();
-//
-//        restored = true;
+        if (restored) {
+            return;
+        }
+
+        document.title = originalTitle;
+        History.replaceState(null, originalTitle, '?');
+        $('#inputline').animate({ padding: originalPadding }, 800);
+        $("#tipcontainer").slideUp();
+        $("#heroinput").removeClass('show-arrow');
+
+        restored = true;
     }
 
     function mod(a, b) {
