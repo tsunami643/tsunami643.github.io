@@ -403,6 +403,6 @@ a:hover {
 
 @media screen and (max-width: 600px) {
     .herotitle {
-        font-size: 3vw;
+        font-size: 1.5vw;
     }
 }
