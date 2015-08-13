@@ -154,17 +154,18 @@
     }
 
     function restoreBlankState() {
-        if (restored) {
-            return;
-        }
-
-        document.title = originalTitle;
-        History.replaceState(null, originalTitle, '?');
-        $('#inputline').animate({ padding: originalPadding }, 800);
-        $("#tipcontainer").slideUp();
-        $(".arrow_box").hide();
-
-        restored = true;
+        // TODO: can't get this to work correctly at the moment
+//        if (restored) {
+//            return;
+//        }
+//
+//        document.title = originalTitle;
+//        History.replaceState(null, originalTitle, '?');
+//        $('#inputline').animate({ padding: originalPadding }, 800);
+//        $("#tipcontainer").slideUp();
+//        $(".arrow_box").hide();
+//
+//        restored = true;
     }
 
     function mod(a, b) {
