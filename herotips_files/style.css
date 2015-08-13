@@ -354,6 +354,11 @@ a:hover {
 
     .herotitle {
         display: block;
+        padding: 0;
+    }
+
+    .name {
+        font-size: 28px;
     }
 
     .name,
@@ -363,7 +368,7 @@ a:hover {
     }
 
     .portrait {
-        padding: 0;
+        padding: 0 100px;
     }
 
     .portrait-img {
@@ -398,11 +403,5 @@ a:hover {
     .tt-query,
     .tt-hint {
         width: 100%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .herotitle {
-        font-size: 1.5vw;
     }
 }
