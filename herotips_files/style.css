@@ -38,10 +38,10 @@ html, body {
 
 @font-face {
     font-family: 'dice';
-    src: url('http://howdoiplay.com/herotips_files/fontello.eot');
-    src: url('http://howdoiplay.com/herotips_files/fontello.eot?#iefix') format('embedded-opentype'),
-    url('http://howdoiplay.com/herotips_files/fontello.woff') format('woff'),
-    url('http://howdoiplay.com/herotips_files/fontello.ttf') format('truetype');
+    src: url('./fontello.eot');
+    src: url('./fontello.eot?#iefix') format('embedded-opentype'),
+    url('./fontello.woff') format('woff'),
+    url('./fontello.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
