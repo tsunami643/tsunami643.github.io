@@ -145,7 +145,7 @@
         var hero = state.cleanUrl && state.cleanUrl.split('?')[1];
 
         if (hero) {
-            var index = $.inArray(hero.toLowerCase().replace(/\+/ig, ' '), HEROES_LOWERCASE);
+            var index = $.inArray(hero.toLowerCase().replace(/\+/ig, ' ').replace(/%20/ig, ' '), HEROES_LOWERCASE);
 
             if (index !== -1) {
                 manuallyInputHero(index, true);
