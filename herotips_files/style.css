@@ -318,7 +318,8 @@ a:hover {
 
 @media screen and (max-width: 800px) {
     #heroinput,
-    .twitter-typeahead {
+    .twitter-typeahead,
+    .tt-menu {
         width: 100%;
     }
 
