@@ -1,4 +1,4 @@
-!function (document, $, UNSORTED_HEROES) {
+!function (document, $, UNSORTED_HEROES, History, Bloodhound) {
     var HEROES = UNSORTED_HEROES.concat().sort(); //Alphabetized copy of hero array
     var HEROES_LOWERCASE = $.map(HEROES, function (h) { return h.toLowerCase(); });
     var originalTitle = document.title;
@@ -64,30 +64,6 @@
     }
 
     function setupTypeAheadInput() {
-        function substringMatcher(strs) {
-            return function findMatches(q, cb) {
-                var matches, substrRegex;
-
-                // an array that will be populated with substring matches
-                matches = [];
-
-                // regex used to determine if a string contains the substring `q`
-                substrRegex = new RegExp(q, 'i');
-
-                // iterate through the pool of strings and for any string that
-                // contains the substring `q`, add it to the `matches` array
-                $.each(strs, function (i, str) {
-                    if (substrRegex.test(str)) {
-                        // the typeahead jQuery plugin expects suggestions to a
-                        // JavaScript object, refer to typeahead docs for more info
-                        matches.push({ value: str });
-                    }
-                });
-
-                cb(matches);
-            };
-        }
-
         var heroindex;
 
         $('#heroinput .typeahead').on("keyup typeahead:selected typeahead:autocompleted", function () {
@@ -110,14 +86,19 @@
             }
         });
 
+        var heroes = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          local: HEROES
+        });
+
         $('#heroinput .typeahead').typeahead({
             hint: true,
             highlight: true,
-            minLength: 2
+            minLength: 1
         }, {
             name: 'HEROES',
-            displayKey: 'value',
-            source: substringMatcher(HEROES)
+            source: heroes
         });
     }
 
@@ -178,4 +159,4 @@
     setupPrevNext();
     $("#heroinput .typeahead").focus();
 
-}(this.document, this.jQuery, this.HEROES);
+}(this.document, this.jQuery, this.HEROES, this.History, this.Bloodhound);

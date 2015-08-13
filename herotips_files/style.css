@@ -17,7 +17,7 @@ html {
     *overflow-x: hidden;
 }
 
-.tt-dropdown-menu,
+.tt-menu,
 .gist {
     text-align: left;
 }
@@ -92,7 +92,7 @@ a:hover {
     color: #999
 }
 
-.tt-dropdown-menu {
+.tt-menu {
     width: 298px;
     margin-top: 7px;
     padding: 8px 0;
@@ -318,7 +318,7 @@ a:hover {
 
 @media screen and (max-width: 800px) {
     #heroinput,
-    .hero-typeahead {
+    .twitter-typeahead {
         width: 100%;
     }
 
