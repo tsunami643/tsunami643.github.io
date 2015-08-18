@@ -1,6 +1,7 @@
 {
   "description": "Just some simple tools for the project",
   "devDependencies": {
+    "chalk": "^1.1.0",
     "datauri": "^0.7.1",
     "http-server": "^0.8.0",
     "line-reader": "^0.2.4"
