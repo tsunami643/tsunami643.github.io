@@ -201,6 +201,14 @@ a:hover {
     opacity: 1;
 }
 
+.from-cache {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
 .portrait-image-loaded {
     position: absolute;
     top: 0;

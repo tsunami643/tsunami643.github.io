@@ -14,8 +14,6 @@ fs.readdir(path.join(tipsFolder), function (err, files) {
 
         (function(file) {
             fs.readFile(path.join(tipsFolder, file), 'utf8', function (err, data) {
-                console.log(file);
-
                 if (err) {
                     return console.log(err);
                 }
@@ -32,18 +30,18 @@ fs.readdir(path.join(tipsFolder), function (err, files) {
                 );
 
                 if (!datauri) {
-                    console.log('- no data uri');
+                    console.log(file  + ' - no data uri');
                 } else {
-                    console.log('- ok');
+                    console.log(file  + ' - ok');
                 }
 
-                fs.writeFile(file, result, 'utf8', function (err) {
+                fs.writeFile(path.join(tipsFolder, file), result, 'utf8', function (err) {
                     if (err) {
                         return console.log(err);
                     }
 
 
-                    console.log('- written');
+                    console.log(file  + ' - written');
                 });
             });
         }(file));
