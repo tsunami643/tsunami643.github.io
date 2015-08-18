@@ -389,6 +389,24 @@ a:hover {
     border-bottom-color: #222;
 }
 
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-wrapper iframe,
+.video-wrapper object,
+.video-wrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 @media screen and (max-width: 800px) {
     #heroinput,
     .twitter-typeahead,
@@ -452,13 +470,13 @@ a:hover {
     .tips li + li {
         border-top: solid 1px #ccc;
     }
-    
+
     .typeahead,
     .tt-query,
     .tt-hint {
         width: 100%;
     }
-    
+
     .nexthero,
     .prevhero {
         font-size: 86px;
