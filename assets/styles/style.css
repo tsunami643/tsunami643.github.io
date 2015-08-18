@@ -38,10 +38,10 @@ html, body {
 
 @font-face {
     font-family: 'dice';
-    src: url('./fontello.eot');
-    src: url('./fontello.eot?#iefix') format('embedded-opentype'),
-    url('./fontello.woff') format('woff'),
-    url('./fontello.ttf') format('truetype');
+    src: url('./../fonts/fontello.eot');
+    src: url('./../fonts/fontello.eot?#iefix') format('embedded-opentype'),
+    url('./../fonts/fontello.woff') format('woff'),
+    url('./../fonts/fontello.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -159,20 +159,66 @@ a:hover {
 }
 
 .portrait {
-    padding-right: 35px;
-    padding-left: 5px;
     text-align: center;
     width: 100%;
 }
 
-.portrait-img {
-    /* box-shadow: 0px 0px 2px #888888; */
-    max-width: 100%;
+.portrait-frame {
     display: inline-block;
+    overflow: hidden;
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 13px;
-    padding: 2px;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.portrait-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.portrait-image-loaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.portrait-frame-loaded .portrait-img {
+    -webkit-filter: none;
+    filter: none;
+    opacity: 0;
+}
+
+.portrait-frame-loaded .portrait-image-loaded {
+    -webkit-filter: none;
+    filter: none;
+    opacity: 1;
 }
 
 .name {

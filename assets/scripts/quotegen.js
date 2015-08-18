@@ -36,6 +36,16 @@
         return 'tips/' + heroName.toLowerCase().replace(/ /ig, '_') + '.html';
     }
 
+    function preloadImage(src) {
+        var d = $.Deferred();
+
+        var img = new Image();
+        img.onload = function () { d.resolve(src); };
+        img.src = src;
+
+        return d.promise(src);
+    }
+
     function loadHero(heroIndex, skipAnimation) {
         restored = false;
 
@@ -49,11 +59,25 @@
             $("#heroinput").removeClass('show-arrow');
 
             $("#tipcontainer").load(heroUrlFromHeroName(heroName), function () {
+                var $hero = $("#tipcontainer").find('.hero');
                 $(this).slideDown(skipAnimation ? 0 : 500);
 
-                $(".herotitle").prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
+                $hero.find(".herotitle").prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
                 $("#tipcontainer").css({ display: "block" });
                 $("#heroinput").addClass('show-arrow');
+
+                var $portrait = $hero.find('.portrait-img');
+                var fake = null;
+
+                preloadImage($portrait.data('src')).done(function (src) {
+                    clearTimeout(fake);
+
+                    fake = setTimeout(function () {
+                        $hero.find('.portrait-frame').prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="'+$portrait.data('src')+'">');
+                        $hero.find('.portrait-frame').addClass('portrait-frame-loaded');
+//                        $portrait.attr('src', src);
+                    }, 2000);
+                });
 
                 currenthero = heroIndex;
             });

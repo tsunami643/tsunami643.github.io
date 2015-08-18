@@ -1,10 +1,11 @@
 {
   "description": "Just some simple tools for the project",
   "devDependencies": {
+    "datauri": "^0.7.1",
     "http-server": "^0.8.0",
     "line-reader": "^0.2.4"
   },
   "scripts": {
-      "start": "node node_modules/http-server/bin/http-server ../"
+    "start": "node node_modules/http-server/bin/http-server ../"
   }
 }

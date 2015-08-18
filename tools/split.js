@@ -44,7 +44,7 @@ var originalTipsFile = path.join(__dirname, '../herotips_files/tips.html');
 var heroes = {};
 var hero;
 
-console.log(originalTipsFile)
+console.log(originalTipsFile);
 
 linereader.eachLine(originalTipsFile, function (line, last) {
     if (exp.start.test(line)) {
