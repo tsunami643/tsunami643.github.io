@@ -44,12 +44,15 @@
 <div id="preload" style="position: absolute; top: -999px; left: -999px; overflow: hidden; width: 1px; height: 1px"></div>
 <div class="wrapper">
 <div id="inputline">
+	<form id="heroinput-form" action="/" method="get">
 	<span id="hero-input-quote-start"></span>
 	<span id="heroinput">
-		<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
+			<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
 	</span>
 	<span id="patch"><img src="./assets/media/patches/684.png"></span>
 	<span id="hero-input-quote-end"></span>
+		<input type="submit" value="" style="display: none"/>
+	</form>
 
 	<script>
 		!function (document) {

@@ -27,7 +27,7 @@
         if (!cached[heroName]) {
             setTimeout(function () {
                 cached[heroName] = true;
-                $('#preload').load(heroUrlFromHeroName(heroName));
+                $.get(heroUrlFromHeroName(heroName));
             }, 200);
         }
     }
@@ -36,12 +36,27 @@
         return 'tips/' + heroName.toLowerCase().replace(/ /ig, '_') + '.html';
     }
 
+    function isCached(src) {
+        var imgEle = document.createElement("img");
+        imgEle.src = src;
+        return imgEle.complete || (imgEle.width + imgEle.height) > 0;
+    }
+
     function preloadImage(src) {
         var d = $.Deferred();
+        var cached = isCached(src);
 
-        var img = new Image();
-        img.onload = function () { d.resolve(src); };
-        img.src = src;
+        function resolve() {
+            d.resolve({ src: src, cached: cached });
+        }
+
+        if (cached) {
+            resolve();
+        } else {
+            var img = new Image();
+            img.onload = function () { resolve(); };
+            img.src = src;
+        }
 
         return d.promise(src);
     }
@@ -67,16 +82,16 @@
                 $("#heroinput").addClass('show-arrow');
 
                 var $portrait = $hero.find('.portrait-img');
-                var fake = null;
 
-                preloadImage($portrait.data('src')).done(function (src) {
-                    clearTimeout(fake);
+                preloadImage($portrait.data('src')).done(function (data) {
+                        var $frame = $hero.find('.portrait-frame');
 
-                    fake = setTimeout(function () {
-                        $hero.find('.portrait-frame').prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="'+$portrait.data('src')+'">');
-                        $hero.find('.portrait-frame').addClass('portrait-frame-loaded');
-//                        $portrait.attr('src', src);
-                    }, 2000);
+                        if (data.cached) {
+                            $frame.find('.portrait-img').addClass('from-cache');
+                        }
+
+                        $frame.prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="'+data.src+'">');
+                        $frame.addClass('portrait-frame-loaded');
                 });
 
                 currenthero = heroIndex;
@@ -155,6 +170,16 @@
             }
         });
 
+        $('#heroinput-form').on('submit', function (e) {
+            e.preventDefault();
+
+            var $menu = $('.tt-menu:first');
+
+            if (!$menu.is('.tt-empty')) {
+                $menu.find('.tt-selectable:first').click();
+            }
+        });
+
         $heroinput.focus();
     }
 
@@ -196,6 +221,7 @@
             return;
         }
 
+        currenthero = null;
         document.title = originalTitle;
         History.replaceState(null, originalTitle, '?');
         $('#inputline').animate({ padding: originalPadding }, 800);
