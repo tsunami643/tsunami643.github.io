@@ -201,6 +201,8 @@ a:hover {
     -moz-transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
+    /* fix for safari/ios bug */
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 }
 
 .portrait-img {
