@@ -252,6 +252,9 @@ a:hover {
     -webkit-filter: none;
     filter: none;
     opacity: 1;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
 }
 
 .name {
