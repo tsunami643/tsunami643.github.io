@@ -1,6 +1,4 @@
 !function (document, $, UNSORTED_HEROES, History, Bloodhound) {
-    History.options.html4Mode = true;
-
     var HEROES = UNSORTED_HEROES.concat().sort(); //Alphabetized copy of hero array
     var HEROES_LOWERCASE = $.map(HEROES, function (h) { return h.toLowerCase(); });
     var originalTitle = document.title;
