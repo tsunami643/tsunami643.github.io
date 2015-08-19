@@ -1,4 +1,6 @@
 !function (document, $, UNSORTED_HEROES, History, Bloodhound) {
+    History.options.html4Mode = true;
+
     var HEROES = UNSORTED_HEROES.concat().sort(); //Alphabetized copy of hero array
     var HEROES_LOWERCASE = $.map(HEROES, function (h) { return h.toLowerCase(); });
     var originalTitle = document.title;
@@ -14,7 +16,7 @@
 
     function updateState(hero) {
         document.title = hero + ' - ' + originalTitle;
-        History.replaceState(null, hero + ' - ' + originalTitle, '/?' + hero.replace(/ /ig, '+'));
+        History.replaceState(null, hero + ' - ' + originalTitle, hero);
     }
 
     var timer = null;
@@ -198,7 +200,7 @@
 
     function loadHeroFromHash() {
         var state = History.getState();
-        var hero = state.cleanUrl && state.cleanUrl.split('?')[1];
+        var hero = state.cleanUrl && state.cleanUrl.split('#')[1];
 
         if (hero) {
             var index = $.inArray(hero.toLowerCase().replace(/\+/ig, ' ').replace(/%20/ig, ' '), HEROES_LOWERCASE);
@@ -230,7 +232,7 @@
 
         currenthero = null;
         document.title = originalTitle;
-        History.replaceState(null, originalTitle, '/?');
+        History.replaceState(null, originalTitle, '');
         $('#inputline').animate({ padding: originalPadding }, 800);
         $("#tipcontainer").slideUp();
         $("#heroinput").removeClass('show-arrow');
