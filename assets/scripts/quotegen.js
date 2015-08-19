@@ -16,7 +16,7 @@
 
     function updateState(hero) {
         document.title = hero + ' - ' + originalTitle;
-        History.replaceState(null, hero + ' - ' + originalTitle, hero);
+        History.replaceState(null, hero + ' - ' + originalTitle, '?' + encodeURIComponent(hero));
     }
 
     var timer = null;
@@ -203,7 +203,7 @@
         var hero = state.cleanUrl && state.cleanUrl.split('#')[1];
 
         if (hero) {
-            var index = $.inArray(hero.toLowerCase().replace(/\+/ig, ' ').replace(/%20/ig, ' '), HEROES_LOWERCASE);
+            var index = $.inArray(decodeURIComponent(hero).toLowerCase(), HEROES_LOWERCASE);
 
             if (index !== -1) {
                 manuallyInputHero(index, true);
