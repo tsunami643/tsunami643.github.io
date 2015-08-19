@@ -14,7 +14,7 @@
 
     function updateState(hero) {
         document.title = hero + ' - ' + originalTitle;
-        History.replaceState(null, hero + ' - ' + originalTitle, '?' + hero.replace(/ /ig, '+'));
+        History.replaceState(null, hero + ' - ' + originalTitle, '/?' + hero.replace(/ /ig, '+'));
     }
 
     var timer = null;
@@ -230,7 +230,7 @@
 
         currenthero = null;
         document.title = originalTitle;
-        History.replaceState(null, originalTitle, '?');
+        History.replaceState(null, originalTitle, '/?');
         $('#inputline').animate({ padding: originalPadding }, 800);
         $("#tipcontainer").slideUp();
         $("#heroinput").removeClass('show-arrow');
