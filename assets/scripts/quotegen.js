@@ -83,16 +83,20 @@
 
                 var $portrait = $hero.find('.portrait-img');
 
-                preloadImage($portrait.data('src')).done(function (data) {
-                    var $frame = $hero.find('.portrait-frame');
+                var src = $portrait.data('src');
 
-                    if (data.cached) {
-                        $frame.find('.portrait-img').addClass('from-cache');
-                    }
+                if (src) {
+                    preloadImage(src).done(function (data) {
+                        var $frame = $hero.find('.portrait-frame');
 
-                    $frame.prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="'+data.src+'">');
-                    $frame.addClass('portrait-frame-loaded');
-                });
+                        if (data.cached) {
+                            $frame.find('.portrait-img').addClass('from-cache');
+                        }
+
+                        $frame.prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="' + data.src + '">');
+                        $frame.addClass('portrait-frame-loaded');
+                    });
+                }
 
                 currenthero = heroIndex;
 
