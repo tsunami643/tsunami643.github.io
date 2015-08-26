@@ -223,11 +223,11 @@ a:hover {
     -o-transform: scale(1.05);
     transform: scale(1.05);
 
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity 0.3s ease-in-out;
-    -ms-transition: opacity 0.3s ease-in-out;
-    -o-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -ms-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
     opacity: 1;
 }
 
