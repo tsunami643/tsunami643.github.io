@@ -1,18 +1,102 @@
----
-layout: default
----
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Easy Youtube Embed for Jekyll | Katie Harron - Front-End Developer - Build the Web</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A plugin for Jekyll to easily embed Youtube videos into your site">
+	<meta name="keywords" content=",jekyll,youtube,plugin,responsive video,responsive youtube,jekyll youtube,pibby">
+	<link rel="sitemap" href="/sitemap.xml">
+	<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Katie Harron - Front-End Developer - Build the Web Feed">
+	<link rel="canonical" href="https://pibby.com/jekyll-youtube-plugin/">
+	<link rel="shortcut icon" href="/assets/img/avatar_128.png">
+	<link rel="apple-touch-icon" href="/assets/img/avatar_128.png">
+	<meta name="robots" content="index,follow" />
+	<meta property="twitter:account_id" content="13527482" />
+	<link rel="author" href="https://plus.google.com/101810265763497051683">
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="/js/respond-min.js"></script>
+	<![endif]-->
+</head>
+	
+<body>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<header class="header" id="top" role="banner" style="background: url(/img/bg_blue3.jpg) no-repeat center center; background-size: cover;">
+	<div class="wrapper">
+		<h2 class="logo hide-text rotate"><a href="/">Katie Harron - Front-End Developer - Build the Web</a></h2>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+		<nav class="navigation" role="navigation">
+			<ul>
+				<li><a href="/">Articles</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/resources/">Resources</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<article class="post" role="main">
+	<div class="wrapper">
+		<header class="post-header">
+			<h1 class="post-title">Easy Youtube Embed for Jekyll</h1>
+		</header>
+
+		
+		<p class="intro">A plugin for Jekyll to easily embed Youtube videos into your site</p>
+		
+
+		<div class="post-content archive">
+			<h2 id="installation-instructions">Installation Instructions</h2>
+<p>Download the file <code>youtube.rb</code> from the <a href="https://github.com/pibby/jekyll-youtube">Github repository</a> and place it in the <code>_plugins</code> folder of your Jekyll installation.</p>
+
+<h2 id="usage-instructions">Usage Instructions</h2>
+<p>In your Markdown post, simply include the following command:  </p>
+
+<p>{% youtube VIDEO_ID %}</p>
+
+<p>For example, {% youtube prFohBWIdQg %} will render as:</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;video&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;figure&gt;</span>
+        <span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;640&quot;</span> <span class="na">height=</span><span class="s">&quot;480&quot;</span> <span class="na">src=</span><span class="s">&quot;//www.youtube.com/embed/prFohBWIdQg?rel=0&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+    <span class="nt">&lt;/figure&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<h2 id="example">Example</h2>
+<div class="video"><figure><iframe width="640" height="480" src="//www.youtube.com/embed/prFohBWIdQg?rel=0" frameborder="0" allowfullscreen=""></iframe></figure></div>
+
+<hr />
+
+<p>If you’re interested in the CSS, you can add it to your stylesheet and your videos will resize responsively based on the width of the browser’s viewport.</p>
+
+<div class="highlight"><pre><code class="css"><span class="c">/* responsive videos */</span>
+<span class="nc">.video</span> <span class="nt">figure</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">56</span><span class="o">.</span><span class="m">25</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.video</span> <span class="nt">iframe</span><span class="o">,</span> <span class="nc">.video</span> <span class="nt">object</span><span class="o">,</span> <span class="nc">.video</span> <span class="nt">embed</span> <span class="p">{</span> <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+		</div>
+	</div>
+</article>
+
+
+
+<a href="javascript:;" id="to-top" class="scrollup" title="Scroll to top"><i class="icon-up"></i></a>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper">
+		<img src="/img/katie-harron.svg" width="80" height="80" alt="Katie Harron" />
+    <p><a href="/about/">Katie Harron</a> is a Front-End Web Developer in Arlington, TX.</p>
+		<p>&copy; 2013 - 2015 Katie Harron. <a href="/disclaimer/">Site Disclaimer</a>.</p>
+	</div>
+</footer>
+
+<script src="/assets/js/scripts-min.js"></script>
+</body>
+</html>
