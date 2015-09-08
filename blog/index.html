@@ -1,66 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>tsunami blog</title>
-	<link rel="stylesheet" href="/style.css">
-	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="/js/respond-min.js"></script>
-	<![endif]-->
-</head>
-	
-<body>
+---
+layout: default
+---
 
-<article class="post" role="main">
-	<div class="wrapper">
-		<header class="post-header">
-			<h1 class="post-title">dank memes</h1>
-		</header>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">
 
-		
-		<p class="intro">A plugin for Jekyll to easily embed Youtube videos into your site</p>
-		
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-		<div class="post-content archive">
-			<h2 id="installation-instructions">Installation Instructions</h2>
-<p>Download the file <code>youtube.rb</code> from the <a href="https://github.com/pibby/jekyll-youtube">Github repository</a> and place it in the <code>_plugins</code> folder of your Jekyll installation.</p>
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
-<h2 id="usage-instructions">Usage Instructions</h2>
-<p>In your Markdown post, simply include the following command:  </p>
-
-<p>{% youtube VIDEO_ID %}</p>
-
-<p>For example, {% youtube prFohBWIdQg %} will render as:</p>
-
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;video&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;figure&gt;</span>
-        <span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;640&quot;</span> <span class="na">height=</span><span class="s">&quot;480&quot;</span> <span class="na">src=</span><span class="s">&quot;//www.youtube.com/embed/prFohBWIdQg?rel=0&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
-    <span class="nt">&lt;/figure&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
-
-<h2 id="example">Example</h2>
-<div class="video"><figure><iframe width="640" height="480" src="//www.youtube.com/embed/prFohBWIdQg?rel=0" frameborder="0" allowfullscreen=""></iframe></figure></div>
-
-<hr />
-
-<p>If you’re interested in the CSS, you can add it to your stylesheet and your videos will resize responsively based on the width of the browser’s viewport.</p>
-
-		</div>
-	</div>
-</article>
-
-<footer class="footer" role="contentinfo">
-	<div class="wrapper">
-    <p>i'm too lazy to figure out how to configure a jekyll blog properly</p>
-	</div>
-</footer>
-
-<!--<script src="/assets/js/scripts-min.js"></script>-->
-
-</body>
-</html>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
