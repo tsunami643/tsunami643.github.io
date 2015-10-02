@@ -32,11 +32,22 @@
    * @constructor
    */
   function HeroLoader(options) {
+    var _this = this;
+    this.emitter = $({});
+
+    this.heroes = options.heroes;
     this.loading = null;
     this.cache = {};
     this.currentHero = null;
     this.urlFor = options.urlFor;
     this.$el = options.$el;
+
+    this.$el.on('click', '.prevhero', function () {
+      _this.prev();
+    });
+    this.$el.on('click', '.nexthero', function () {
+      _this.next();
+    });
   }
 
   HeroLoader.prototype = {
@@ -49,6 +60,24 @@
           _this.cache[hero] = false;
         });
       }
+    },
+
+    next: function () {
+      console.log('next', this.currentHero);
+      if (!this.currentHero) {
+        return;
+      }
+
+      this.load(this.heroes.next(this.currentHero));
+    },
+
+    prev: function () {
+      console.log('prev', this.currentHero);
+      if (!this.currentHero) {
+        return;
+      }
+
+      this.load(this.heroes.prev(this.currentHero));
     },
 
     collapse: function (skipAnimation) {
@@ -85,6 +114,8 @@
 
           var $portrait = _this.$el.find('.portrait-img');
 
+          _this.$el.find('.portrait').prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
+
           var src = $portrait.data('src');
 
           if (src) {
@@ -103,6 +134,8 @@
           _this.expand(skipAnimation);
           _this.currentHero = hero;
 
+          _this.emitter.trigger('load', hero);
+
           d.resolve();
         });
       });
@@ -119,6 +152,10 @@
       });
 
       return d.promise();
+    },
+
+    onLoad: function (callback) {
+      this.emitter.on('load', callback);
     }
   };
 

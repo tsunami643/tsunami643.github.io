@@ -2,6 +2,7 @@
   var heroes = new HeroList(HEROES.concat().sort());
 
   var loader = new HeroLoader({
+    heroes: heroes,
     $el: $('#tipcontainer'),
     urlFor: function (hero) {
       return 'tips/' + hero.toLowerCase().replace(/ /ig, '_') + '.html';
@@ -17,6 +18,10 @@
 
   var state = new HeroState({
     title: document.title
+  });
+
+  loader.onLoad(function (e, hero) {
+    state.setHero(hero);
   });
 
   input.onAnticipate(function (e, hero) {
