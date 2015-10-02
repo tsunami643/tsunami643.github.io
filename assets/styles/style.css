@@ -554,6 +554,7 @@ a:hover {
 
     .tips li {
         padding: 10px;
+        margin: 0;
     }
 
     .tips li + li {
