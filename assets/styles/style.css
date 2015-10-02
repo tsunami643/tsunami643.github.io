@@ -305,11 +305,11 @@ a:hover {
     min-height: 100%;
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
     height: 100%;
-    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -228px; /* the bottom margin is the negative value of the footer's height */
 }
 
 #footer, .push {
-    height: 144px; /* .push must be the same height as .footer */
+    height: 228px; /* .push must be the same height as .footer */
 }
 
 #footer {
@@ -377,15 +377,15 @@ a:hover {
 #patch > img {
     position: inherit;
     /*Original Sticker*/
-    left: -53px;
-    bottom: -31px;
-    height: 50px;
+    /*left: -53px;*/
+    /*bottom: -31px;*/
+    /*height: 50px;*/
 
     /*Beta Sticker*/
-    /*left: -150px;*/
-    /*bottom: -20px;*/
-    /*height: 35px;*/
-    /*transform: rotate(20deg);*/
+    left: -150px;
+    bottom: -20px;
+    height: 35px;
+    transform: rotate(20deg);
 }
 
 .tips h1 {

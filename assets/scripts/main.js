@@ -59,7 +59,8 @@
   $("#randomhero").click(function (e) {
     e.preventDefault();
     $(this).velocity({rotateZ: '+=360'});
-    loader.load(deepLinkedHero);
-    input.setVal(heroes.random());
+    var randomHero = heroes.random();
+    loader.load(randomHero);
+    input.setVal(randomHero);
   });
 }(this, this.document, this.jQuery, this.HEROES);
