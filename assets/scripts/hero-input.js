@@ -96,10 +96,12 @@
 
   HeroInput.prototype = {
     expand: function (skipAnimation) {
+      this.$container.removeClass('show-arrow');
       return $.Velocity.animate(this.$container, this.originalPadding, {duration: skipAnimation ? 0 : 300});
     },
 
     collapse: function (skipAnimation) {
+      this.$container.addClass('show-arrow');
       return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '30px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
     },
 

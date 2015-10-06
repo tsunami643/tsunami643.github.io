@@ -336,7 +336,7 @@ a:hover {
     display: none;
 }
 
-#heroinput.show-arrow:after {
+.show-arrow #heroinput:after {
     display: block;
 }
 

@@ -36,6 +36,7 @@
           input.collapse();
           loader.preload(heroes.prev(hero.name));
           loader.preload(heroes.next(hero.name));
+          input.setVal(hero.name);
         })
         .fail(function () {
           input.setVal('');
