@@ -28,7 +28,7 @@
     var engine = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.whitespace,
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      local: options.heroes
+      local: options.heroes.all()
     });
 
     this.$el.typeahead({
@@ -49,7 +49,9 @@
     });
 
     var anticipationTimer = null;
-    var anticipateEvents = ['keypress', 'typeahead:cursorchange'].join(' ');
+    var anticipateEvents = ['keypress', 'keyup', 'typeahead:cursorchange'].join(' ');
+    var previousValue = '';
+
     this.$el.on(anticipateEvents, function (e, data) {
       var value = data || _this.$el.typeahead('val');
       clearTimeout(anticipationTimer);
@@ -59,6 +61,16 @@
         return;
       }
 
+      var found = options.heroes.find(value);
+
+      // Todo: this is kinda jankey
+      if (previousValue && previousValue !== value && found) {
+	previousValue = value;
+	_this.setVal(found);
+	_this.$el.trigger(EVENTS.SELECT, {name: found});
+	return;
+      }
+
       anticipationTimer = setTimeout(function () {
         engine.search(value, function (datums) {
           if (datums[0]) {
@@ -66,6 +78,8 @@
           }
         });
       }, options.anticipationDelay);
+
+      previousValue = value;
     });
 
     var changeEvents = ['typeahead:select', 'typeahead:autocomplete', 'typeahead:change'].join(' ');
@@ -96,10 +110,12 @@
 
   HeroInput.prototype = {
     expand: function (skipAnimation) {
+      this.$container.removeClass('show-arrow');
       return $.Velocity.animate(this.$container, this.originalPadding, {duration: skipAnimation ? 0 : 300});
     },
 
     collapse: function (skipAnimation) {
+      this.$container.addClass('show-arrow');
       return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '30px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
     },
 

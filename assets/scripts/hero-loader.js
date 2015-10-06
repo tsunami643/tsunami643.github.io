@@ -63,7 +63,6 @@
     },
 
     next: function () {
-      console.log('next', this.currentHero);
       if (!this.currentHero) {
         return;
       }
@@ -72,7 +71,6 @@
     },
 
     prev: function () {
-      console.log('prev', this.currentHero);
       if (!this.currentHero) {
         return;
       }
@@ -134,7 +132,7 @@
           _this.expand(skipAnimation);
           _this.currentHero = hero;
 
-          _this.emitter.trigger('load', hero);
+	  _this.emitter.trigger('load', { name: hero });
 
           d.resolve();
         });
