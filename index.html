@@ -1,157 +1,306 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
+ 
 <html>
-
+ 
 <head>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <meta name="Description" content="A list of tips and counters for Dota 2 heroes. Written by @tsunami643."/>
-    <link href='https://fonts.googleapis.com/css?family=Cabin|Hind' rel='stylesheet' type='text/css'>
+	<meta name=viewport content="width=800, user-scalable=no">
+	<meta name="Description" content="A list of tips and counters for Dota 2 heroes. Written by @tsunami643."/>
+	<link href='https://fonts.googleapis.com/css?family=Cabin|Hind' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/tsunami643/tsunami643.github.io/master/herotips_files/typeahead.jquery.js"> </script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/tsunami643/tsunami643.github.io/31971a587122b5e697ba7467658f16bb6407c8ea/herotips_files/quotegen.js"> </script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-54725251-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+		
+	<link href="https://www.howdoiplay.com/herotips_files/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="icon" href="https://www.howdoiplay.com/herotips_files/favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="https://www.howdoiplay.com/herotips_files/favicon.ico" type="image/x-icon" />
+	
+	<title>Tsunami's Hero Tips and Counters</title>
+	
+	<style type="text/css">
+	/* scaffolding */
+	/* ----------- */
 
-    <link href="./assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon"/>
+	body {
+		margin: 0px;
+		text-align:center;
+		background-color: white;
+	}
+	
+	html {
+		overflow-y: scroll;
+		*overflow-x: hidden;
+	}
 
-    <title>Tsunami's Hero Tips and Counters</title>
+	.tt-dropdown-menu,
+	.gist {
+		text-align: left;
+	}
 
-    <link rel="stylesheet" href="./assets/styles/normalize.css"/>
-    <link rel="stylesheet" href="./assets/styles/style.css"/>
+	/* base styles */
+	/* ----------- */
 
-    <script>
-        !function (global) {
-            global.HEROES = [
-                'Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Axe', 'Bane', 'Batrider', 'Beastmaster',
-                'Bloodseeker', 'Bounty Hunter', 'Brewmaster', 'Bristleback', 'Broodmother', 'Centaur Warrunner',
-                'Chaos Knight', 'Chen', 'Clinkz', 'Clockwerk', 'Crystal Maiden', 'Dark Seer', 'Dazzle',
-                'Death Prophet', 'Disruptor', 'Doom', 'Dragon Knight', 'Drow Ranger', 'Earth Spirit', 'Earthshaker',
-                'Elder Titan', 'Ember Spirit', 'Enchantress', 'Enigma', 'Faceless Void', 'Gyrocopter', 'Huskar',
-                'Invoker', 'Io', 'Jakiro', 'Juggernaut', 'Keeper of the Light', 'Kunkka', 'Legion Commander',
-                'Leshrac', 'Lich', 'Lifestealer', 'Lina', 'Lion', 'Lone Druid', 'Luna', 'Lycan', 'Magnus', 'Medusa',
-                'Meepo', 'Mirana', 'Morphling', 'Naga Siren', 'Nature\'s Prophet', 'Necrophos', 'Night Stalker',
-                'Nyx Assassin', 'Ogre Magi', 'Omniknight', 'Oracle', 'Outworld Devourer', 'Phantom Assassin',
-                'Phantom Lancer', 'Phoenix', 'Puck', 'Pudge', 'Pugna', 'Queen of Pain', 'Razor', 'Riki', 'Rubick',
-                'Sand King', 'Shadow Demon', 'Shadow Fiend', 'Shadow Shaman', 'Silencer', 'Skywrath Mage', 'Slardar',
-                'Slark', 'Sniper', 'Spectre', 'Spirit Breaker', 'Storm Spirit', 'Sven', 'Techies', 'Templar Assassin',
-                'Terrorblade', 'Tidehunter', 'Timbersaw', 'Tinker', 'Tiny', 'Treant Protector', 'Troll Warlord', 'Tusk',
-                'Undying', 'Ursa', 'Vengeful Spirit', 'Venomancer', 'Viper', 'Visage', 'Warlock', 'Weaver', 'Windranger',
-                'Winter Wyvern', 'Witch Doctor', 'Wraith King', 'Zeus'
-            ];
-        }(window);
-    </script>
+	html {
+		font-family: 'Cabin', sans-serif;
+		font-size: 24px;
+		color: #333;
+	}
+	
+	@font-face {
+		font-family: 'dice';
+			src:url('http://howdoiplay.com/herotips_files/fontello.eot');
+			src:url('http://howdoiplay.com/herotips_files/fontello.eot?#iefix') format('embedded-opentype'),
+            url('http://howdoiplay.com/herotips_files/fontello.woff') format('woff'),
+            url('http://howdoiplay.com/herotips_files/fontello.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+	}
+
+	a {
+		color: #03739c;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	/* site theme */
+	/* ---------- */
+
+	.typeahead,
+	.tt-query,
+	.tt-hint {
+		font-family: 'Cabin', sans-serif;
+		width: 300px;
+		height: 40px;
+		padding: 0px 12px;
+		font-size: 24px;
+		line-height: 30px;
+		border: 2px solid #ccc;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+			border-radius: 8px;
+		outline: none;
+	}
+
+	.typeahead {
+		background-color: #fff;
+	}
+
+	.typeahead:focus {
+		border: 2px solid #0097cf;
+	}
+
+	.tt-query {
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	}
+
+	.tt-hint {
+		color: #999
+	}
+
+	.tt-dropdown-menu {
+		width: 298px;
+		margin-top: 7px;
+		padding: 8px 0;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+				border-radius: 8px;
+		-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+			-moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+				box-shadow: 0 5px 10px rgba(0,0,0,.2);
+	}
+
+	.tt-suggestion {
+		padding: 3px 20px;
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	.tt-suggestion.tt-cursor {
+		color: #fff;
+		background-color: #0097cf;
+	}
+
+	.tt-suggestion p {
+		margin: 0;
+	}
+
+	.gist {
+		font-size: 14px;
+	}
+	
+	.hero-typeahead {
+		align-items: baseline;
+	}
+	
+	#inputline{
+		padding: 130px 10px 15px;
+		line-height: 1.5;
+	}
+	
+	#heroinput{
+		
+	}
+	
+	#tipcontainer{
+		background-color: #EBEBEB;
+		padding-top: 30px;
+		width: 100%;
+		display:none;
+	}
+	
+	#herotitle{
+		display: inline-flex;
+	}
+	
+	#portrait{
+		padding-right: 35px;
+		padding-left: 5px;
+	}
+	
+	#portrait>img{
+		/* box-shadow: 0px 0px 2px #888888; */
+		max-width:100%;
+		display: block;
+		-webkit-border-radius: 13px;
+		-moz-border-radius: 13px;
+		border-radius: 13px;
+		padding: 2px;
+	}
+	
+	#name{
+		text-transform: uppercase;
+		font-family: Georgia, serif;
+		font-size: 1.879em;
+		letter-spacing: 7px;
+		align-self: center;
+		max-width: 50px;
+		display: inline-table;
+		font-style: normal;
+	}
+	
+	#tips{
+		font: 18px/1.5 Hind, sans-serif;
+		text-align: justify;
+		margin-left: auto;
+		margin-right: auto;
+		width: 60%;
+		min-width: 600px;
+	}
+	
+	#footer{
+		font-family: 'Hind', sans-serif;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		font-size: 13px;
+	}
+	
+	.arrow_box {
+		position: relative;
+		display: none;
+	}
+
+	.arrow_box:before {
+		bottom: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.arrow_box:before {
+		border-color: rgba(194, 225, 245, 0);
+		border-bottom-color: #ebebeb;
+		border-width: 20px;
+	}
+	
+	#allheroes{
+		position: absolute;
+		top: 5px;
+		right: 40px;
+		font-size: 16px;
+	}
+	
+	#randomhero{
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		font-size: 24px;
+		font-family: 'dice';
+		
+		-webkit-transition: all .5s ease-out;
+		-moz-transition: all .5s ease-out;
+		-ms-transition: all .5s ease-out;
+		-o-transition: all .5s ease-out;
+		transition: all .5s ease-out;
+	}
+	
+	#randomhero a{
+		text-decoration: none;
+		color: #CFCFCF;
+	}
+	
+	#randomhero:hover{
+		cursor:pointer;
+	}
+	
+	#patch{
+		position: absolute;
+	}
+	
+	#patch>img{
+		position: inherit;
+		/*Original Sticker
+		left: -53px;
+		bottom: -31px;
+		height: 50px;*/
+		
+		/*Beta Sticker*/
+		left: -150px;
+		bottom: -20px;
+		height: 35px;
+		transform: rotate(20deg);
+	}
+
+	#tips h1 { font-style:italic; font-family:Georgia, Times, serif; font-size:24px;  }
+	#tips ul li { }
+	#tips ul li p { padding-left:20px;}
+    </style>
+
 </head>
-
+ 
 <body>
-<div class="wrapper">
-    <div id="inputline">
-        <form id="heroinput-form" action="/" method="get">
-            <span id="hero-input-quote-start"></span>
+
+	<div id="inputline">
+	<span id="StartQuote"></span>
 	<span id="heroinput">
-		<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
-	</span>
-            <span id="patch"><img src="./assets/media/patches/685beta.png"></span>
-            <span id="hero-input-quote-end"></span>
-            <input type="submit" value="" style="visibility: hidden; position: absolute;"/>
-        </form>
-
-        <script>
-            !function (document) {
-                var quotes = [
-                    ["I JUST RANDOMED", ". NOW WHAT?"],
-                    ["MY CAPTAIN PICKED ME", "AND NOW I'M PANICKING."],
-                    ["I TOLD MY TEAM I KNOW HOW TO PLAY", "BUT I REALLY DON'T."],
-                    ["I'M GETTING OWNED BY", ". WHAT DO?"],
-                    ["CREEPS ARE SPAWNING. QUICK, TELL ME HOW TO", "."],
-                    ["I'VE GOT 40 SECONDS TO LEARN HOW TO", "LIKE DENDI."],
-                    ["WHAT THE HELL IS A", "?"],
-                    ["GOD DAMN IT, I'M SICK OF LOSING TO", "."],
-                    ["I'VE NEVER PLAYED", "BEFORE. GUESS I'LL LEARN IN THIS RANKED MATCH."],
-                    ["OF COURSE I KNOW HOW TO PLAY", ". I'M JUST REFRESHING MY MEMORY."],
-                    ["HOW DO I COUNTER", "? DAGON 5, RIGHT?"],
-                    ["HOW DO I COUNTER", "? STACK RAPIERS, RIGHT?"],
-                    ["HOW DO I COUNTER", "? WARD THEIR JUNGLE, RIGHT?"],
-                    ["ICEFROG PLS NERF", "."],
-                    ["ICEFROG PLS BUFF", "."],
-                    ["NO MORE 0% DOTABUFF WIN RATE ON", "FROM NOW ON."],
-                    ["WHY DOES", "EVEN EXIST? GARBAGE HERO IMO."],
-                    ["WHY I ALWAYS LOSE WITH", "? I COPY SING'S BUILDERINO PERFECT."],
-                    ["THEY CALL ME THE ADMIRALBULLDOG OF", "."],
-                    ["OH BOY, MY FIRST DRAFT!", "IS WEAK AGAINST GRASS TYPE, RIGHT?"],
-                    ["BLESSED BE THY", ". GUIDE ME ON THIS RIGHTEOUS PATH TO 4K."],
-                    ["MY STACK BANNED ME FROM PLAYING", "BUT I'LL SHOW 'EM."],
-                    ["ANYONE WANT", "? NO? THEN YOU BROUGHT THIS UPON YOURSELF."],
-                    ["GIVE ME THE SPARKNOTES ON PLAYING", "."],
-                    ["I NEVER WIN WITH", ". I BLAME BAD TEAMMATES."],
-                    ["BET ALL MY RARES AND GOT SOME DOPE", "HATS. TIME TO USE 'EM."],
-                    ["TO REPICK IS TO ADMIT WEAKNESS.", "TRIAL BY FIRE."]
-                ];
-
-                var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-                document.getElementById('hero-input-quote-start').innerHTML = randomQuote[0];
-                document.getElementById('hero-input-quote-end').innerHTML = randomQuote[1];
-            }(document);
-        </script>
-    </div>
-
-    <div id="tipcontainer"></div>
-    <div id="randomhero"><a href="#" title="Random Hero"></a></div>
-    <div class="push"></div>
-</div>
-
-<div id="footer">
-    <span id="footer-quote"></span><a target="_blank" href="https://twitter.com/tsunami643">@tsunami643</a>.
-    <br><br>Latest <a href="http://www.howdoiplay.com/blog">blog</a> post - <a href="http://howdoiplay.com/blog/2015/09/11/dire-ancients-reborn.html">Blocking Dire Ancients in Reborn</a>
-    <br><br>Looking for my <a href="./warding">warding guide?</a>
-
-    <br><br>Made awesomer by <a target="_blank" href="https://twitter.com/CodeMenace">@CodeMenace</a><br><br>
-
-    <script type="text/javascript">
-        !function (document) {
-            var footerquotearray = [
-                'Did I pull you out of the trench?  Let me know ',
-                'Found a mistake?  Let me know ',
-                'Have a suggestion? Let me know ',
-                'Got a tip to add? Let me know ',
-                'Discover a new counter? Let me know '
-            ];
-
-            document.getElementById('footer-quote').innerHTML = footerquotearray[Math.floor(Math.random() * footerquotearray.length)];
-        }(document);
-    </script>
-</div>
-
-<!--[if lt IE 9]>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!--<![endif]-->
-<script type="text/javascript" src="./assets/scripts/lib/lib.min.js"></script>
-
-<script type="text/javascript" src="./assets/scripts/hero-input.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-list.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-loader.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-state.js"></script>
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
-
-<!--<script type="text/javascript" src="./assets/scripts/quotegen.js"></script>-->
-
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-54725251-1', 'auto');
-    ga('send', 'pageview');
-</script>
+	<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
+	</span><span id="patch"><img src="http://howdoiplay.com/herotips_files/685beta.png"></span>
+	<span id="EndQuote"></span></div>
+	<div class="arrow_box"></div>
+	<div id ="tipcontainer"> </div>
+	<div id="randomhero"><a></a></div>
+	<div id="footer"><span id="FooterQuote"></span><a href="https://twitter.com/tsunami643">@tsunami643</a>.
+	<br><br>Latest <a href="http://www.howdoiplay.com/blog">blog</a> post - <a href="http://howdoiplay.com/blog/2015/09/11/dire-ancients-reborn.html">Blocking Dire Ancients in Reborn</a>
+	<br><br>Looking for my <a href="http://www.howdoiplay.com/warding">warding guide?</a></div>
 
 </body>
 
