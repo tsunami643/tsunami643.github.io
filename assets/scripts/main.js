@@ -12,7 +12,7 @@
   var input = new HeroInput({
     $el: $('#heroinput').find('.typeahead'),
     $container: $('#inputline'),
-    heroes: heroes.all(),
+    heroes: heroes,
     anticipationDelay: 400
   });
 
@@ -31,16 +31,17 @@
   input.onSelect(function (e, hero) {
     loader
         .load(hero.name)
-        .then(function () {
-          state.setHero(hero.name);
-          input.collapse();
-          loader.preload(heroes.prev(hero.name));
-          loader.preload(heroes.next(hero.name));
-          input.setVal(hero.name);
-        })
         .fail(function () {
           input.setVal('');
         });
+  });
+
+  loader.onLoad(function (e, hero) {
+    state.setHero(hero.name);
+    input.collapse();
+    loader.preload(heroes.prev(hero.name));
+    loader.preload(heroes.next(hero.name));
+    input.setVal(hero.name);
   });
 
   input.onClear(function () {

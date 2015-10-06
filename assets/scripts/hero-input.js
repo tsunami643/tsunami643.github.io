@@ -28,7 +28,7 @@
     var engine = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.whitespace,
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      local: options.heroes
+      local: options.heroes.all()
     });
 
     this.$el.typeahead({
@@ -49,13 +49,25 @@
     });
 
     var anticipationTimer = null;
-    var anticipateEvents = ['keypress', 'typeahead:cursorchange'].join(' ');
+    var anticipateEvents = ['keypress', 'keyup', 'typeahead:cursorchange'].join(' ');
+    var previousValue = '';
+
     this.$el.on(anticipateEvents, function (e, data) {
       var value = data || _this.$el.typeahead('val');
       clearTimeout(anticipationTimer);
 
       if (value === '') {
         _this.$el.trigger(EVENTS.CLEAR);
+        return;
+      }
+
+      var found = options.heroes.find(value);
+
+      // Todo: this is kinda jankey
+      if (previousValue && previousValue !== value && found) {
+        previousValue = value;
+        _this.setVal(found);
+        _this.$el.trigger(EVENTS.SELECT, {name: found});
         return;
       }
 
@@ -66,6 +78,8 @@
           }
         });
       }, options.anticipationDelay);
+
+      previousValue = value;
     });
 
     var changeEvents = ['typeahead:select', 'typeahead:autocomplete', 'typeahead:change'].join(' ');

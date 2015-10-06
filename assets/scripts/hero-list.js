@@ -8,8 +8,13 @@
   }
 
   HeroList.prototype = {
-    contains: function (hero) {
-      return this.heroes.indexOf(hero) > -1;
+    find: function (hero) {
+      for (var i = 0; i < this.heroes.length; i++) {
+        if (this.heroes[i].toLowerCase() === hero.toLowerCase()) {
+          return this.heroes[i];
+        }
+      }
+      return false;
     },
 
     all: function () {
