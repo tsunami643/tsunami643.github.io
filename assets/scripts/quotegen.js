@@ -142,6 +142,8 @@
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       local: HEROES
     });
+	
+	$("#heroinput .typeahead").focus();
 
     $heroinput.typeahead({
       hint: true,
@@ -171,7 +173,7 @@
         if (heroindex > -1 && heroindex != currenthero) {
           loadHero(heroindex);
           if (jQuery.browser.mobile == true) {
-            $heroinput.typeahead.blur();
+            $heroinput.blur();
           }
         }
       }
@@ -190,8 +192,6 @@
         $menu.find('.tt-selectable:first').click();
       }
     });
-
-    $heroinput.typeahead.focus();
   }
 
   function manuallyInputHero(heroIndex, skipAnimation) {
