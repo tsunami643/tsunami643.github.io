@@ -183,7 +183,10 @@ a:hover {
 
 #heroinput {
     position: relative;
-	display: inline-flex;
+}
+
+.twitter-typeahead {
+    display: inline-flex;
 }
 
 #tipcontainer {
