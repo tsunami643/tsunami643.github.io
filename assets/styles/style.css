@@ -183,6 +183,7 @@ a:hover {
 
 #heroinput {
     position: relative;
+	display: inline-flex;
 }
 
 #tipcontainer {
