@@ -171,7 +171,7 @@
         if (heroindex > -1 && heroindex != currenthero) {
           loadHero(heroindex);
           if (jQuery.browser.mobile == true) {
-            $heroinput.blur();
+            $heroinput.typeahead.blur();
           }
         }
       }
@@ -191,7 +191,7 @@
       }
     });
 
-    $heroinput.focus();
+    $heroinput.typeahead.focus();
   }
 
   function manuallyInputHero(heroIndex, skipAnimation) {
