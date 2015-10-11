@@ -182,6 +182,7 @@ a:hover {
 }
 
 #heroinput {
+    display: inline-block;
     position: relative;
 }
 
@@ -214,11 +215,16 @@ a:hover {
 
 .portrait-frame {
     display: inline-block;
+    position: relative;
+}
+
+.portrait-frame-inner {
+    display: inline-block;
+    position: relative;
     overflow: hidden;
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 13px;
-    position: relative;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
@@ -353,16 +359,12 @@ a:hover {
 
 #randomhero {
     position: absolute;
-    top: 8px;
-    right: 10px;
+    top: 50%;
+    right: 8px;
+    margin-top: -12px;
+    line-height: 24px;
     font-size: 24px;
     font-family: 'dice';
-
-    -webkit-transition: all .5s ease-out;
-    -moz-transition: all .5s ease-out;
-    -ms-transition: all .5s ease-out;
-    -o-transition: all .5s ease-out;
-    transition: all .5s ease-out;
 }
 
 #randomhero a {
@@ -374,21 +376,27 @@ a:hover {
     cursor: pointer;
 }
 
-#patch {
+.patch {
     position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
 }
 
-#patch > img {
-    position: inherit;
-    /*Original Sticker*/
-    /*left: -53px;*/
-    /*bottom: -31px;*/
-    /*height: 50px;*/
+.patch .patch-img {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    height: 35%;
+}
 
+.patch-outdated .patch-img {
     /*Beta Sticker*/
-    left: -150px;
-    bottom: -20px;
-    height: 35px;
+    top: 5px;
+    right: -15px;
+    height: 20%;
     transform: rotate(20deg);
 }
 

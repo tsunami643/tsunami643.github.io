@@ -19,6 +19,8 @@
 
     <script>
         !function (global) {
+            global.PATCH = 685;
+
             global.HEROES = [
                 'Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Axe', 'Bane', 'Batrider', 'Beastmaster',
                 'Bloodseeker', 'Bounty Hunter', 'Brewmaster', 'Bristleback', 'Broodmother', 'Centaur Warrunner',
@@ -42,16 +44,17 @@
 
 <body>
 <div class="wrapper">
+    <!-- The weird comments here strip out whitespace due to inline-flex seeing it as actual whitespace -->
     <div id="inputline">
-        <form id="heroinput-form" action="/" method="get">
-            <span id="hero-input-quote-start"></span>
-	<span id="heroinput">
-		<input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
-	</span>
-            <span id="patch"><img src="./assets/media/patches/685beta.png"></span>
-            <span id="hero-input-quote-end"></span>
-            <input type="submit" value="" style="visibility: hidden; position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden"/>
-        </form>
+        <form id="heroinput-form" action="/" method="get"><!--
+        ---><span id="hero-input-quote-start"></span> <!--
+        ---><span id="heroinput"><!--
+            ---><input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off"><!--
+            ---><span id="randomhero"><a href="#" title="Random Hero"></a></span><!--
+        ---></span><!--
+        ---> <span id="hero-input-quote-end"></span><!--
+        ---><input type="submit" value="" style="visibility: hidden; position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden"/><!--
+    ---></form>
 
         <script>
             !function (document) {
@@ -94,7 +97,6 @@
     </div>
 
     <div id="tipcontainer"></div>
-    <div id="randomhero"><a href="#" title="Random Hero"></a></div>
     <div class="push"></div>
 </div>
 

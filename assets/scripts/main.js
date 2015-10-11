@@ -1,8 +1,9 @@
-!function (global, document, $, HEROES, bowser) {
+!function (global, document, $, bowser, HEROES, PATCH) {
   var heroes = new HeroList(HEROES.concat().sort());
 
   var loader = new HeroLoader({
     heroes: heroes,
+    patch: PATCH,
     $el: $('#tipcontainer'),
     urlFor: function (hero) {
       return 'tips/' + hero.toLowerCase().replace(/ /ig, '_') + '.html';
@@ -71,4 +72,4 @@
   });
 
   input.focus();
-}(this, this.document, this.jQuery, this.HEROES, this.bowser);
+}(this, this.document, this.jQuery, this.bowser, this.HEROES, this.PATCH);
