@@ -98,8 +98,6 @@
 
       engine.search(value, function (datums) {
         if (datums[0]) {
-          _this.blur();
-
           _this.$el.trigger(EVENTS.SELECT, {name: datums[0]});
         }
       });

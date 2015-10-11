@@ -1,4 +1,4 @@
-!function (global, document, $, HEROES) {
+!function (global, document, $, HEROES, bowser) {
   var heroes = new HeroList(HEROES.concat().sort());
 
   var loader = new HeroLoader({
@@ -42,6 +42,10 @@
     loader.preload(heroes.prev(hero.name));
     loader.preload(heroes.next(hero.name));
     input.setVal(hero.name);
+
+    if (bowser.mobile || bowser.tablet) {
+      input.blur();
+    }
   });
 
   input.onClear(function () {
@@ -67,5 +71,4 @@
   });
 
   input.focus();
-
-}(this, this.document, this.jQuery, this.HEROES);
+}(this, this.document, this.jQuery, this.HEROES, this.bowser);
