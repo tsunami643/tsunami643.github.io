@@ -507,6 +507,13 @@ a:hover {
     height: 100%;
 }
 
+
+/* Fixes body scrolling issue */
+.twitter-typeahead pre {
+    left: -9999px;
+    top: -9999px;
+}
+
 @media screen and (max-width: 800px) {
     #heroinput,
     .twitter-typeahead,
