@@ -30,10 +30,10 @@
 
   input.onSelect(function (e, hero) {
     loader
-	.load(hero.name)
-	.fail(function () {
-	  input.setVal('');
-	});
+      .load(hero.name)
+      .fail(function () {
+        input.setVal('');
+      });
   });
 
   loader.onLoad(function (e, hero) {
@@ -60,9 +60,12 @@
 
   $("#randomhero").click(function (e) {
     e.preventDefault();
-    $(this).velocity({rotateZ: '+=360'});
+    $(this).velocity({ rotateZ: '+=360' });
     var randomHero = heroes.random();
     loader.load(randomHero);
     input.setVal(randomHero);
   });
+
+  input.focus();
+
 }(this, this.document, this.jQuery, this.HEROES);
