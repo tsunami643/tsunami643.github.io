@@ -186,7 +186,7 @@ a:hover {
 }
 
 .twitter-typeahead {
-    display: inline-flex;
+    display: inline-flex !important;
 }
 
 #tipcontainer {
