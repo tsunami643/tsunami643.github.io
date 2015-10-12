@@ -50,7 +50,22 @@
 
     var anticipationTimer = null;
     var anticipateEvents = ['keypress', 'keyup', 'typeahead:cursorchange'].join(' ');
-    var previousValue = '';
+    var previousValue = _this.$el.typeahead('val');
+
+    this.$el.on('keyup', function (e) {
+      var value = _this.$el.typeahead('val');
+      var found = options.heroes.find(value);
+
+      if (!previousValue || !found || previousValue === value) {
+        return true; // do nothing
+      }
+
+      e.stopPropagation();
+      e.preventDefault();
+      previousValue = value;
+      _this.setVal(found);
+      _this.$el.trigger(EVENTS.SELECT, {name: found});
+    });
 
     this.$el.on(anticipateEvents, function (e, data) {
       var value = data || _this.$el.typeahead('val');
@@ -59,16 +74,6 @@
       if (value === '') {
         _this.$el.trigger(EVENTS.CLEAR);
         return;
-      }
-
-      var found = options.heroes.find(value);
-
-      // Todo: this is kinda jankey
-      if (previousValue && previousValue !== value && found) {
-	previousValue = value;
-	_this.setVal(found);
-	_this.$el.trigger(EVENTS.SELECT, {name: found});
-	return;
       }
 
       anticipationTimer = setTimeout(function () {
@@ -147,6 +152,14 @@
 
     onClear: function (callback) {
       this.$el.on(EVENTS.CLEAR, callback);
+    },
+
+    focus: function () {
+      this.$el.focus();
+    },
+
+    blur: function () {
+      this.$el.blur();
     }
   };
 

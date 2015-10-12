@@ -1,8 +1,9 @@
-!function (global, document, $, HEROES) {
+!function (global, document, $, bowser, HEROES, PATCH) {
   var heroes = new HeroList(HEROES.concat().sort());
 
   var loader = new HeroLoader({
     heroes: heroes,
+    patch: PATCH,
     $el: $('#tipcontainer'),
     urlFor: function (hero) {
       return 'tips/' + hero.toLowerCase().replace(/ /ig, '_') + '.html';
@@ -30,10 +31,10 @@
 
   input.onSelect(function (e, hero) {
     loader
-	.load(hero.name)
-	.fail(function () {
-	  input.setVal('');
-	});
+      .load(hero.name)
+      .fail(function () {
+        input.setVal('');
+      });
   });
 
   loader.onLoad(function (e, hero) {
@@ -42,6 +43,10 @@
     loader.preload(heroes.prev(hero.name));
     loader.preload(heroes.next(hero.name));
     input.setVal(hero.name);
+
+    if (bowser.mobile || bowser.tablet) {
+      input.blur();
+    }
   });
 
   input.onClear(function () {
@@ -60,9 +65,11 @@
 
   $("#randomhero").click(function (e) {
     e.preventDefault();
-    $(this).velocity({rotateZ: '+=360'});
+    $(this).velocity({ rotateZ: '+=360' });
     var randomHero = heroes.random();
     loader.load(randomHero);
     input.setVal(randomHero);
   });
-}(this, this.document, this.jQuery, this.HEROES);
+
+  input.focus();
+}(this, this.document, this.jQuery, this.bowser, this.HEROES, this.PATCH);

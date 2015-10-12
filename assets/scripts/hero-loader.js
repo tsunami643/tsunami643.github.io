@@ -36,6 +36,7 @@
     this.emitter = $({});
 
     this.heroes = options.heroes;
+    this.patch = options.patch;
     this.loading = null;
     this.cache = {};
     this.currentHero = null;
@@ -114,17 +115,27 @@
 
           _this.$el.find('.portrait').prepend('<span class="prevhero">&lt;</span>').append('<span class="nexthero">&gt;</span>');
 
+          var $frame = _this.$el.find('.portrait-frame');
           var src = $portrait.data('src');
 
+          var heroPatch = parseFloat(_this.$el.find('.hero').data('patch'));
+
+          if (heroPatch && heroPatch < _this.patch) {
+            $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/685beta.png"></span>');
+          } else {
+            // $frame.prepend('<span class="patch"><img class="patch-img" src="./assets/media/patches/685.png"></span>');
+          }
+
           if (src) {
+            var $frameInner = $frame.find('.portrait-frame-inner');
+
             preloadImage(src).done(function (data) {
-              var $frame = _this.$el.find('.portrait-frame');
 
               if (data.cached) {
-                $frame.find('.portrait-img').addClass('from-cache');
+                $frameInner.find('.portrait-img').addClass('from-cache');
               }
 
-              $frame.prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="' + data.src + '">');
+              $frameInner.prepend('<img class="portrait-img portrait-image-loaded" width="256" height="144" src="' + data.src + '">');
               $frame.addClass('portrait-frame-loaded');
             });
           }
