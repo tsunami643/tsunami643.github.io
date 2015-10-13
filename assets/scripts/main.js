@@ -71,25 +71,10 @@
     input.setVal(randomHero);
   });
 
-  var anticipationTimer = null;
-
-  $('.herolist').on('mouseenter', '.herolist__hero__link', function (e) {
-    clearTimeout(anticipationTimer);
-
-    anticipationTimer = setTimeout(function () {
-	loader.preload($(e.currentTarget).find('.herolist__hero__name').html())
-    }, 600);
-  });
-
-  $('.herolist').on('mouseleave', '.herolist__hero__link', function (e) {
-      clearTimeout(anticipationTimer);
-  });
-
-  $('.herolist').on('click touchstart', '.herolist__hero__link', function (e) {
+  $('.herolist').on('click', '.herolist__hero__link', function (e) {
     e.preventDefault();
-    clearTimeout(anticipationTimer);
-    loader.load($(e.currentTarget).find('.herolist__hero__name').html());
     $('body, html').scrollTop(0);
+    loader.load($(e.currentTarget).find('.herolist__hero__name').html());
   });
 
   input.focus();
