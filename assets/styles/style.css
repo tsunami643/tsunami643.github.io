@@ -514,6 +514,19 @@ a:hover {
     top: -9999px;
 }
 
+.herolist {
+    max-width: 1000px;
+    margin: 16px auto 0;
+}
+
+.herolist__hero {
+    display: inline;
+}
+
+.herolist__hero__name {
+    display: none;
+}
+
 @media screen and (max-width: 800px) {
     #heroinput,
     .twitter-typeahead,
