@@ -517,6 +517,7 @@ a:hover {
 .herolist {
     max-width: 1000px;
     margin: 16px auto 0;
+    padding: 0;
 }
 
 .herolist__hero {
