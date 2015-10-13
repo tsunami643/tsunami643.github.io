@@ -71,5 +71,11 @@
     input.setVal(randomHero);
   });
 
+  $('.herolist').on('click', '.herolist__hero__link', function (e) {
+    e.preventDefault();
+    $('body, html').scrollTop(0);
+    loader.load($(e.currentTarget).find('.herolist__hero__name').html());
+  });
+
   input.focus();
 }(this, this.document, this.jQuery, this.bowser, this.HEROES, this.PATCH);
