@@ -58,6 +58,7 @@
 
   new HeroMini({
     $el: $('.herolist'),
+    $typeahead: $('#heroinput').find('.typeahead'),
     loader: loader
   });
 

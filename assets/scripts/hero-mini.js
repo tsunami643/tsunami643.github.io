@@ -2,6 +2,7 @@
   /**
    * @param {{}} options
    * @param {jQuery} options.$el
+   * @param {jQuery} options.$typeahead
    * @param {HeroLoader} options.loader
    * @constructor
    */
@@ -13,7 +14,7 @@
 
       anticipationTimer = setTimeout(function () {
         options.loader.preload($(e.currentTarget).find('.herolist__hero__name').html());
-      }, 600);
+      }, 200);
     });
 
     options.$el.on('mouseleave', '.herolist__hero__link', function (e) {
@@ -23,7 +24,9 @@
     options.$el.on('click touchstart', '.herolist__hero__link', function (e) {
       e.preventDefault();
       clearTimeout(anticipationTimer);
-      options.loader.load($(e.currentTarget).find('.herolist__hero__name').html());
+      var hero = $(e.currentTarget).find('.herolist__hero__name').html();
+      options.$typeahead.typeahead('val', hero);
+      options.loader.load(hero);
       $.Velocity.animate($('body, html'), 'scroll', {duration: 300});
     });
   }

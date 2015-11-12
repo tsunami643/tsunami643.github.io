@@ -145,7 +145,7 @@
           _this.expand(skipAnimation);
           _this.currentHero = hero;
 
-	  _this.emitter.trigger('load', { name: hero });
+	        _this.emitter.trigger('load', { name: hero });
 
           d.resolve();
         });
