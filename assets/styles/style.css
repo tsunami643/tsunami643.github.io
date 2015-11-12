@@ -190,9 +190,13 @@ a:hover {
     display: inline-flex !important;
 }
 
-#tipcontainer {
+.grey {
+    margin-top: 20px;
     background-color: #EBEBEB;
     width: 100%;
+}
+
+#tipcontainer {
     display: none;
 }
 
@@ -330,10 +334,10 @@ a:hover {
     font-size: 13px;
 }
 
-#heroinput:after {
+.arrow {
     left: 50%;
     border: 20px solid transparent;
-    content: " ";
+    display: block;
     height: 0;
     width: 0;
     position: absolute;
@@ -343,11 +347,6 @@ a:hover {
     border-bottom: solid 20px #ebebeb;
     margin-left: -20px;
     margin-top: 20px;
-    display: none;
-}
-
-.show-arrow #heroinput:after {
-    display: block;
 }
 
 #allheroes {
@@ -512,6 +511,55 @@ a:hover {
 .twitter-typeahead pre {
     left: -9999px;
     top: -9999px;
+}
+
+.herolist {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px;
+    border-top: solid 1px #EBEBEB;
+    -webkit-transition: border-top-color 0.3s;
+    -moz-transition: border-top-color 0.3s;
+    -ms-transition: border-top-color 0.3s;
+    -o-transition: border-top-color 0.3s;
+    transition: border-top-color 0.3s;
+}
+
+.tip-container--expanded + .herolist {
+    border-top-color: #ccc;
+}
+
+.herolist__hero__link:before {
+    -webkit-transition: -webkit-filter 0.5s;
+    -moz-transition: -moz-filter 0.5s;
+    -ms-transition: -ms-filter 0.5s;
+    -o-transition: -o-filter 0.5s;
+    transition: filter 0.5s;
+    transition-property: filter, -webkit-filter;
+}
+
+.herolist__hero__link:before{
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+    filter: brightness(100%);
+}
+
+.herolist__hero:hover .herolist__hero__link:before{
+    -webkit-filter: brightness(150%);
+    -moz-filter: brightness(150%);
+    -o-filter: brightness(150%);
+    -ms-filter: brightness(150%);
+    filter: brightness(150%);
+}
+
+.herolist__hero {
+    display: inline;
+}
+
+.herolist__hero__name {
+    display: none;
 }
 
 @media screen and (max-width: 800px) {

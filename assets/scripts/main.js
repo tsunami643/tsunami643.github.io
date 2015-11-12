@@ -13,6 +13,7 @@
   var input = new HeroInput({
     $el: $('#heroinput').find('.typeahead'),
     $container: $('#inputline'),
+    $arrow: $('#heroinput').find('.arrow'),
     heroes: heroes,
     anticipationDelay: 400
   });
@@ -55,6 +56,12 @@
     input.expand();
   });
 
+  new HeroMini({
+    $el: $('.herolist'),
+    $typeahead: $('#heroinput').find('.typeahead'),
+    loader: loader
+  });
+
   var deepLinkedHero = state.getHero();
 
   if (deepLinkedHero) {
@@ -69,6 +76,27 @@
     var randomHero = heroes.random();
     loader.load(randomHero);
     input.setVal(randomHero);
+  });
+
+  var anticipationTimer = null;
+
+  $('.herolist').on('mouseenter', '.herolist__hero__link', function (e) {
+    clearTimeout(anticipationTimer);
+
+    anticipationTimer = setTimeout(function () {
+        loader.preload($(e.currentTarget).find('.herolist__hero__name').html())
+    }, 600);
+  });
+
+  $('.herolist').on('mouseleave', '.herolist__hero__link', function (e) {
+      clearTimeout(anticipationTimer);
+  });
+
+  $('.herolist').on('click touchstart', '.herolist__hero__link', function (e) {
+    e.preventDefault();
+    clearTimeout(anticipationTimer);
+    loader.load($(e.currentTarget).find('.herolist__hero__name').html());
+    $('body, html').scrollTop(0);
   });
 
   input.focus();

@@ -8,6 +8,7 @@
   /**
    * @param {{}} options
    * @param {JQuery} options.$el
+   * @param {JQuery} options.$arrow
    * @param {JQuery} options.$container
    * @param {string[]} options.heroes
    * @param {number} options.anticipationDelay
@@ -17,12 +18,17 @@
     var _this = this;
 
     this.$el = options.$el;
+    this.$arrow = options.$arrow;
     this.$container = options.$container;
     this.originalPadding = {
       paddingTop: options.$container.css('padding-top'),
       paddingRight: options.$container.css('padding-right'),
       paddingBottom: options.$container.css('padding-bottom'),
       paddingLeft: options.$container.css('padding-left')
+    };
+
+    this.originalArrowMargin = {
+      marginTop: options.$arrow.css('margin-top')
     };
 
     var engine = new Bloodhound({
@@ -52,9 +58,20 @@
     var anticipateEvents = ['keypress', 'keyup', 'typeahead:cursorchange'].join(' ');
     var previousValue = _this.$el.typeahead('val');
 
+    var KEYS = {
+      TAB: 9,
+      ENTER: 13
+    };
+
     this.$el.on('keyup', function (e) {
       var value = _this.$el.typeahead('val');
       var found = options.heroes.find(value);
+
+      var key = e.keyCode || e.which;
+
+      if (key === KEYS.TAB || key === KEYS.ENTER) {
+        return true;
+      }
 
       if (!previousValue || !found || previousValue === value) {
         return true; // do nothing
@@ -115,12 +132,12 @@
 
   HeroInput.prototype = {
     expand: function (skipAnimation) {
-      this.$container.removeClass('show-arrow');
+      $.Velocity.animate(this.$arrow, this.originalArrowMargin, {duration: skipAnimation ? 0 : 300});
       return $.Velocity.animate(this.$container, this.originalPadding, {duration: skipAnimation ? 0 : 300});
     },
 
     collapse: function (skipAnimation) {
-      this.$container.addClass('show-arrow');
+      $.Velocity.animate(this.$arrow, {marginTop: '30px'}, {duration: skipAnimation ? 0 : 800});
       return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '30px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
     },
 

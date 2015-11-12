@@ -10,9 +10,9 @@
   HeroList.prototype = {
     find: function (hero) {
       for (var i = 0; i < this.heroes.length; i++) {
-	if (this.heroes[i].toLowerCase() === hero.toLowerCase()) {
-	  return this.heroes[i];
-	}
+        if (this.heroes[i].toLowerCase() === hero.toLowerCase()) {
+          return this.heroes[i];
+        }
       }
       return false;
     },

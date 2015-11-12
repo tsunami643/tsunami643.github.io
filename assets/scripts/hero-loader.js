@@ -81,10 +81,12 @@
 
     collapse: function (skipAnimation) {
       this.currentHero = null;
+      this.$el.removeClass('tip-container--expanded');
       return $.Velocity.animate(this.$el, 'slideUp', {duration: skipAnimation ? 0 : 300});
     },
 
     expand: function (skipAnimation) {
+      this.$el.addClass('tip-container--expanded');
       return $.Velocity.animate(this.$el, 'slideDown', {duration: skipAnimation ? 0 : 500});
     },
 
@@ -123,7 +125,7 @@
           if (heroPatch && heroPatch < _this.patch) {
             $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/685beta.png"></span>');
           } else {
-            // $frame.prepend('<span class="patch"><img class="patch-img" src="./assets/media/patches/685.png"></span>');
+            $frame.prepend('<span class="patch"><img class="patch-img" src="./assets/media/patches/685.png"></span>');
           }
 
           if (src) {
@@ -143,7 +145,7 @@
           _this.expand(skipAnimation);
           _this.currentHero = hero;
 
-	  _this.emitter.trigger('load', { name: hero });
+	        _this.emitter.trigger('load', { name: hero });
 
           d.resolve();
         });
