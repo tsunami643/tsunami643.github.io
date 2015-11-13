@@ -22,10 +22,6 @@
     title: document.title
   });
 
-  loader.onLoad(function (e, hero) {
-    state.setHero(hero);
-  });
-
   input.onAnticipate(function (e, hero) {
     loader.preload(hero.name);
   });
