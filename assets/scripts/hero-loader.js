@@ -125,7 +125,7 @@
           if (heroPatch && heroPatch < _this.patch) {
             $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/685beta.png"></span>');
           } else {
-            $frame.prepend('<span class="patch"><img class="patch-img" src="./assets/media/patches/685.png"></span>');
+            $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/686beta.png"></span>');
           }
 
           if (src) {
