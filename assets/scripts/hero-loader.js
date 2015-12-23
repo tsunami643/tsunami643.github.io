@@ -123,9 +123,9 @@
           var heroPatch = parseFloat(_this.$el.find('.hero').data('patch'));
 
           if (heroPatch && heroPatch < _this.patch) {
-            $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/685beta.png"></span>');
-          } else {
             $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/686beta.png"></span>');
+          } else {
+            $frame.prepend('<span class="patch patch"><img class="patch-img" src="./assets/media/patches/686.png"></span>');
           }
 
           if (src) {
