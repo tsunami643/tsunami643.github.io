@@ -21,7 +21,7 @@
         clearTimeout(anticipationTimer);
     });
 
-    options.$el.on('click touchstart', '.herolist__hero__link', function (e) {
+    options.$el.on('click', '.herolist__hero__link', function (e) {
       e.preventDefault();
       clearTimeout(anticipationTimer);
       var hero = $(e.currentTarget).find('.herolist__hero__name').html();
