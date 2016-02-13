@@ -151,8 +151,8 @@
     },
 
     collapse: function (skipAnimation) {
-      $.Velocity.animate(this.$arrow, {marginTop: '30px'}, {duration: skipAnimation ? 0 : 800});
-      return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '30px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
+      $.Velocity.animate(this.$arrow, {marginTop: '10px'}, {duration: skipAnimation ? 0 : 800});
+      return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '10px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
     },
 
     setVal: function (value) {
