@@ -128,6 +128,20 @@
       e.preventDefault();
       _this.selectFirstSuggestion();
     });
+
+    this.$el.on('focus', function (e) {
+      var value = _this.$el.typeahead('val');
+
+      if (!value) {
+        return true;
+      }
+
+      engine.search(value, function (datums) {
+        if (datums[0] === value) {
+          _this.$el.typeahead('close');
+        }
+      });
+    });
   }
 
   HeroInput.prototype = {
