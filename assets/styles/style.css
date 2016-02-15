@@ -516,7 +516,7 @@ a:hover {
 .herolist {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 16px 16px 10px;
+    padding: 20px 16px 14px;
     border-top: solid 1px #EBEBEB;
     -webkit-transition: border-top-color 0.3s;
     -moz-transition: border-top-color 0.3s;
