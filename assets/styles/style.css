@@ -201,7 +201,7 @@ a:hover {
 }
 
 .hero {
-    padding: 30px 50px 18px;
+    padding: 30px 50px 4px;
 }
 
 .herotitle {
@@ -516,7 +516,7 @@ a:hover {
 .herolist {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 16px;
+    padding: 16px 16px 10px;
     border-top: solid 1px #EBEBEB;
     -webkit-transition: border-top-color 0.3s;
     -moz-transition: border-top-color 0.3s;
