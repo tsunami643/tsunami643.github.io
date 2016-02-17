@@ -4,7 +4,5 @@
 <Description>Search Tsunami's Dota Hero Tips and Counters.</Description>
 <Image height="16" width="16" type="image/x-icon">http://howdoiplay.com/assets/media/icons/favicon.ico</Image>
 <Url type="text/html" method="get" template="http://howdoiplay.com/?{searchTerms}" />
-<Url type="application/x-suggestions+json" method="get" template="http://dota2.gamepedia.com/api.php?action=opensearch&amp;search={searchTerms}+incategory:Heroes&amp;namespace=0" />
-<Url type="application/x-suggestions+xml" method="get" template="http://dota2.gamepedia.com/api.php?action=opensearch&amp;format=xml&amp;search={searchTerms}+incategory:Heroes&amp;namespace=0" />
 <moz:SearchForm>http://howdoiplay.com</moz:SearchForm>
 </OpenSearchDescription>
