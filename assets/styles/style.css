@@ -562,6 +562,56 @@ a:hover {
     display: none;
 }
 
+button.paypal{
+	border:none;background:#EBEBEB;
+	-webkit-appearance:none;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	height:32px;
+	line-height:34px;
+	margin-right:10px;
+	padding:0 11px;
+	text-align:center;
+	color:#ffffff;
+	font-size:16px
+}
+
+button.paypal{
+	background-color:#EBEBEB;
+	-webkit-transition:background-color 80ms ease-in;
+	-moz-transition:background-color 80ms ease-in;
+	transition:background-color 80ms ease-in
+}
+
+button.paypal:hover{
+	background-color:#C3C3C3
+}
+
+#social a {
+	font-family: 'dice';
+    text-decoration: none;
+    color: #CFCFCF;
+	font-size: 25px;
+	-webkit-transition:color 80ms ease-in;
+	-moz-transition:color 80ms ease-in;
+	transition:color 80ms ease-in
+}
+
+#social a.twitter:hover{
+    color:#55ACEE
+}
+
+#social a.twitch:hover{
+    color:#6441A5
+}
+
+#social a.youtube:hover{
+    color:#E52D27
+}
+
 @media screen and (max-width: 800px) {
     #heroinput,
     .twitter-typeahead,
