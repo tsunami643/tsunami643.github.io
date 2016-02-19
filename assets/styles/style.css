@@ -396,9 +396,9 @@ a:hover {
 	position: absolute;
     font-family: 'Fjalla One';
     font-size: 14.7px;
-    right: -9px;
+    right: -8px;
     top: 2px;
-	transform: rotate(30deg);
+	transform: rotate(35deg);
 }
 
 .patch-outdated .patch-img {
