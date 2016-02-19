@@ -330,7 +330,7 @@ a:hover {
     bottom: 0;
     width: 100%;
     font-family: 'Hind', sans-serif;
-    padding: 30px 0;
+    padding: 15px 0;
     font-size: 13px;
 }
 
@@ -563,7 +563,7 @@ a:hover {
 }
 
 button.paypal{
-	border:none;background:#EBEBEB;
+	border:none;background:#C3C3C3;
 	-webkit-appearance:none;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -572,7 +572,6 @@ button.paypal{
 	border-radius:4px;
 	height:32px;
 	line-height:34px;
-	margin-right:10px;
 	padding:0 11px;
 	text-align:center;
 	color:#ffffff;
@@ -580,14 +579,15 @@ button.paypal{
 }
 
 button.paypal{
-	background-color:#EBEBEB;
+	background-color:#C3C3C3;
+	font-family: 'dice';
 	-webkit-transition:background-color 80ms ease-in;
 	-moz-transition:background-color 80ms ease-in;
 	transition:background-color 80ms ease-in
 }
 
 button.paypal:hover{
-	background-color:#C3C3C3
+	background-color:#0070ba
 }
 
 #social a {
