@@ -391,6 +391,15 @@ a:hover {
     height: 35%;
 }
 
+.patch .patch-text {
+	position: absolute;
+    font-family: 'Fjalla One';
+    font-size: 14.7px;
+    right: -9px;
+    top: 2px;
+	transform: rotate(30deg);
+}
+
 .patch-outdated .patch-img {
     /*Beta Sticker*/
     top: 5px;
