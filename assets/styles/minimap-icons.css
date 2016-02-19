@@ -6,16 +6,16 @@
     background: url('../media/heroes/minimap/spritesheet.png') no-repeat;
 }
 
-.abaddon             .herolist__hero__link:before { background-position: -5px -5px     }
+.abaddon             .herolist__hero__link:before { background-position: -4px -5px     }
 .alchemist           .herolist__hero__link:before { background-position: -47px -5px    }
 .ancient_apparition  .herolist__hero__link:before { background-position: -89px -5px    }
 .anti-mage           .herolist__hero__link:before { background-position: -131px -5px   }
 .arc_warden          .herolist__hero__link:before { background-position: -5px -425px   }
 .axe                 .herolist__hero__link:before { background-position: -171px -4px   }
 .bane                .herolist__hero__link:before { background-position: -212px -5px   }
-.batrider            .herolist__hero__link:before { background-position: -255px -5px   }
+.batrider            .herolist__hero__link:before { background-position: -254px -5px   }
 .beastmaster         .herolist__hero__link:before { background-position: -297px -5px   }
-.bloodseeker         .herolist__hero__link:before { background-position: -338px -5px   }
+.bloodseeker         .herolist__hero__link:before { background-position: -339px -5px   }
 .bounty_hunter       .herolist__hero__link:before { background-position: -380px -5px   }
 .brewmaster          .herolist__hero__link:before { background-position: -5px -46px    }
 .bristleback         .herolist__hero__link:before { background-position: -47px -47px   }
@@ -33,7 +33,7 @@
 .doom                .herolist__hero__link:before { background-position: -129px -89px  }
 .dragon_knight       .herolist__hero__link:before { background-position: -171px -89px  }
 .drow_ranger         .herolist__hero__link:before { background-position: -213px -89px  }
-.earth_spirit        .herolist__hero__link:before { background-position: -255px -89px  }
+.earth_spirit        .herolist__hero__link:before { background-position: -254px -89px  }
 .earthshaker         .herolist__hero__link:before { background-position: -297px -90px  }
 .elder_titan         .herolist__hero__link:before { background-position: -339px -87px  }
 .ember_spirit        .herolist__hero__link:before { background-position: -381px -87px  }
@@ -75,7 +75,7 @@
 .phantom_lancer      .herolist__hero__link:before { background-position: -215px -257px }
 .phoenix             .herolist__hero__link:before { background-position: -258px -257px }
 .puck                .herolist__hero__link:before { background-position: -299px -256px }
-.pudge               .herolist__hero__link:before { background-position: -340px -257px }
+.pudge               .herolist__hero__link:before { background-position: -341px -257px }
 .pugna               .herolist__hero__link:before { background-position: -383px -257px }
 .queen_of_pain       .herolist__hero__link:before { background-position: -6px -299px   }
 .razor               .herolist__hero__link:before { background-position: -47px -299px  }
@@ -85,7 +85,7 @@
 .shadow_demon        .herolist__hero__link:before { background-position: -216px -299px }
 .shadow_fiend        .herolist__hero__link:before { background-position: -258px -299px }
 .shadow_shaman       .herolist__hero__link:before { background-position: -299px -299px }
-.silencer            .herolist__hero__link:before { background-position: -341px -299px }
+.silencer            .herolist__hero__link:before { background-position: -342px -299px }
 .skywrath_mage       .herolist__hero__link:before { background-position: -384px -299px }
 .slardar             .herolist__hero__link:before { background-position: -5px -341px   }
 .slark               .herolist__hero__link:before { background-position: -47px -341px  }
@@ -107,7 +107,7 @@
 .undying             .herolist__hero__link:before { background-position: -298px -383px }
 .ursa                .herolist__hero__link:before { background-position: -341px -383px }
 .vengeful_spirit     .herolist__hero__link:before { background-position: -383px -383px }
-.venomancer          .herolist__hero__link:before { background-position: -422px -5px   }
+.venomancer          .herolist__hero__link:before { background-position: -423px -5px   }
 .viper               .herolist__hero__link:before { background-position: -421px -47px  }
 .visage              .herolist__hero__link:before { background-position: -424px -89px  }
 .warlock             .herolist__hero__link:before { background-position: -425px -131px }
