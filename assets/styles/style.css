@@ -392,6 +392,7 @@ a:hover {
 }
 
 .patch .patch-text {
+	color: white;
 	position: absolute;
     font-family: 'Fjalla One';
     font-size: 14.7px;
