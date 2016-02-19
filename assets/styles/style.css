@@ -396,8 +396,8 @@ a:hover {
 	position: absolute;
     font-family: 'Fjalla One';
     font-size: 0.600em;
-    right: -8px;
-    top: 2px;
+    right: -0.550em;
+    top: 0.115em;
 	transform: rotate(35deg);
 }
 
