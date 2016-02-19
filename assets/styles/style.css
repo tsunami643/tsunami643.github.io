@@ -528,6 +528,7 @@ a:hover {
     margin: 0 auto;
     padding: 20px 16px 14px;
     border-top: solid 1px #EBEBEB;
+	image-rendering: pixelated;
     -webkit-transition: border-top-color 0.3s;
     -moz-transition: border-top-color 0.3s;
     -ms-transition: border-top-color 0.3s;
