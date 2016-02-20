@@ -399,6 +399,10 @@ a:hover {
     right: -0.525em;
     top: 0.115em;
 	transform: rotate(35deg);
+	-webkit-transform: rotate(35deg);
+	-moz-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
 }
 
 .patch-outdated .patch-img {
@@ -407,6 +411,10 @@ a:hover {
     right: -15px;
     height: 31px;
     transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	-moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
 }
 
 .patch-outdated .patch-text {
@@ -420,6 +428,10 @@ a:hover {
     top: 0.375em;
 	text-shadow: 0 0 1px rgba(0,0,0,0.3);
     transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	-moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
 }
 
 .tips h1 {
