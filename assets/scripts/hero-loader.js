@@ -120,12 +120,14 @@
           var $frame = _this.$el.find('.portrait-frame');
           var src = $portrait.data('src');
 
-          var heroPatch = parseFloat(_this.$el.find('.hero').data('patch'));
+          //var heroPatch = parseFloat(_this.$el.find('.hero').data('patch'));
+		  
+		  var gamePatch = parseFloat(_this.patch).toFixed(2);
 
-          if (heroPatch && heroPatch < _this.patch) {
-            $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/686beta.png"></span>');
+          if (gamePatch != _this.patch) {
+            $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/patchbetablank.png"><div class="patch-text">not yet ' + gamePatch + '\'d</div></span>');
           } else {
-            $frame.prepend('<span class="patch patch"><img class="patch-img" src="./assets/media/patches/patchblank.png"><div class="patch-text">6.86\'d</div></span>');
+            $frame.prepend('<span class="patch patch"><img class="patch-img" src="./assets/media/patches/patchblank.png"><div class="patch-text">' + gamePatch + '\'d</div></span>');
           }
 
           if (src) {
