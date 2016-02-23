@@ -63,7 +63,7 @@
             ];
         }(window);
     </script>
-	
+
 	<script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -90,7 +90,7 @@
         ---><span id="hero-input-quote-start"></span> <!--
         ---><span id="heroinput"><!--
             ---><input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off"><!--
-            ---><span id="randomhero"><a href="#" title="Random Hero"></a></span><!--
+            ---><span id="randomhero"><a href="#" title="Random Hero (no bonus gold)"></a></span><!--
             ---><span class="arrow"></span><!--
         ---></span><!--
         ---> <span id="hero-input-quote-end"></span><!--
@@ -261,37 +261,41 @@
     </div>
 
 
-
-    <div class="push"></div>
-</div>
-
-<div id="footer">
+<div id="links">
     Latest <a href="http://www.howdoiplay.com/blog">blog</a> post - <a href="http://howdoiplay.com/blog/2015/09/11/dire-ancients-reborn.html">Blocking Dire Ancients in Reborn</a>
   <br><br>
     Looking for my <a href="./warding">warding guide?</a>
-	<br><br>
+  </div>
 	<!--<span id="footer-quote"></span>
 	<hr style="height:2px; visibility:hidden;" />
-	<button id="paypal-button" class="paypal" title="Donate with PayPal" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
+	<button id="paypal-button" class="paypal" title="Help support the site!" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
 	<br>
-	-->
-	<br><br>
-	
-	<span id="social">
-	  <a target="_blank" href="https://twitter.com/tsunami643" class="twitter"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a target="_blank" href="https://twitch.tv/tsunami643" class="twitch"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a target="_blank" href="https://youtube.com/tsunami643" class="youtube"></a>
-	</span>
-  <br><br>
+
+	<br><br>-->
+
+  <div class="push"></div>
+</div>
+
+	<div id="social">
+	  <a target="_blank" title="Twitter" href="https://twitter.com/tsunami643" class="twitter"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a target="_blank" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a target="_blank" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
+	</div>
 
     <script type="text/javascript">
         !function (document) {
             var footerquotearray = [
-                'This site costs me practically nothing to run, but...',
-                'Found a mistake?  Let me know ',
-                'Have a suggestion? Let me know ',
-                'Got a tip to add? Let me know ',
-                'Discover a new counter? Let me know '
+                "This button makes a last hit sound. For me, not for you",
+                "With your help, I can beat Sing to the moon",
+                "Gates. Zuckerberg. Tsunami. What do we all have in common? Nothing. <br><br> Yet.",
+                "Quick, donate all your unreliable cash before you die! It's not morbid, it's efficiency",
+                "This button is tradeable, marketable, and giftable. My economy is saved!",
+                "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly Sven set. Now wasn't that easier?",
+                "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly Axe set. Now wasn't that easier?",
+                "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly TA set. Now wasn't that easier?",
+                "Donate enough money and I could host my own LAN and then never pay out the winnings. <br><br> Wait, I can already do that",
+                "You don't even need to donate, I'll give you the text-to-speech for free",
+                "Stack my camps IRL. Don't worry, I'll ignore the gesture just like a real carry"
             ];
 
             document.getElementById('footer-quote').innerHTML = footerquotearray[Math.floor(Math.random() * footerquotearray.length)];
