@@ -265,26 +265,41 @@
     Latest <a href="http://www.howdoiplay.com/blog">blog</a> post - <a href="http://howdoiplay.com/blog/2015/09/11/dire-ancients-reborn.html">Blocking Dire Ancients in Reborn</a>
   <br><br>
     Looking for my <a href="./warding">warding guide?</a>
+<!--
+    <br><br>
+    <span id="donation-quote"></span>
+  	<hr style="height:2px; visibility:hidden;" />
+  	<button id="paypal-button" class="paypal" title="Help support the site!" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
+-->
   </div>
-	<!--<span id="footer-quote"></span>
-	<hr style="height:2px; visibility:hidden;" />
-	<button id="paypal-button" class="paypal" title="Help support the site!" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
-	<br>
-
-	<br><br>-->
 
   <div class="push"></div>
 </div>
 
 	<div id="social">
-	  <a target="_blank" title="Twitter" href="https://twitter.com/tsunami643" class="twitter"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a target="_blank" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a target="_blank" title="Twitter" href="https://twitter.com/tsunami643" class="twitter"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a target="_blank" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  <a target="_blank" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
 	</div>
 
+    <audio id='texttospeech' preload='none'>
+        <source src='./assets/media/texttospeech.ogg' type='audio/ogg'>
+        <source src='./assets/media/texttospeech.mp3' type='audio/mpeg'>
+    </audio>
+
+    <script>
+      var tts  = document.getElementById('texttospeech');
+
+      function playAudio() {
+        tts.play();
+      }
+    </script>
+
     <script type="text/javascript">
         !function (document) {
-            var footerquotearray = [
+            var donationquotearray = [
                 "This button makes a last hit sound. For me, not for you",
                 "With your help, I can beat Sing to the moon",
                 "Gates. Zuckerberg. Tsunami. What do we all have in common? Nothing. <br><br> Yet.",
@@ -294,11 +309,11 @@
                 "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly Axe set. Now wasn't that easier?",
                 "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly TA set. Now wasn't that easier?",
                 "Donate enough money and I could host my own LAN and then never pay out the winnings. <br><br> Wait, I can already do that",
-                "You don't even need to donate, I'll give you the text-to-speech for free",
+                "You don't even need to donate, <a id='tts' title='The Ballad of Admiral Bulldog' href='#' onclick='playAudio();return false;'>I'll give you the text-to-speech for free</a>",
                 "Stack my camps IRL. Don't worry, I'll ignore the gesture just like a real carry"
             ];
 
-            document.getElementById('footer-quote').innerHTML = footerquotearray[Math.floor(Math.random() * footerquotearray.length)];
+            document.getElementById('donation-quote').innerHTML = donationquotearray[Math.floor(Math.random() * donationquotearray.length)];
         }(document);
     </script>
 </div>
