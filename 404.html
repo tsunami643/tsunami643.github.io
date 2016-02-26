@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>404 | You're lost.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="./assets/media/icons/favicon.ico">
+
+		<style>
+		@import url("http://fonts.googleapis.com/css?family=Roboto:400,700");
+
+		/* Box Model */
+
+			*, *:before, *:after {
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+
+		/* Basic */
+
+			@-ms-viewport {
+				width: device-width;
+			}
+
+			body {
+				-ms-overflow-style: scrollbar;
+			}
+
+			@media screen and (max-width: 480px) {
+
+				html, body {
+					min-width: 320px;
+				}
+
+			}
+
+			html, body {
+				height: 100%;
+				overflow: hidden;
+				width: 100%;
+			}
+
+				@media screen and (max-height: 640px) {
+
+					html, body {
+						height: auto;
+						min-height: 100%;
+					}
+
+				}
+
+			body {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-flex-direction: column;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-moz-justify-content: center;
+				-webkit-justify-content: center;
+				-ms-justify-content: center;
+				justify-content: center;
+				background-color: #fff;
+				padding: 6em 4em 4em 4em;
+			}
+
+				body > * {
+					position: relative;
+					z-index: 2;
+				}
+
+				@media screen and (max-width: 1680px) {
+
+					body {
+						padding: 6em 3.5em 10.5em 3.5em;
+					}
+
+				}
+
+				@media screen and (max-width: 736px) {
+
+					body {
+						padding: 5em 2em 2em 2em;
+					}
+
+				}
+
+				@media screen and (max-width: 360px) {
+
+					body {
+						padding: 5em 1.25em 1.25em 1.25em;
+					}
+
+				}
+
+		/* BG */
+
+			#bg {
+				height: 100%;
+				width: 40%;
+				right: 15px;
+				opacity: 0.25;
+				position: fixed;
+				top: 30px;
+				z-index: 1;
+			}
+
+			#bg img{
+				width: 100%;
+			}
+
+		/* Type */
+
+			body {
+				color: #000;
+				font-family: "Roboto", sans-serif;
+				font-weight: 400;
+				letter-spacing: -0.01em;
+				line-height: 1.65em;
+			}
+
+				@media screen and (max-width: 1680px) {
+
+					body {
+						font-size: 12pt;
+					}
+
+				}
+
+				@media screen and (max-width: 1280px) {
+
+					body {
+						font-size: 11pt;
+					}
+
+				}
+
+				@media screen and (max-width: 980px) {
+
+					body {
+						font-size: 12pt;
+					}
+
+				}
+
+				@media screen and (max-width: 736px) {
+
+					body {
+						font-size: 12pt;
+					}
+
+				}
+
+				@media screen and (max-width: 480px) {
+
+					body {
+						font-size: 12pt;
+					}
+
+				}
+
+			a {
+				-moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+				-webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+				-ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+				transition: border-bottom-color 0.2s ease, color 0.2s ease;
+				border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
+				color: #ee3c37;
+				text-decoration: none;
+			}
+
+				a:hover {
+					border-bottom-color: transparent;
+					color: #B12B27 !important;
+					text-decoration: none;
+				}
+
+			h1 {
+				color: #000;
+				font-weight: 700;
+				line-height: 1em;
+			}
+
+		/* Section/Article */
+
+			header p {
+				color: #000;
+				position: relative;
+				margin: 0 0 1.5em 0;
+			}
+
+			@media screen and (max-width: 980px) {
+
+				header br {
+					display: none;
+				}
+
+			}
+
+			@media screen and (max-width: 736px) {
+
+				header br {
+					display: inline;
+				}
+
+			}
+
+			@media screen and (max-width: 480px) {
+
+				header br {
+					display: none;
+				}
+
+			}
+
+		/* Header */
+
+			#header h1 {
+				font-size: 3.25em;
+				margin: 0 0 0.55em 0;
+			}
+
+			#header p {
+				font-size: 1.35em;
+				line-height: 1.65em;
+			}
+
+			@media screen and (max-width: 736px) {
+
+				#header h1 {
+					font-size: 2em;
+				}
+
+				#header p {
+					font-size: 1em;
+				}
+
+			}
+
+			@media screen and (max-width: 480px) {
+
+				#header {
+					margin: 0 0 1em 0;
+				}
+
+			}
+
+		/* Footer */
+
+			#footer {
+				bottom: 4em;
+				color: #000;
+				left: 4em;
+				position: absolute;
+			}
+
+				#footer .details {
+					font-size: 0.8em;
+					list-style: none;
+					padding: 0;
+				}
+
+				@media screen and (max-width: 1680px) {
+
+					#footer {
+						bottom: 3.5em;
+						left: 3.5em;
+					}
+
+				}
+
+				@media screen and (max-width: 736px) {
+
+					#footer {
+						bottom: 2em;
+						left: 2em;
+					}
+
+				}
+
+				@media screen and (max-width: 360px) {
+
+					#footer {
+						bottom: 1.25em;
+						left: 1.25em;
+					}
+
+				}
+
+				@media screen and (max-height: 640px) {
+
+					#footer {
+						bottom: auto;
+						left: auto;
+						margin: 1em 0 0 0;
+						position: relative;
+					}
+
+				}
+</style>
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1>What are you doing here?</h1>
+				<p>No wards, huh. Let's get you back to <a href="http://howdoiplay.com">where you belong</a>.</p>
+			</header>
+
+			<div id="bg">
+				<img src="./assets/media/404maiden.png"></img>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="details">
+					<li>If you reached this page in error, let me know <a href="https://www.twitter.com/tsunami643">@tsunami643</a></li>
+					<li>Art by <a href="http://fruitscs.deviantart.com/art/delinquent-CM-438735626">fruitscs</a></li>
+				</ul>
+			</footer>
+	</body>
+</html>
