@@ -668,7 +668,7 @@ button.paypal:hover{
 
     .herotitle {
         display: block;
-        padding: 0;
+        padding: 0 0 10px;
     }
 
     .name {
