@@ -281,7 +281,7 @@
 <script type="text/javascript">
     !function (document) {
         var donationquotearray = [
-            "You don't even need to donate, <a title='The Ballad of Admiral Bulldog' href='#' onclick='tts.play();return false;'>I'll give you the text-to-speech for free</a>",
+            "You don't even need to donate, <audio id='tts' preload='none'><source src='./assets/media/texttospeech.mp3' type='audio/mpeg'><source src='.assets/media/texttospeech.ogg' type='audio/ogg'></audio><a title='The Ballad of Admiral Bulldog' href='#' onclick='tts.play();return false;'>I'll give you the text-to-speech for free</a>",
             "This button makes a last hit sound. For me, not for you",
             "With your help, I can beat Sing to the moon",
             "Gates. Zuckerberg. Tsunami. What do we all have in common? Nothing.<br><br>Yet.",
@@ -293,22 +293,7 @@
             "Donate enough money and I could host my own LAN and then never pay out the winnings.<br><br>Wait, I can already do that",
             "Stack my camps IRL. Don't worry, I'll ignore the gesture just like a real carry"
         ];
-
-        var donationQuote = donationquotearray[Math.floor(Math.random() * donationquotearray.length)];
-
-        document.getElementById('donation-quote').innerHTML = donationQuote;
-
-        if (donationQuote == donationquotearray[0]){
-          var quoteAudio = document.createElement("AUDIO");
-            quoteAudio.setAttribute("id", "tts");
-            quoteAudio.setAttribute("preload", "none");
-            if (quoteAudio.canPlayType("audio/mpeg")) {
-              quoteAudio.setAttribute("src","./assets/media/texttospeech.mp3");
-            } else {
-              quoteAudio.setAttribute("src","./assets/media/texttospeech.ogg");
-            }
-          document.body.appendChild(quoteAudio);
-        }
+        document.getElementById('donation-quote').innerHTML = donationquotearray[Math.floor(Math.random() * donationquotearray.length)];
     }(document);
 </script>
 
