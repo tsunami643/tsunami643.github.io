@@ -227,12 +227,15 @@ a:hover {
 .portrait-frame {
     display: inline-block;
     position: relative;
+    width: 100%;
 }
 
 .portrait-frame-inner {
     display: inline-block;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 256px;
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 13px;
@@ -382,10 +385,9 @@ a:hover {
 .patch {
     position: absolute;
     top: 0;
-    right: 0;
+    max-width: 256px;
     z-index: 1;
     width: 100%;
-    height: 100%;
 }
 
 .patch .patch-img {

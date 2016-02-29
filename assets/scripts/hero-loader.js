@@ -121,8 +121,8 @@
           var src = $portrait.data('src');
 
           //var heroPatch = parseFloat(_this.$el.find('.hero').data('patch'));
-		  
-		  var gamePatch = parseFloat(_this.patch).toFixed(2);
+
+          var gamePatch = parseFloat(_this.patch).toFixed(2);
 
           if (gamePatch != _this.patch) {
             $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/patchbetablank.png"><div class="patch-text">not yet ' + gamePatch + '\'d</div></span>');
