@@ -129,6 +129,8 @@ a:hover {
 
 .typeahead::-ms-clear {
     display: none;
+	width : 0;
+	height: 0;
 }
 
 .tt-query {
