@@ -340,6 +340,10 @@ a:hover {
     font-size: 13px;
 }
 
+#links hr {
+    margin: 4.5px 0;
+}
+
 .arrow {
     left: 50%;
     border: 20px solid transparent;
