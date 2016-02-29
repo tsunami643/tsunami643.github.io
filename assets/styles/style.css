@@ -186,8 +186,9 @@ a:hover {
     position: relative;
 }
 
-.twitter-typeahead {
-    display: inline-flex !important;
+#hero-input-quote-start,
+#hero-input-quote-end {
+    vertical-align: middle;
 }
 
 .grey {

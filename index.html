@@ -84,18 +84,17 @@
 
 <body>
 <div class="wrapper">
-    <!-- The weird comments here strip out whitespace due to inline-flex seeing it as actual whitespace -->
     <div id="inputline">
-        <form id="heroinput-form" action="/" method="get"><!--
-        ---><span id="hero-input-quote-start"></span> <!--
-        ---><span id="heroinput"><!--
-            ---><input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off"><!--
-            ---><span id="randomhero"><a href="#" title="Random Hero (no bonus gold)"></a></span><!--
-            ---><span class="arrow"></span><!--
-        ---></span><!--
-        ---> <span id="hero-input-quote-end"></span><!--
-        ---><input type="submit" value="" style="visibility: hidden; position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden"/><!--
-    ---></form>
+        <form id="heroinput-form" action="/" method="get">
+        <span id="hero-input-quote-start"></span>
+        <span id="heroinput">
+            <input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
+            <span id="randomhero"><a href="#" title="Random Hero (no bonus gold)"></a></span>
+            <span class="arrow"></span>
+        </span>
+        <span id="hero-input-quote-end"></span>
+        <input type="submit" value="" style="visibility: hidden; position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden"/>
+    </form>
 
         <script>
             !function (document) {
