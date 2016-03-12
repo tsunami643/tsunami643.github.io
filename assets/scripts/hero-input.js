@@ -45,6 +45,25 @@
       source: engine
     });
 
+
+    this.$el.on('input propertychange', function () {
+      var value = _this.$el.typeahead('val');
+
+      var multicast = new Audio('./assets/media/Multicast_x3.mp3');
+      multicast.volume = 0.2;
+
+      if (value.toLowerCase() == 'dank memes') {
+        $("#heroinput")
+        .stop()
+        .velocity({left: '+=50'}, 200)
+        .velocity({left: '-=100'}, 250)
+        .velocity({left: '+=100'}, 300)
+        .velocity({left: '-=50'}, 320);
+        multicast.play();
+        return;
+      }
+    });
+
     this.$el.on('keydown keyup', function () {
       var value = _this.$el.typeahead('val');
 
