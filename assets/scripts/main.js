@@ -6,7 +6,7 @@
     patch: PATCH,
     $el: $('#tipcontainer'),
     urlFor: function (hero) {
-      return 'tips/' + hero.toLowerCase().replace(/ /ig, '_') + '.html';
+      return 'tips/joketips/' + hero.toLowerCase().replace(/ /ig, '_') + '.html';
     }
   });
 
