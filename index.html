@@ -42,7 +42,7 @@
 
     <script>
         !function (global) {
-            global.PATCH = '4.01';
+            global.PATCH = '6.86';
 
             global.HEROES = [
                 'Abaddon', 'Alchemist', 'Ancient Apparition', 'Anti-Mage', 'Arc Warden', 'Axe', 'Bane', 'Batrider',
@@ -99,7 +99,7 @@
         <script>
             !function (document) {
                 var quotes = [
-                    /*["I JUST RANDOMED", ". NOW WHAT?"],
+                    ["I JUST RANDOMED", ". NOW WHAT?"],
                     ["MY CAPTAIN PICKED ME", "AND NOW I'M PANICKING."],
                     ["I TOLD MY TEAM I KNOW HOW TO PLAY", "BUT I REALLY DON'T."],
                     ["I'M GETTING OWNED BY", ". WHAT DO?"],
@@ -129,8 +129,9 @@
                     ["GOT AN UNTRADEABLE SET FOR", ". GUESS I'LL LEARN HOW TO PLAY 'EM."],
                     ["I'M PLAYING", "? <font color='green'>+25</font>, HERE I COME."],
                     ["I'M PLAYING", "? <font color='indianred'>-25</font>, HERE I COME."],
-                    ["WHO NEEDS VERSATILITY? I'M THE", "MASTER."],*/
-                    ["GOOD TIPS MATE REAL USEFUL, SEE U AT", "J"],
+                    ["WHO NEEDS VERSATILITY? I'M THE", "MASTER."],
+                    ["<img src='./assets/media/OSfrog.png'> LE BALANCED", "HERO <img src='./assets/media/OSfrog.png'>"]
+                    /*["GOOD TIPS MATE REAL USEFUL, SEE U AT", "J"],
                     ["HOW 2 PLEY", "? #HARDWORK #DEDICATION. DEFENSIVE LANING."],
                     ["", "CAN YOU TP TOP?"],
                     ["", "'S A GOOD HERO, A BIT OVERRATED IN MY OPINION."],
@@ -141,8 +142,7 @@
                     ["IF I PLAY", "NOW, DO I GET ALL THE PREVIOUS REWARDS?"],
                     ["hey its me ur", ""],
                     ["I'M A SIMPLE MAN. I PLAY", ", I LOSE."],
-                    ["420", "WIZARD"],
-                    ["<img src='./assets/media/OSfrog.png'> LE BALANCED", "HERO <img src='./assets/media/OSfrog.png'>"]
+                    ["420", "WIZARD"]*/
                 ];
 
                 var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -273,14 +273,14 @@
 
 
     <div id="links">
-<!--
+
         Latest <a href="http://www.howdoiplay.com/blog">blog</a> post - <a href="http://howdoiplay.com/blog/2016/03/23/spring-cleaning-2016.html">Spring Cleaning 2016 Balance Notes | Mar. 23, 2016</a>
         <br><br>
 
         Looking for my <a href="./warding">warding guide?</a>
 
         <br><br>
--->
+
         <span id="donation-quote"></span>
         <hr style="height:2px; visibility:hidden;" />
         <button id="paypal-button" class="paypal" title="Help support the site!" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
