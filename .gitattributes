@@ -8,6 +8,9 @@
 
 *.webm binary
 
+*.mp3 binary
+*.ogg binary
+
 *.ico binary
 
 *.eot binary
