@@ -445,6 +445,17 @@ a:hover {
     -o-transform: rotate(20deg);
 }
 
+.patch-joke .patch-img {
+    /*Joke Sticker*/
+    top: -12px;
+    height: 50px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
 .tips h1 {
     font-style: italic;
     font-family: Georgia, Times, serif;

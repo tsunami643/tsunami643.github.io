@@ -127,7 +127,11 @@
           if (gamePatch != _this.patch) {
             $frame.prepend('<span class="patch patch-outdated"><img class="patch-img" src="./assets/media/patches/patchbetablank.png"><div class="patch-text">not yet ' + gamePatch + '\'d</div></span>');
           } else {
-            $frame.prepend('<span class="patch patch"><img class="patch-img" src="./assets/media/patches/patchblank.png"><div class="patch-text">' + gamePatch + '\'d</div></span>');
+            $frame.prepend('<span class="patch patch"><a id="joketoggle" title="Click for joke tips" href="#" onclick="JOKEMODE = true; return;"><img class="patch-img" src="./assets/media/patches/patchblank.png"></a><div class="patch-text">' + gamePatch + '\'d</div></span>');
+          }
+
+          if (JOKEMODE == true) {
+            _this.$el.find('.patch').replaceWith('<span class="patch patch-joke"><a id="joketoggle" title="👌👌 REAL TIP HOURS 👌" href="#" onclick="JOKEMODE=false; return;"><img class="patch-img" src="./assets/media/joke/emoji.png"></a>')
           }
 
           if (src) {

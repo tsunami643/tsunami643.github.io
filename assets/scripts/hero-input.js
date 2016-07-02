@@ -52,7 +52,7 @@
       var multicast = new Audio('./assets/media/Multicast_x3.mp3');
       multicast.volume = 0.2;
 
-      if (value.toLowerCase() == 'dank memes') {
+      if (value.toLowerCase() == 'dank memes' || value.toLowerCase() == 'memes') {
         $("#heroinput")
         .stop()
         .velocity({left: '+=50'}, 200)
@@ -60,6 +60,8 @@
         .velocity({left: '+=100'}, 300)
         .velocity({left: '-=50'}, 320);
         multicast.play();
+        JOKEMODE = true;
+        _this.$el.trigger(EVENTS.CLEAR);
         return;
       }
     });
