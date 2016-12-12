@@ -435,14 +435,14 @@ a:hover {
     font-family: 'Kalam';
     font-weight: bold;
     font-size: 0.725em;
-    right: -0.125em;
-    top: 0.375em;
+    right: -0.090em;
+    top: 0.625em;
     text-shadow: 0 0 1px rgba(0,0,0,0.3);
     transform: rotate(20deg);
-    -webkit-transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -ms-transform: rotate(20deg);
-    -o-transform: rotate(20deg);
+    -webkit-transform: rotate(22deg);
+    -moz-transform: rotate(22deg);
+    -ms-transform: rotate(22deg);
+    -o-transform: rotate(22deg);
 }
 
 .patch-joke .patch-img {
