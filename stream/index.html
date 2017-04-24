@@ -34,20 +34,23 @@ body{
     display: table;
 	background-image: url("./assets/tilebg.png");
     background-repeat: repeat;
+	overflow: hidden;
 }
 </style>
 
 </head>
 
 <body>
-<iframe
-    src="http://player.twitch.tv/?tsunami643"
-    height="720"
-    width="1280"
-    frameborder="0"
-    scrolling="no"
-    allowfullscreen="true"
-	align="center">
-</iframe>
+<script src= "http://player.twitch.tv/js/embed/v1.js"></script>
+<div id="player"></div>
+<script type="text/javascript">
+	var options = {
+		width: 1280,
+		height: 720,
+ 		channel: "tsunami643"
+	};
+	var player = new Twitch.Player("player", options);
+	player.setVolume(0.5);
+</script>
 </body>
 </html>
