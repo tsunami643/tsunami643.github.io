@@ -208,7 +208,7 @@ a:hover {
 }
 
 .hero {
-    padding: 30px 50px 0px;
+    padding: 30px 50px 20px;
 }
 
 .herotitle {
@@ -220,6 +220,7 @@ a:hover {
 .portrait {
     text-align: center;
     width: 100%;
+    height: 149px;
     display: block;
     position: relative;
 }
@@ -467,6 +468,10 @@ a:hover {
     padding-left: 20px;
 }
 
+.tips ul {
+    margin-bottom: 0px !important;
+}
+
 .nexthero,
 .prevhero {
     width: 55px;
@@ -689,6 +694,7 @@ button.paypal:hover{
     .hero {
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 0;
     }
 
     .herotitle {
@@ -709,6 +715,7 @@ button.paypal:hover{
     .portrait {
         position: relative;
         padding: 0 100px;
+        height: auto;
     }
 
     .portrait-img {
