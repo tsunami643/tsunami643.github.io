@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-<html>
+<html lang="en">
 
 <head>
   <meta name=viewport content="width=device-width, initial-scale=1">
   <meta name="Description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643."/>
-  <link href='https://fonts.googleapis.com/css?family=Cabin|Hind|Fjalla+One|Kalam' rel='stylesheet' type='text/css'>
 
   <title>Tsunami's Dota Hero Tips and Counters</title>
 
@@ -14,36 +13,30 @@
   <link rel="stylesheet" href="./assets/styles/style.css"/>
   <link rel="stylesheet" href="./assets/styles/minimap-icons.css"/>
 
-  <link rel="apple-touch-icon" sizes="57x57" href="./assets/media/icons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="./assets/media/icons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="./assets/media/icons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/media/icons/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="./assets/media/icons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="./assets/media/icons/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="./assets/media/icons/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="./assets/media/icons/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/media/icons/apple-touch-icon-180x180.png">
-  <link rel="icon" type="image/png" href="./assets/media/icons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="./assets/media/icons/favicon-194x194.png" sizes="194x194">
-  <link rel="icon" type="image/png" href="./assets/media/icons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="./assets/media/icons/android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="./assets/media/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/media/icons/apple-touch-icon.png">  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/media/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/media/icons/favicon-16x16.png">
   <link rel="manifest" href="./manifest.json">
-  <link rel="mask-icon" href="./assets/media/icons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="./assets/media/icons/favicon.ico">
+  <link rel="mask-icon" href="./assets/media/icons/safari-pinned-tab.svg" color="#ee3c37">
+  <link rel="shortcut icon" href="./favicon.ico">
 
   <meta name="apple-mobile-web-app-title" content="howdoiplay">
   <meta name="application-name" content="howdoiplay">
-  <meta name="msapplication-TileColor" content="#ee3c37">
-  <meta name="msapplication-TileImage" content="./assets/media/icons/mstile-144x144.png">
   <meta name="msapplication-config" content="./assets/media/icons/browserconfig.xml">
   <meta name="theme-color" content="#ee3c37">
+
+  <meta property="og:image" content="./assets/media/icons/android-chrome-512x512.png">
+  <meta property="og:image:width" content="279">
+  <meta property="og:image:height" content="279">
+  <meta property="og:description" content="A collection of tips, counters, and guides for Dota 2 heroes.">
+  <meta property="og:title" content="Tsunami's Dota Hero Tips and Counters">
+  <meta property="og:url" content="http://howdoiplay.com">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@tsunami643" />
   <meta name="twitter:title" content="Tsunami's Dota Hero Tips and Counters" />
   <meta name="twitter:description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643." />
-  <meta name="twitter:image" content="http://howdoiplay.com/assets/media/dota-2-logo-vector-1.png" />
+  <meta name="twitter:image" content="http://howdoiplay.com/assets/media/icons/android-chrome-512x512.png" />
 
   <link rel="search" type="application/opensearchdescription+xml" href="./assets/opensearch.xml" title="howdoiplay.com Search">
 
@@ -97,8 +90,8 @@
         <form id="heroinput-form" action="/" method="get">
         <span id="hero-input-quote-start"></span>
         <span id="heroinput">
-            <input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off">
-            <span id="randomhero"><a href="#" title="Random Hero (No Bonus Mango)"></a></span>
+            <input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off" aria-label="Hero Name">
+            <span id="randomhero"><a href="#" title="Random Hero (No Bonus Branch)"></a></span>
             <span class="arrow"></span>
         </span>
         <span id="hero-input-quote-end"></span>
@@ -139,7 +132,7 @@
                     ["I'M PLAYING", "? <font color='green'>+25</font>, HERE I COME."],
                     ["I'M PLAYING", "? <font color='indianred'>-25</font>, HERE I COME."],
                     ["WHO NEEDS VERSATILITY? I'M THE", "MASTER."],
-                    ["<img src='./assets/media/OSfrog.png'> LE BALANCED", "HERO <img src='./assets/media/OSfrog.png'>"]/*,
+                    ["<img src='./assets/media/OSfrog.png' alt='OSfrog'> LE BALANCED", "HERO <img src='./assets/media/OSfrog.png' alt='OSfrog'>"]/*,
                     ["GOOD TIPS MATE REAL USEFUL, SEE U AT", "J"],
                     ["HOW 2 PLEY", "? #HARDWORK #DEDICATION. DEFENSIVE LANING."],
                     ["", "CAN YOU TP TOP?"],
@@ -152,7 +145,7 @@
                     ["hey its me ur", ""],
                     ["I'M A SIMPLE MAN. I PLAY", ", I LOSE."],
                     ["420", "WIZARD"],
-                    ["<img src='./assets/media/CoolCat.png'>", "𝓑𝓪𝔂 <img src='./assets/media/CoolCat.png'>"],
+                    ["<img src='./assets/media/CoolCat.png' alt='CoolCat'>", "𝓑𝓪𝔂 <img src='./assets/media/CoolCat.png' alt='CoolCat'>"],
                     ["", "is an ass, and we won't be picking it again."],
                     ["Nippy. Kind.", "."],
                     ["But is it as good as +6", "🤔?"],
@@ -364,6 +357,22 @@
 <script type="text/javascript" src="./assets/scripts/hero-mini.js"></script>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
 
+<noscript>
+    <style>
+        #noscript {
+            margin: 0;
+            padding: 12px 15px;
+            background-color: #ee3c37;
+            color: #000;
+            text-align: center;
+            font-family: "Arial";
+            font-size: 13px;
+        }
+    </style>
+    <p id="noscript">You need to enable JavaScript to use this site</p>
+</noscript>
+
+<link href='https://fonts.googleapis.com/css?family=Cabin|Hind|Fjalla+One|Kalam' rel='stylesheet' type='text/css'>
 
 </body>
 

@@ -85,6 +85,7 @@ html, body {
     font-family: 'dice';
     src: url('./../fonts/fontello.eot');
     src: url('./../fonts/fontello.eot?#iefix') format('embedded-opentype'),
+    url('./../fonts/fontello.woff2') format('woff2'),
     url('./../fonts/fontello.woff') format('woff'),
     url('./../fonts/fontello.ttf') format('truetype');
     font-weight: normal;
@@ -599,9 +600,6 @@ a:hover {
     -o-transition: -o-filter 0.5s;
     transition: filter 0.5s;
     transition-property: filter, -webkit-filter;
-}
-
-.herolist__hero__link:before{
     -webkit-filter: brightness(100%);
     -moz-filter: brightness(100%);
     -o-filter: brightness(100%);
@@ -639,9 +637,6 @@ button.paypal{
 	text-align:center;
 	color:#ffffff;
 	font-size:16px
-}
-
-button.paypal{
 	background-color:#C3C3C3;
 	font-family: 'dice';
 	-webkit-transition:background-color 80ms ease-in;
