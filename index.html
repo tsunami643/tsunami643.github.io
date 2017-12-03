@@ -85,7 +85,23 @@
 </head>
 
 <body>
+
 <div class="wrapper">
+    <noscript>
+        <style>
+            #noscript {
+                margin: 0;
+                padding: 18px 15px;
+                background-color: #ee3c37;
+                color: #fff;
+                text-align: center;
+                font-family: "Arial";
+                font-size: 25px;
+                }
+        </style>
+        <p id="noscript">You need to enable JavaScript to use this site</p>
+    </noscript>
+
     <div id="inputline">
         <form id="heroinput-form" action="/" method="get">
         <span id="hero-input-quote-start"></span>
@@ -298,8 +314,15 @@
 
     </div>
 
-  <div class="push"></div>
+    <div class="push"></div>
 
+    <div id="social">
+        <a target="_blank" title="Twitter" href="https://twitter.com/tsunami643" class="twitter"></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a target="_blank" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -320,14 +343,6 @@
         document.getElementById('donation-quote').innerHTML = donationquotearray[Math.floor(Math.random() * donationquotearray.length)];
     }(document);
 </script>
-
-<div id="social">
-    <a target="_blank" title="Twitter" href="https://twitter.com/tsunami643" class="twitter"></a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a target="_blank" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a target="_blank" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
-</div>
 
 <script type="application/ld+json">
 	{
@@ -356,21 +371,6 @@
 <script type="text/javascript" src="./assets/scripts/hero-state.js"></script>
 <script type="text/javascript" src="./assets/scripts/hero-mini.js"></script>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
-
-<noscript>
-    <style>
-        #noscript {
-            margin: 0;
-            padding: 12px 15px;
-            background-color: #ee3c37;
-            color: #000;
-            text-align: center;
-            font-family: "Arial";
-            font-size: 13px;
-        }
-    </style>
-    <p id="noscript">You need to enable JavaScript to use this site</p>
-</noscript>
 
 <link href='https://fonts.googleapis.com/css?family=Cabin|Hind|Fjalla+One|Kalam' rel='stylesheet' type='text/css'>
 

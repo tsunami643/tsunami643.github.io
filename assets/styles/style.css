@@ -332,7 +332,8 @@ a:hover {
     min-height: 100%;
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
     height: 100%;
-    margin: 0 auto -75px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto;
+    position: relative;
 }
 
 #links {
@@ -648,8 +649,15 @@ button.paypal:hover{
 	background-color:#0070ba
 }
 
-#social, .push {
-    height: 75px; /* .push must be the same height as .footer */
+.push {
+    height: 72px; /* .push must be the same height as .footer */
+}
+
+#social {
+    padding: 45px 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 #social a {
