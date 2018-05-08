@@ -49,11 +49,19 @@ body {
             drop-shadow(-1px -1px 5px #137728);
     transition-property: filter;
     transition-duration: .4s;
+	
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #center-image:hover{
-    filter: drop-shadow(2px 2px 10px #137728)
-            drop-shadow(-2px -2px 10px #137728);
+    filter: drop-shadow(2px 2px 10px #956c9a)
+            drop-shadow(-2px -2px 10px #956c9a);
     transition-duration: .4s;
 }
 
@@ -63,8 +71,43 @@ body {
     transition-duration: 0s;
 }
 
-.global {
+.home {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 13px;
+    right: 15px;
+}
+
+.ancient{
+	display: flex;
+	flex: 1;
+}
+
+.invuln{
+	position: absolute;
+	opacity: 0;
+    left: 50%;
+	-webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+	top: 62.5%;
+}
+
+#target{
+	width:260px;
+}
+
+.growAnim {
+	animation: grow .1s;
+	animation-fill-mode: forwards;
+}
+
+ @keyframes grow {
+	from { transform: none; }
+	50% { transform: scale(1.1); }
+	to { transform: none; }
+}
+
+ @-webkit-keyframes grow {
+	from { transform: none; }
+	50% { transform: scale(1.1); }
+	to { transform: none; }
 }

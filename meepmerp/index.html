@@ -11,8 +11,13 @@
     <div class="center-container">
         
         <div class="content">
-            <img src="resources/ancient.png" id="center-image" onclick="meepmerp()">
-            <audio id="meepmerp" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio>
+			<div class="ancient">
+				<img src="resources/ancient.png" id="center-image" onclick="meepmerp()">
+				<audio id="meepmerp" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio>
+			</div>
+			<div class="invuln">
+				<img id="target" img src="resources/invulnerable.png">
+			</div>
         </div>
         
         <footer class="links">
@@ -20,13 +25,20 @@
 			<a href="http://balancethings.com/">Balance in all things</a>
 			<a href="http://sisilence.com/">Silence</a>
         </footer>
+		
+		<div class="home">
+            <a href="https://www.howdoiplay.com"> <img src="resources/minilogo.png" alt="Visit howdoiplay.com" title="Visit howdoiplay.com"> </a>
+        </div>
         
         <script type="text/javascript">
-            document.getElementById('global').volume = 0.2;
-            
             function meepmerp(){
                 document.getElementById('meepmerp').currentTime = 0;
                 document.getElementById('meepmerp').play();
+				document.getElementsByClassName('invuln')[0].style.opacity = "1";
+				document.getElementById('target').classList.add('growAnim');
+				setTimeout(function(){
+					document.getElementById('target').classList.remove('growAnim');        
+				},100)
             }
         </script>
 
