@@ -5,42 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>meepmerp</title>
+	<meta name="Description" content="Dota 2's instant meep merp of invulnerability"/>
     <link rel="stylesheet" href="resources/styles.css">
+	
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content="@tsunami643" />
+	<meta name="twitter:title" content="meepmerp" />
+	<meta name="twitter:description" content="meepmerp" />
 </head>
 <body>
-    <div class="center-container">
+    <div id="center-container">
         
-        <div class="content">
-			<div class="ancient">
-				<img src="resources/ancient.png" id="center-image" onclick="meepmerp()">
-				<audio id="meepmerp" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio>
+        <div id="content">
+			<div id="image">
+				<img src="resources/ancient.png" id="center-image" onclick="playAudio()" oncontextmenu="playAudio(); return false;">
+				<audio id="sound" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio>
 			</div>
-			<div class="invuln">
+			<div id="debuff">
 				<img id="target" img src="resources/invulnerable.png">
 			</div>
         </div>
         
-        <footer class="links">
+        <footer id="links">
+			<p id="left">
+			<a onclick="javascript:replace(1); return false;">balance in all things</a>
+			<a onclick="javascript:replace(2); return false;">silence</a>
+			<a onclick="javascript:replace(3); return false;">meepmerp</a>
+			</p>
+			<p id="right">
 			<a href="https://www.reddit.com/r/DotA2/comments/6ewyp7/meepmerp/">original by /u/esport5000</a>
-			<a href="http://balancethings.com/">Balance in all things</a>
-			<a href="http://sisilence.com/">Silence</a>
+			<a href="https://www.howdoiplay.com" style="height : 30px;"> <img src="resources/minilogo.png" alt="Visit howdoiplay.com" title="Visit howdoiplay.com"> </a>
+			</p>
         </footer>
-		
-		<div class="home">
-            <a href="https://www.howdoiplay.com"> <img src="resources/minilogo.png" alt="Visit howdoiplay.com" title="Visit howdoiplay.com"> </a>
-        </div>
         
         <script type="text/javascript">
-            function meepmerp(){
-                document.getElementById('meepmerp').currentTime = 0;
-                document.getElementById('meepmerp').play();
-				document.getElementsByClassName('invuln')[0].style.opacity = "1";
+            function playAudio(){
+                document.getElementById('sound').currentTime = 0;
+                document.getElementById('sound').play();
+				document.getElementById('debuff').style.opacity = "1";
 				document.getElementById('target').classList.add('growAnim');
 				setTimeout(function(){
 					document.getElementById('target').classList.remove('growAnim');        
 				},100)
             }
         </script>
+		
+		<script type="text/javascript">
+			function replace(change){
+				if (change == 1) {
+					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/osfrog.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/balance.mp3" autostart="false" hidden="true"></audio></div>' }
+				if (change == 2) {
+					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/silence.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/silence.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/silenced.png"></div>' }
+				if (change == 3) {
+					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/ancient.png" id="center-image" onclick="playAudio()" oncontextmenu="playAudio(); return false;"><audio id="sound" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/invulnerable.png"></div>' }
+				}
+		</script>
 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

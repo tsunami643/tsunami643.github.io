@@ -10,7 +10,7 @@ body {
     position: relative;
 }
 
-.center-container{
+#center-container{
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -19,26 +19,38 @@ body {
     align-content: center;
 }
 
-.content {
+#content {
     display: flex;
     flex: 1;
 }
 
-.links {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+#links {
+	margin: 15px;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
 }
 
-.links a {
+#links a {
     color: #fff;
     text-decoration: none;
-    padding: 20px;
+    margin: 15px;
 }
 
-.links a:hover {
-    filter: drop-shadow(1px 1px 5px #137728)
-            drop-shadow(-1px -1px 5px #137728);
+#links a:hover {
+    filter: drop-shadow(1px 1px 5px #ee3c37)
+            drop-shadow(-1px -1px 5px #ee3c37);
+}
+
+#right {
+	font-size: smaller;
+	display: flex;
+	align-items: center;
+}
+
+#right a {
+	margin: 0 15px;
 }
 
 #center-image{
@@ -71,18 +83,18 @@ body {
     transition-duration: 0s;
 }
 
-.home {
+#home {
     position: absolute;
     bottom: 13px;
     right: 15px;
 }
 
-.ancient{
+#image{
 	display: flex;
 	flex: 1;
 }
 
-.invuln{
+#debuff{
 	position: absolute;
 	opacity: 0;
     left: 50%;
@@ -92,7 +104,7 @@ body {
 }
 
 #target{
-	width:260px;
+	height: 43px;
 }
 
 .growAnim {
@@ -102,12 +114,12 @@ body {
 
  @keyframes grow {
 	from { transform: none; }
-	50% { transform: scale(1.1); }
+	50% { transform: scale(1.15); }
 	to { transform: none; }
 }
 
  @-webkit-keyframes grow {
 	from { transform: none; }
-	50% { transform: scale(1.1); }
+	50% { transform: scale(1.15); }
 	to { transform: none; }
 }
