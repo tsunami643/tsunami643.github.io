@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>meepmerp</title>
-	<meta name="Description" content="Dota 2's instant meep merp of invulnerability"/>
+	<meta name="Description" content="Meepmerps and other Dota 2 audio in a soundboard"/>
     <link rel="stylesheet" href="resources/styles.css">
 	
 	<meta name="twitter:card" content="summary" />
@@ -29,9 +29,10 @@
         
         <footer id="links">
 			<p id="left">
-			<a onclick="javascript:replace(1); return false;">balance in all things</a>
+			<a onclick="javascript:replace(1); return false;">balance</a>
 			<a onclick="javascript:replace(2); return false;">silence</a>
 			<a onclick="javascript:replace(3); return false;">meepmerp</a>
+			<a onclick="javascript:replace(4); return false;">farming</a>
 			</p>
 			<p id="right">
 			<a href="https://www.reddit.com/r/DotA2/comments/6ewyp7/meepmerp/">original by /u/esport5000</a>
@@ -52,6 +53,28 @@
         </script>
 		
 		<script type="text/javascript">
+            function playMana(){
+                let audio = document.createElement("audio");
+				document.body.appendChild(audio);
+				audio.src = document.getElementById("sound").src;
+				audio.addEventListener("ended", () => audio.remove());
+				audio.volume = 0.6;
+				audio.play();
+				
+				var lasthit = Math.random();
+				if (lasthit <= 0.7)
+				{
+					setTimeout(function(){
+						document.getElementById('sound').appendChild(coins);
+						coins.src = document.getElementById("coins").src;
+						coins.volume = 0.9;
+						coins.play();
+					},250)
+				}
+            }
+        </script>
+		
+		<script type="text/javascript">
 			function replace(change){
 				if (change == 1) {
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/osfrog.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/balance.mp3" autostart="false" hidden="true"></audio></div>' }
@@ -59,6 +82,8 @@
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/silence.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/silence.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/silenced.png"></div>' }
 				if (change == 3) {
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/ancient.png" id="center-image" onclick="playAudio()" oncontextmenu="playAudio(); return false;"><audio id="sound" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/invulnerable.png"></div>' }
+				if (change == 4) {
+					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/mana.png" id="manabreak" onclick="playMana()" oncontextmenu="playMana(); return false;"><audio id="sound" src="resources/mana_break.mp3" autostart="false" hidden="true"><audio id="coins" src="resources/coins.wav" autostart="false" hidden="true">' }
 				}
 		</script>
 
