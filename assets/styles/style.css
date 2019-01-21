@@ -73,6 +73,7 @@ html {
 html {
     height: 100%;
     font-family: 'Cabin', sans-serif;
+    font-display: auto;
     font-size: 24px;
     color: #333;
 }
@@ -340,6 +341,7 @@ a:hover {
     bottom: 0;
     width: 100%;
     font-family: 'Hind', sans-serif;
+    font-display: auto;
     padding: 35px 30px 50px;
     font-size: 14px;
 }
