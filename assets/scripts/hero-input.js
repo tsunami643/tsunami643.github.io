@@ -52,7 +52,7 @@
       var multicast = new Audio('./assets/media/Multicast_x3.mp3');
       multicast.volume = 0.2;
 
-      if (value.toLowerCase() == 'dank memes' || value.toLowerCase() == 'memes' || value.toLowerCase() == 'shitposts' || value.toLowerCase() == 'shitposting') {
+      if (value.toLowerCase() == 'dank memes' || value.toLowerCase() == 'memes' || value.toLowerCase() == 'shitpost' || value.toLowerCase() == 'april fool') {
         $("#heroinput")
         .stop()
         .velocity({left: '+=50'}, 200)
