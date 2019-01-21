@@ -1,6 +1,3 @@
 User-agent: *
 Disallow: /twitchchat/
 Disallow: /thankyou/
-Disallow: /reputation/
-Disallow: /fearless/
-Disallow: /speaknow/
