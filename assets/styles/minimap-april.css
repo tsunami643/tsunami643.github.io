@@ -1,0 +1,14 @@
+.herolist__hero__link:before {
+    content: ' ';
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: url('../media/heroes/minimap/whitechess.png') no-repeat;
+}
+
+.bishop           	 .herolist__hero__link:before { background-position: -5px -5px;   }
+.king	             .herolist__hero__link:before { background-position: -60px -5px   }
+.knight		         .herolist__hero__link:before { background-position: -5px -60px   }
+.pawn                .herolist__hero__link:before { background-position: -60px -60px  }
+.queen		         .herolist__hero__link:before { background-position: -115px -5px  }
+.rook				 .herolist__hero__link:before { background-position: -115px -60px }
