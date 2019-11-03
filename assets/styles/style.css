@@ -87,8 +87,7 @@ html, body {
     src: url('./../fonts/fontello.eot');
     src: url('./../fonts/fontello.eot?#iefix') format('embedded-opentype'),
     url('./../fonts/fontello.woff2') format('woff2'),
-    url('./../fonts/fontello.woff') format('woff'),
-    url('./../fonts/fontello.ttf') format('truetype');
+    url('./../fonts/fontello.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -677,8 +676,12 @@ button.paypal:hover{
     color:#55ACEE
 }
 
+#social a.instagram:hover{
+    color: #c13584
+}
+
 #social a.twitch:hover{
-    color:#6441A5
+    color:#9146FF
 }
 
 #social a.youtube:hover{
@@ -774,3 +777,69 @@ button.paypal:hover{
         opacity: 1;
     }
 }
+
+/*Dark Mode*/
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1f2025;
+        color: #efefef;
+        caret-color: white;
+    }
+
+    .grey {
+        background-color: #16171b;
+    }
+    
+    .arrow {
+        border-bottom: solid 20px #16171b;
+    }
+
+    .herolist {
+        border-top: solid 1px #16171b;
+    }
+
+    .tip-container--expanded + .herolist {
+        border-top-color: #404454;
+    }
+
+    #heroinput:after {
+        border-bottom-color: #363942;
+    }
+
+    .tt-menu {
+        background-color: #16171b;
+    }
+
+    .typeahead {
+        background-color: #1f2025;
+        color: #efefef;
+    }
+
+    .typeahead tt-input {
+        background-color: #1f2025;
+        color: #efefef;
+    }
+
+    .tt-hint {
+        color: #9a9a9a;
+    }
+
+    a {
+        color: #6fc2e0;
+    }
+
+    #social a {
+        color: #797979;
+    }
+
+    button.paypal {
+        background: #797979;
+        color:#efefef;
+    }
+  }
+
+  @media screen and (max-width: 800px) and (prefers-color-scheme: dark) {
+    .tips li + li {
+        border-top: solid 1px #363942;
+    }
+  }
