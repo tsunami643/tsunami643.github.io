@@ -29,10 +29,11 @@
         
         <footer id="links">
 			<p id="left">
-			<a onclick="javascript:replace(1); return false;">balance</a>
-			<a onclick="javascript:replace(2); return false;">silence</a>
-			<a onclick="javascript:replace(3); return false;">meepmerp</a>
-			<a onclick="javascript:replace(4); return false;">farming</a>
+			<a onclick="javascript:replace(1); window.location.hash='balance'; return false;">balance</a>
+			<a onclick="javascript:replace(2); window.location.hash='silence'; return false;">silence</a>
+			<a onclick="javascript:replace(3); window.location.hash=''; return false;">meepmerp</a>
+			<a onclick="javascript:replace(4); window.location.hash='farming'; return false;">farming</a>
+			<a onclick="javascript:replace(5); window.location.hash='nicememe'; return false;">nice meme</a>
 			</p>
 			<p id="right">
 			<a href="https://www.reddit.com/r/DotA2/comments/6ewyp7/meepmerp/">original by /u/esport5000</a>
@@ -72,18 +73,35 @@
 					},250)
 				}
             }
-        </script>
+		</script>
+		
+		<script type="text/javascript">
+				window.onload = function(){
+				if(self.document.location.hash == '#balance'){
+	    				javascript:replace(1);}
+				if(self.document.location.hash == '#silence'){
+	    				javascript:replace(2);}
+				if(self.document.location.hash == '#'){
+	    				javascript:replace(3);}
+				if(self.document.location.hash == '#farming'){
+	    				javascript:replace(4);}
+				if(self.document.location.hash == '#nicememe'){
+	    				javascript:replace(5);}
+				}
+		</script>
 		
 		<script type="text/javascript">
 			function replace(change){
 				if (change == 1) {
-					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/osfrog.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/balance.mp3" autostart="false" hidden="true"></audio></div>' }
+					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/osfrog.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/balance.mp3" autostart="false" hidden="true"></audio></div>';}
 				if (change == 2) {
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/silence.png" id="center-image" onclick="playAudio()"><audio id="sound" src="resources/silence.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/silenced.png"></div>' }
 				if (change == 3) {
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/ancient.png" id="center-image" onclick="playAudio()" oncontextmenu="playAudio(); return false;"><audio id="sound" src="resources/meepmerp.wav" autostart="false" hidden="true"></audio></div><div id="debuff"><img id="target" img src="resources/invulnerable.png"></div>' }
 				if (change == 4) {
 					document.getElementById("content").innerHTML = '<div id="image"><img src="resources/mana.png" id="manabreak" onclick="playMana()" oncontextmenu="playMana(); return false;"><audio id="sound" src="resources/mana_break.mp3" autostart="false" hidden="true"><audio id="coins" src="resources/coins.wav" autostart="false" hidden="true">' }
+				if (change == 5) {
+					document.getElementById("content").innerHTML = '<div id="center-text" onclick="playAudio()"><h1>Nice dota meme!</h1><audio id="sound" src="resources/nicedotamemes.mp3" autostart="true" hidden="true"></audio></div>' }
 				}
 		</script>
 
