@@ -54,7 +54,9 @@
 body {
     margin: 0;
     text-align: center;
-    background-color: white;
+    background-color: #1f2025;
+    color: #efefef;
+    caret-color: white;
 }
 
 html {
@@ -93,7 +95,7 @@ html, body {
 }
 
 a {
-    color: #03739c;
+    color: #6fc2e0;
     text-decoration: none;
 }
 
@@ -121,7 +123,13 @@ a:hover {
 }
 
 .typeahead {
-    background-color: #fff;
+    background-color: #1f2025;
+    color: #efefef;
+}
+
+.typeahead tt-input {
+    background-color: #1f2025;
+    color: #efefef;
 }
 
 .typeahead:focus {
@@ -141,7 +149,7 @@ a:hover {
 }
 
 .tt-hint {
-    color: #999
+    color: #9a9a9a;
 }
 
 .tt-menu {
@@ -157,6 +165,7 @@ a:hover {
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    background-color: #16171b;
 }
 
 .tt-suggestion {
@@ -193,14 +202,18 @@ a:hover {
     position: relative;
 }
 
+#heroinput:after {
+    border-bottom-color: #363942;
+}
+
 #hero-input-quote-start,
 #hero-input-quote-end {
     vertical-align: middle;
 }
 
 .grey {
-    margin-top: 20px;
-    background-color: #EBEBEB;
+    margin-top: 19px;
+    background-color: #16171b;
     width: 100%;
 }
 
@@ -359,7 +372,7 @@ a:hover {
     pointer-events: none;
     top: 100%;
     border-top-width: 0;
-    border-bottom: solid 20px #ebebeb;
+    border-bottom: solid 20px #16171b;
     margin-left: -20px;
     margin-top: 15px;
 }
@@ -532,24 +545,18 @@ a:hover {
     padding-left: 10px;
 }
 
-.theme-dark {
-    color: #9d9d9d;
+.scepter {
+    vertical-align: middle;
+    margin-right: 8px;
+    height: 29px;
+    content:url("./scepter.png");
 }
 
-.theme-dark .tt-input {
-    color: #333
-}
-
-.theme-dark body {
-    background-color: #111;
-}
-
-.theme-dark #tipcontainer {
-    background-color: #222;
-}
-
-.theme-dark #heroinput:after {
-    border-bottom-color: #222;
+.shard {
+    vertical-align: middle;
+    margin-right: 8px;
+    height: 12px;
+    content:url("./shard.png");
 }
 
 .video-wrapper {
@@ -582,7 +589,7 @@ a:hover {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px 16px 14px;
-    border-top: solid 1px #EBEBEB;
+    border-top: solid 1px #16171b;
     image-rendering: pixelated;
     image-rendering; -moz-crisp-edges;
     -webkit-transition: border-top-color 0.3s;
@@ -593,7 +600,7 @@ a:hover {
 }
 
 .tip-container--expanded + .herolist {
-    border-top-color: #ccc;
+    border-top-color: #404454;
 }
 
 .herolist__hero__link:before {
@@ -627,7 +634,9 @@ a:hover {
 }
 
 button.paypal{
-	border:none;background:#C3C3C3;
+    border:none;
+    background: #797979;
+    color:#efefef;
 	-webkit-appearance:none;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -638,7 +647,6 @@ button.paypal{
 	line-height:34px;
 	padding:0 11px;
 	text-align:center;
-	color:#ffffff;
 	font-size:16px
 	background-color:#C3C3C3;
 	font-family: 'dice';
@@ -665,7 +673,7 @@ button.paypal:hover{
 #social a {
 	font-family: 'dice';
     text-decoration: none;
-    color: #C3C3C3;
+    color: #797979;
 	font-size: 25px;
 	-webkit-transition:color 80ms ease-in;
 	-moz-transition:color 80ms ease-in;
@@ -755,7 +763,7 @@ button.paypal:hover{
     }
 
     .tips li + li {
-        border-top: solid 1px #ccc;
+        border-top: solid 1px #363942;
     }
 
     .typeahead,
@@ -777,69 +785,3 @@ button.paypal:hover{
         opacity: 1;
     }
 }
-
-/*Dark Mode*/
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1f2025;
-        color: #efefef;
-        caret-color: white;
-    }
-
-    .grey {
-        background-color: #16171b;
-    }
-    
-    .arrow {
-        border-bottom: solid 20px #16171b;
-    }
-
-    .herolist {
-        border-top: solid 1px #16171b;
-    }
-
-    .tip-container--expanded + .herolist {
-        border-top-color: #404454;
-    }
-
-    #heroinput:after {
-        border-bottom-color: #363942;
-    }
-
-    .tt-menu {
-        background-color: #16171b;
-    }
-
-    .typeahead {
-        background-color: #1f2025;
-        color: #efefef;
-    }
-
-    .typeahead tt-input {
-        background-color: #1f2025;
-        color: #efefef;
-    }
-
-    .tt-hint {
-        color: #9a9a9a;
-    }
-
-    a {
-        color: #6fc2e0;
-    }
-
-    #social a {
-        color: #797979;
-    }
-
-    button.paypal {
-        background: #797979;
-        color:#efefef;
-    }
-  }
-
-  @media screen and (max-width: 800px) and (prefers-color-scheme: dark) {
-    .tips li + li {
-        border-top: solid 1px #363942;
-    }
-  }
