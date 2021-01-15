@@ -423,9 +423,9 @@ a:hover {
     color: white;
     position: absolute;
     font-family: 'Fjalla One';
-    font-size: 0.600em;
-    right: -0.525em;
-    top: 0.190em;
+    font-size: 0.800em;
+    right: -0.300em;
+    top: -0.050em;
     transform: rotate(35deg);
     -webkit-transform: rotate(35deg);
     -moz-transform: rotate(35deg) translate3d(0px,0px,1px);
