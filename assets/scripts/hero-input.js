@@ -60,7 +60,7 @@
         .velocity({left: '+=100'}, 300)
         .velocity({left: '-=50'}, 320);
         multicast.play();
-        JOKEMODE = true;
+        JOKEMODE = !JOKEMODE;
         _this.$el.trigger(EVENTS.CLEAR);
         return;
       }
