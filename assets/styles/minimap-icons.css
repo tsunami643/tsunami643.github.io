@@ -1,0 +1,147 @@
+.herolist__hero__link:before {
+    content: ' ';
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    background: url('../media/heroes/minimap/hero_icons.png') no-repeat;
+}
+
+.abaddon             .herolist__hero__link:before { background-position: -4px -5px     }
+.alchemist           .herolist__hero__link:before { background-position: -47px -5px    }
+.ancient_apparition  .herolist__hero__link:before { background-position: -89px -5px    }
+.antimage            .herolist__hero__link:before { background-position: -131px -5px   }
+.arc_warden          .herolist__hero__link:before { background-position: -5px -425px   }
+.axe                 .herolist__hero__link:before { background-position: -171px -4px   }
+.bane                .herolist__hero__link:before { background-position: -212px -5px   }
+.batrider            .herolist__hero__link:before { background-position: -255px -5px   }
+.beastmaster         .herolist__hero__link:before { background-position: -297px -5px   }
+.bloodseeker         .herolist__hero__link:before { background-position: -339px -5px   }
+.bounty_hunter       .herolist__hero__link:before { background-position: -380px -5px   }
+.brewmaster          .herolist__hero__link:before { background-position: -5px -46px    }
+.bristleback         .herolist__hero__link:before { background-position: -47px -47px   }
+.broodmother         .herolist__hero__link:before { background-position: -86px -47px   }
+.centaur_warrunner   .herolist__hero__link:before { background-position: -125px -47px  }
+.chaos_knight        .herolist__hero__link:before { background-position: -168px -47px  }
+.chen                .herolist__hero__link:before { background-position: -210px -47px  }
+.clinkz              .herolist__hero__link:before { background-position: -252px -47px  }
+.clockwerk           .herolist__hero__link:before { background-position: -294px -47px  }
+.crystal_maiden      .herolist__hero__link:before { background-position: -336px -47px  }
+.dark_seer           .herolist__hero__link:before { background-position: -377px -47px  }
+.dark_willow         .herolist__hero__link:before { background-position: -173px -425px }
+.dawnbreaker         .herolist__hero__link:before { background-position: -425px -425px }
+.dazzle              .herolist__hero__link:before { background-position: -5px -89px    }
+.death_prophet       .herolist__hero__link:before { background-position: -46px -89px   }
+.disruptor           .herolist__hero__link:before { background-position: -87px -89px   }
+.doom                .herolist__hero__link:before { background-position: -129px -89px  }
+.dragon_knight       .herolist__hero__link:before { background-position: -171px -89px  }
+.drow_ranger         .herolist__hero__link:before { background-position: -213px -89px  }
+.earth_spirit        .herolist__hero__link:before { background-position: -254px -89px  }
+.earthshaker         .herolist__hero__link:before { background-position: -297px -90px  }
+.elder_titan         .herolist__hero__link:before { background-position: -339px -87px  }
+.ember_spirit        .herolist__hero__link:before { background-position: -381px -87px  }
+.enchantress         .herolist__hero__link:before { background-position: -5px -131px   }
+.enigma              .herolist__hero__link:before { background-position: -47px -131px  }
+.faceless_void       .herolist__hero__link:before { background-position: -89px -129px  }
+.grimstroke          .herolist__hero__link:before { background-position: -215px -425px }
+.gyrocopter          .herolist__hero__link:before { background-position: -131px -131px }
+.hoodwink            .herolist__hero__link:before { background-position: -382px -425px }
+.huskar              .herolist__hero__link:before { background-position: -172px -131px }
+.invoker             .herolist__hero__link:before { background-position: -215px -131px }
+.io                  .herolist__hero__link:before { background-position: -258px -131px }
+.jakiro              .herolist__hero__link:before { background-position: -299px -131px }
+.juggernaut          .herolist__hero__link:before { background-position: -341px -131px }
+.keeper_of_the_light .herolist__hero__link:before { background-position: -383px -131px }
+.kunkka              .herolist__hero__link:before { background-position: -6px -173px   }
+.legion_commander    .herolist__hero__link:before { background-position: -47px -173px  }
+.leshrac             .herolist__hero__link:before { background-position: -89px -173px  }
+.lich                .herolist__hero__link:before { background-position: -131px -173px }
+.lifestealer         .herolist__hero__link:before { background-position: -173px -173px }
+.lina                .herolist__hero__link:before { background-position: -216px -173px }
+.lion                .herolist__hero__link:before { background-position: -256px -173px }
+.lone_druid          .herolist__hero__link:before { background-position: -299px -173px }
+.luna                .herolist__hero__link:before { background-position: -341px -173px }
+.lycan               .herolist__hero__link:before { background-position: -383px -173px }
+.magnus              .herolist__hero__link:before { background-position: -5px -215px   }
+.marci               .herolist__hero__link:before { background-position: -5px -467px   }
+.mars                .herolist__hero__link:before { background-position: -257px -425px }
+.medusa              .herolist__hero__link:before { background-position: -47px -215px  }
+.meepo               .herolist__hero__link:before { background-position: -89px -215px  }
+.mirana              .herolist__hero__link:before { background-position: -131px -215px }
+.monkey_king         .herolist__hero__link:before { background-position: -89px -425px  }
+.morphling           .herolist__hero__link:before { background-position: -173px -215px }
+.naga_siren          .herolist__hero__link:before { background-position: -215px -215px }
+.natures_prophet     .herolist__hero__link:before { background-position: -257px -215px }
+.necrophos           .herolist__hero__link:before { background-position: -298px -215px }
+.night_stalker       .herolist__hero__link:before { background-position: -341px -215px }
+.nyx_assassin        .herolist__hero__link:before { background-position: -383px -215px }
+.ogre_magi           .herolist__hero__link:before { background-position: -5px -257px   }
+.omniknight          .herolist__hero__link:before { background-position: -47px -257px  }
+.oracle              .herolist__hero__link:before { background-position: -89px -257px  }
+.outworld_destroyer  .herolist__hero__link:before { background-position: -131px -257px }
+.pangolier           .herolist__hero__link:before { background-position: -131px -425px }
+.phantom_assassin    .herolist__hero__link:before { background-position: -173px -257px }
+.phantom_lancer      .herolist__hero__link:before { background-position: -215px -257px }
+.phoenix             .herolist__hero__link:before { background-position: -258px -257px }
+.primal_beast        .herolist__hero__link:before { background-position: -47px  -467px }
+.puck                .herolist__hero__link:before { background-position: -299px -256px }
+.pudge               .herolist__hero__link:before { background-position: -341px -257px }
+.pugna               .herolist__hero__link:before { background-position: -383px -257px }
+.queen_of_pain       .herolist__hero__link:before { background-position: -6px -299px   }
+.razor               .herolist__hero__link:before { background-position: -48px -299px  }
+.riki                .herolist__hero__link:before { background-position: -89px -299px  }
+.rubick              .herolist__hero__link:before { background-position: -131px -299px }
+.sand_king           .herolist__hero__link:before { background-position: -173px -299px }
+.shadow_demon        .herolist__hero__link:before { background-position: -216px -299px }
+.shadow_fiend        .herolist__hero__link:before { background-position: -258px -299px }
+.shadow_shaman       .herolist__hero__link:before { background-position: -299px -299px }
+.silencer            .herolist__hero__link:before { background-position: -342px -299px }
+.skywrath_mage       .herolist__hero__link:before { background-position: -384px -299px }
+.slardar             .herolist__hero__link:before { background-position: -5px -341px   }
+.slark               .herolist__hero__link:before { background-position: -47px -341px  }
+.snapfire            .herolist__hero__link:before { background-position: -298px -425px }
+.sniper              .herolist__hero__link:before { background-position: -89px -341px  }
+.spectre             .herolist__hero__link:before { background-position: -131px -341px }
+.spirit_breaker      .herolist__hero__link:before { background-position: -173px -341px }
+.storm_spirit        .herolist__hero__link:before { background-position: -215px -341px }
+.sven                .herolist__hero__link:before { background-position: -257px -341px }
+.techies             .herolist__hero__link:before { background-position: -298px -341px }
+.templar_assassin    .herolist__hero__link:before { background-position: -340px -341px }
+.terrorblade         .herolist__hero__link:before { background-position: -381px -341px }
+.tidehunter          .herolist__hero__link:before { background-position: -5px -383px   }
+.timbersaw           .herolist__hero__link:before { background-position: -47px -383px  }
+.tinker              .herolist__hero__link:before { background-position: -90px -383px  }
+.tiny                .herolist__hero__link:before { background-position: -132px -383px }
+.treant_protector    .herolist__hero__link:before { background-position: -173px -383px }
+.troll_warlord       .herolist__hero__link:before { background-position: -215px -383px }
+.tusk                .herolist__hero__link:before { background-position: -257px -383px }
+.underlord           .herolist__hero__link:before { background-position: -47px -425px  }
+.undying             .herolist__hero__link:before { background-position: -298px -383px }
+.ursa                .herolist__hero__link:before { background-position: -341px -383px }
+.vengeful_spirit     .herolist__hero__link:before { background-position: -383px -383px }
+.venomancer          .herolist__hero__link:before { background-position: -423px -5px   }
+.viper               .herolist__hero__link:before { background-position: -421px -47px  }
+.visage              .herolist__hero__link:before { background-position: -424px -89px  }
+.void_spirit	     .herolist__hero__link:before { background-position: -341px -425px }
+.warlock             .herolist__hero__link:before { background-position: -425px -131px }
+.weaver              .herolist__hero__link:before { background-position: -425px -173px }
+.windranger          .herolist__hero__link:before { background-position: -426px -215px }
+.winter_wyvern       .herolist__hero__link:before { background-position: -425px -257px }
+.witch_doctor        .herolist__hero__link:before { background-position: -425px -299px }
+.wraith_king         .herolist__hero__link:before { background-position: -424px -341px }
+.zeus                .herolist__hero__link:before { background-position: -425px -383px }
+
+tr {
+    display: table-column-group;
+}
+
+tbody {
+    display: table-column-group;
+}
+
+td {
+	display: table;
+}
+
+td:nth-child(1), td:nth-child(2), td:nth-child(3){
+    display: table-column;
+}
