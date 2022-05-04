@@ -3,7 +3,7 @@
     display: inline-block;
     width: 32px;
     height: 32px;
-    background: url('../media/heroes/minimap/spritesheet.png') no-repeat;
+    background: url('../media/heroes/minimap/hero_sprites.png') no-repeat;
 }
 
 .abaddon             .herolist__hero__link:before { background-position: -4px -5px     }
