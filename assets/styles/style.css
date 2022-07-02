@@ -549,14 +549,14 @@ a:hover {
     vertical-align: middle;
     margin-right: 8px;
     height: 29px;
-    content:url("./scepter.png");
+    content:url("./scepter.svg");
 }
 
 .shard {
     vertical-align: middle;
     margin-right: 8px;
     height: 12px;
-    content:url("./shard.png");
+    content:url("./shard.svg");
 }
 
 .video-wrapper {
