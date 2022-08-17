@@ -559,6 +559,11 @@ a:hover {
     content:url("./shard.svg");
 }
 
+.image-wrapper {
+    max-width: 100%;
+    height: auto;
+}
+
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%;
