@@ -559,6 +559,13 @@ a:hover {
     content:url("./shard.svg");
 }
 
+.talent {
+    vertical-align: middle;
+    margin-right: 8px;
+    height: 29px;
+    content:url("./talent.svg");
+}
+
 .image-wrapper {
     max-width: 100%;
     height: auto;
