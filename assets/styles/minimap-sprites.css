@@ -132,6 +132,7 @@
 
 /*Voiceline Heroes*/
 .wei 						.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/antimage_persona.png") no-repeat;   }
+.cm_persona 				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/crystal_maiden_persona.png")	 no-repeat;   }
 .davion 					.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/dragon_knight_persona.png") no-repeat;   }
 .slyrak 					.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/slyrak.png") no-repeat;   }
 .drow_arcana 				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/drow_ranger_arcana.png") no-repeat;   }
