@@ -146,7 +146,7 @@
 .windranger_arcana			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/windranger_arcana.png") no-repeat;   }
 .wraith_king_arcana			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/wraith_king_arcana.png") no-repeat;   }
 /*Other Heroes*/
-.axe_immortal 				.herolist__hero__link:before 			{ background-position: -171px -4px   }
+.axe_immortal 				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/axe_immortal.png") no-repeat;   }
 .crystal_maiden_arcana 		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/crystal_maiden_arcana.png") no-repeat;   }
 .drow_ranger_arcana_alt 	.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/drow_ranger_arcana_alt.png") no-repeat;   }
 .earthshaker_arcana 		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/earthshaker_arcana.png") no-repeat;   }
@@ -154,7 +154,7 @@
 .faceless_arcana_alt 		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/faceless_void_arcana_alt.png") no-repeat;   }
 .io_arcana 					.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/io_arcana.png") no-repeat;   }
 .juggernaut_arcana 			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/juggernaut_arcana.png") no-repeat;   }
-.juggernaut_arcana_alt 		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/juggernaut_arcana.png") no-repeat;   } /*Duplicate*/
+.juggernaut_arcana_alt 		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/juggernaut_arcana_alt.png") no-repeat;   }
 .legion_commander_arcana	.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/legion_commander_arcana.png") no-repeat;   }
 .lina_arcana				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/lina_arcana.png") no-repeat;   }
 .monkey_king_arcana			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/monkey_king_arcana.png") no-repeat;   }
@@ -162,7 +162,7 @@
 .ogre_magi_arcana_alt		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/ogre_magi_arcana_alt.png") no-repeat;   }
 .phantom_assassin_arcana	.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/phantom_assassin_arcana.png") no-repeat;   }
 .pudge_arcana				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/pudge_arcana.png") no-repeat;   }
-.pudge_arcana_alt			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/pudge_arcana.png") no-repeat;   } /*Duplicate*/
+.pudge_arcana_alt			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/pudge_arcana_alt.png") no-repeat;   }
 .queen_of_pain_arcana_alt	.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/queen_of_pain_arcana_alt.png") no-repeat;   }
 .razor_arcana_alt 			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/razor_arcana_alt.png") no-repeat;   }
 .rubick_arcana				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/rubick_arcana.png") no-repeat;   }
@@ -172,5 +172,5 @@
 .techies_arcana				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/techies_arcana.png") no-repeat;   }
 .terrorblade_arcana			.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/terrorblade_arcana.png") no-repeat;   }
 .windranger_arcana_alt		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/windranger_arcana_alt.png") no-repeat;   }
-.wraith_king_arcana_alt		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/wraith_king_arcana.png") no-repeat;   } /*Duplicate*/
+.wraith_king_arcana_alt		.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/wraith_king_arcana_alt.png") no-repeat;   }
 .zeus_arcana				.herolist__hero__link:before 			{ background: url("https://howdoiplay.com/assets/media/heroes/minimap/icons/custom/zeus_arcana.png") no-repeat;   }
