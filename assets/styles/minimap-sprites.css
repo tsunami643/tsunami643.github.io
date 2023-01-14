@@ -132,7 +132,7 @@
 
 /*Custom Heroes*/
 .antimage_persona 			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/antimage_persona.png') no-repeat;   } /*Voiceline Hero*/
-.axe_immortal 				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/axe_immortal.png') no-repeat;   }
+.axe_immortal 				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/axe_immortal.png') no-repeat;   } /*DUPLICATE*/
 .crystal_maiden_arcana 		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/crystal_maiden_arcana.png') no-repeat;   }
 .crystal_maiden_persona 	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/crystal_maiden_persona.png')	 no-repeat;   } /*Voiceline Hero*/
 .dragon_knight_persona 		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/dragon_knight_persona.png') no-repeat;   } /*Voiceline Hero*/
@@ -146,7 +146,7 @@
 .invoker_persona 			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/invoker_persona.png') no-repeat;   } /*Voiceline Hero*/
 .io_arcana 					.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/io_arcana.png') no-repeat;   }
 .juggernaut_arcana 			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/juggernaut_arcana.png') no-repeat;   }
-.juggernaut_arcana_alt 		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/juggernaut_arcana_alt.png') no-repeat;   }
+.juggernaut_arcana_alt 		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/juggernaut_arcana_alt.png') no-repeat;   } /*DUPLICATE*/
 .legion_commander_arcana	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/legion_commander_arcana.png') no-repeat;   }
 .lina_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/lina_arcana.png') no-repeat;   }
 .mirana_persona 			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/mirana_persona.png') no-repeat;   } /*Voiceline Hero*/
@@ -156,7 +156,7 @@
 .phantom_assassin_arcana	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/phantom_assassin_arcana.png') no-repeat;   }
 .phantom_assassin_persona 	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/phantom_assassin_persona.png') no-repeat;   } /*Voiceline Hero*/
 .pudge_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/pudge_arcana.png') no-repeat;   }
-.pudge_arcana_alt			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/pudge_arcana_alt.png') no-repeat;   }
+.pudge_arcana_alt			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/pudge_arcana_alt.png') no-repeat;   } /*DUPLICATE*/
 .pudge_persona				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/pudge_persona.png') no-repeat;   } /*Voiceline Hero*/
 .queen_of_pain_arcana		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/queen_of_pain_arcana.png') no-repeat;   } /*Voiceline Hero*/
 .queen_of_pain_arcana_alt	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/queen_of_pain_arcana_alt.png') no-repeat;   }
@@ -171,5 +171,5 @@
 .windranger_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/windranger_arcana.png') no-repeat;   } /*Voiceline Hero*/
 .windranger_arcana_alt		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/windranger_arcana_alt.png') no-repeat;   }
 .wraith_king_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/wraith_king_arcana.png') no-repeat;   } /*Voiceline Hero*/
-.wraith_king_arcana_alt		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/wraith_king_arcana_alt.png') no-repeat;   }
+.wraith_king_arcana_alt		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/wraith_king_arcana_alt.png') no-repeat;   } /*DUPLICATE*/
 .zeus_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/zeus_arcana.png') no-repeat;   }
