@@ -21,6 +21,8 @@
 			<li>
 				Phantom's Embrace pops Linken's Sphere on cast, not on projectile impact.
 			</li>
+			<li>Enemies cannot begin channeling an Outpost or Lotus Pool if they're silenced (like from Phantom's Embrace).
+				If they've already started channeling, however, a silence won't stop them.</li>
 			<li>
 				Casting Phantom's Embrace on a siege creep will make it immediately lose interest in the tower it's attacking
 				and start catapulting the Phantom instead.
@@ -36,13 +38,9 @@
 				Thus, if you catch an enemy facing into a Chrono, but still on the edge where the Phantom can latch it, you can
 				spam the spell on them.
 			</li>
-			<li>When Phantom's Embrace is cast on targets affected by Soulbind, be aware that only the primary Embrace returning will refresh the cooldown. So cast
-				it on the enemy who's less likely to kill the ghost.</li>
-			<li>Phantom's Embrace refreshes its cooldown in two ways. Once if an enemy target dies with the Ghost on them and once when the Ghost
-				returns to your hero. <a href="https://www.reddit.com/r/DotA2/comments/otnbyl/grimstroke_abuse_tip_phantom_embrace_refreshes/">You can somewhat exploit this by casting Embrace on a dying creep, casting Embrace on another target
-				once the creep death refreshes the cooldown, and then casting another Embrace when the Ghost returns to your hero.</a>
+			<li>Phantom's Embrace provides shared vision over the target as it's flying and once the projectile lands. That means
+				fog of war around the hero is revealed during the spell's duration.
 			</li>
-			<li>Phantom's Embrace provides shared vision over the target once the projectile lands.</li>
 			<li>
 				The more heroes being damaged by Ink Swell's tendrils, the faster it reaches the maximum stun duration.
 			</li>
@@ -54,21 +52,25 @@
 				Enemies won't see any visual of the tendrils damaging them if the Ink Swelled target is invisible.
 			</li>
 			<li>
-				Ink Swell works fully on banished allies, however none of the particle effects will be visible.
+				Ink Swell will work normally even if the ally it's on is banished, however none of the particle effects will be visible.
 			</li>
 			<li>
-				Soulbind's leash can cancel TPs, even through spell immunity, but only if the target is actually bound to something else.
-				No bind, no leash, no TP cancel.
+				Soulbind's leash can cancel TPs (and other channels), even through debuff immunity, but only if the target is actually bound to something else.
+				No bind, no leash, no cancel.
 			</li>
 			<li>
-				Soulbind provides shared vision for all targets that are affected, even if a hero is solo Soulbound.
+				Soulbind provides shared vision and true sight for all targets that are affected, even if a hero is not linked to anything else.
 			</li>
 			<li>
-				Soulbind can target and connect to creep-heroes, like Lone Druid's Spirit Bear, Visage Familiars, and Warlock's Golem.
+				Soulbind can target and connect to creep-heroes, like Lone Druid's Spirit Bear, Visage's Familiars, and Warlock's Golem.
 			</li>
 			<li>
 				Soulbind cannot link a primary target to illusions or invisible heroes.
-			</li>
+			<ul><li>As a result, if an illusion is the primary target, the Soulbind will always select a real hero out of the bunch because
+				it can never link to another illusion.</li></ul>
+			<li><span class="scepter"></span>There is a way to get two Agh's Scepter Dark Portrait illusions of the same hero, but the procedure is a little
+				convoluted. You need to target Soulbind on an <i>illusion</i> of a hero and link it to their real hero. Then you need to cast Dark Portrait on the
+				<i>real hero.</i> If you do this in any other order, you won't get two Dark Portraits.</li>
 			<li>
 				Linken's Sphere can block Soulbind for the primary target, but Lotus Orb has no effect on Soulbind. Cast it on a Lotus'd
 				target without fear of it being reflected.
@@ -76,7 +78,7 @@
 			<li>
 				Soulbind is a wacky spell. Mechanically, think of it like you're putting a Lotus Orb on an enemy, except anything that
 				would get reflected will actually be cast again targeting the other bound hero. That being said, here are the answers to a few
-				burning questions you may have always wanted the answer to:
+				burning questions you may have always been curious about:
 				<ul>
 					<li>Axe's Culling Blade will only give your cooldown back if the primary target is successfully Culled.</li>
 					<li>Chaos Knight's Reality Rift will suck both targets in towards you.</li>
@@ -89,13 +91,11 @@
 						ground target it.</li>
 					<li>Oracle will start channeling another Fortune's End after the first one connects, but you won't see the channel bar on your HUD
 						and you need to be standing still before the second channel starts.</li>
-					<li>Phantom Assassin will end up on the primary target with Phantom Strike. She will also shoot out six Daggers with
-						her "Triple Strike Stifling Dagger" talent.</li>
+					<li>Phantom Assassin will end up on the primary target with Phantom Strike.</li>
 					<li>Riki's Blink Strike will damage both heroes, but he'll end up on the primary target.</li>
 					<li>Sand King will Burrowstrike and end up at the targeted location, but a second Burrowstrike will be cast from SK's
 						starting point in the direction of the secondary target. If the secondary target is out of range, the stun
 						won't connect. If the primary target is along the same angle, they can get hit twice.</li>
-					<li>Yes, with Skywrath's "+1  Arcane Bolt Per Cast" talent and Agh's Scepter, he can shoot <i>six</i> Arcane Bolts in a single cast.</li>
 					<li>Sniper will target the primary hero with Assassinate and then immediately shoot another projectile at the secondary target
 						once the first connects.</li>
 					<li>Tiny's Toss doesn't do anything when you're throwing a Soulbound target, but if you Toss something <i>at</i> a bound target,
@@ -109,16 +109,14 @@
 						However, if both Cursed targets are within the AoE of each other's Curse, neither of them will take any damage.</li>
 					<li>Channeled spells like Bane's Fiend's Grip and Shadow Shaman's Shackles work as expected. You stay still, both enemies get affected.</li>
 					<li>Only the primary hero gets targeted by Jugg's Omnislash, Morph's Morph, Rubick's Spell Steal, Spirit Breaker's Charge,
-						and Windranger's Focus Fire. Also, Visage's Soul Assumption doesn't duplicate for some reason, it only hits the primary target.
-					</li>
+						and Windranger's Focus Fire.</li>
 					<li>Only the secondary hero gets targeted by Spirit Breaker's Nether Strike.</li>
 					<li>The succ spells (Lion's Mana Drain, Pugna's Life Drain, Death Prophet's Spirit Siphon, Razor's Static Link) will work on both targets simultaneously.</li>
+					<li>Talents which multiply how many times a spell projectile gets cast work as expected and double.</li>
 				</ul>
 			</li>
-			<li><span class="scepter"></span>Agh's Scepter Dark Portrait illusions are spell immune.</li>
-			<li><span class="scepter"></span>There is a way to get two Agh's Scepter Dark Portrait illusions of the same hero, but the procedure is a little
-				convoluted. You need to target Soulbind on an <i>illusion</i> of a hero and link it to their real hero. Then you need to cast Dark Portrait on the
-				<i>real hero.</i> If you do this in any other order, you won't get two Dark Portraits.</li>
+			<li><span class="scepter"></span>Agh's Scepter Dark Portrait illusions are debuff immune.
+				<ul><li>Debuff immunity prevents Tormentor damage from reflecting on the target. You can potentially use your debuff immune Dark Portrait to solo a Tormentor.</li></ul>
 		</ul>
 		<h1>Counters</h1>
 		<ul>
@@ -127,7 +125,7 @@
 			</li>
 			<li>For some reason, the Phantom's Embrace projectile can't pass through Disruptor's Kinetic Field.</li>
 			<li>
-				The Phantom can't be dispelled, but will instantly die if you go invis, spell immune,
+				The Phantom can't be dispelled, but will instantly die if you go invis, debuff immune,
 				or become invulnerable (like from a banish, Manta Style activation, or Bane Nightmare).
 			</li>
 			<li>Remember that Grimstroke's Phantom's Embrace cooldown will be refreshed if you don't kill the ghost.</li>
@@ -135,12 +133,9 @@
 				too hard to right click its hitbox.</li>
 			<li>
 				The Ink Swell buff can be dispelled off enemies, but it'll still stun and damage the area once purged.
-			</li>
-			<li><span class="shard"></span>If you attempt to dispel the Agh's Shard Ink Swell off an enemy with a Eul's Cyclone,
-				you'll end the Swell, but the hard dispel of the Agh's Shard will immediately cancel the Cyclone.</li>
-			<li>
+			<ul><li>
 				However, killing the Ink Swelled target will prevent the stun and damage from going off.
-			</li>
+			</li></ul>
 			<li>
 				You only count as leashed if Soulbind is actually binding you to someone else. If not, you can use
 				movement spells and TPs freely.
