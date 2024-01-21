@@ -82,12 +82,26 @@
     collapse: function (skipAnimation) {
       this.currentHero = null;
       this.$el.removeClass('tip-container--expanded');
-      return $.Velocity.animate(this.$el, 'slideUp', {duration: skipAnimation ? 0 : 300});
+      return new Promise(resolve => {
+        gsap.to(this.$el, {
+          height: 0,
+          duration: skipAnimation ? 0: 0.25,
+          ease: "power2.out",
+          onComplete: () => {resolve({ finished: true});}
+        });
+      });
     },
 
     expand: function (skipAnimation) {
       this.$el.addClass('tip-container--expanded');
-      return $.Velocity.animate(this.$el, 'slideDown', {duration: skipAnimation ? 0 : 500});
+      return new Promise(resolve => {
+        gsap.to(this.$el, {
+          height: "auto",
+          duration: skipAnimation ? 0: 0.5,
+          ease: "power2.in",
+          onComplete: () => {resolve({ finished: true});}
+        });
+      });
     },
 
     load: function (hero, skipAnimation) {

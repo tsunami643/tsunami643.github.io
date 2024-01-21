@@ -53,12 +53,11 @@
       multicast.volume = 0.2;
 
       if (value.toLowerCase() == 'dank memes' || value.toLowerCase() == 'memes' || value.toLowerCase() == 'shitpost' || value.toLowerCase() == 'april fool') {
-        $("#heroinput")
-        .stop()
-        .velocity({left: '+=50'}, 200)
-        .velocity({left: '-=100'}, 250)
-        .velocity({left: '+=100'}, 300)
-        .velocity({left: '-=50'}, 320);
+        var tl = gsap.timeline();
+        tl.to("#heroinput", {x: 50, duration: 0.2});
+        tl.to("#heroinput", {x: -50, duration: 0.2});
+        tl.to("#heroinput", {x: 50, duration: 0.2});
+        tl.to("#heroinput", {x: 0, duration: 0.3, ease: "expo.Out"});
         multicast.play();
         JOKEMODE = !JOKEMODE;
         _this.$el.trigger(EVENTS.CLEAR);
@@ -167,13 +166,20 @@
 
   HeroInput.prototype = {
     expand: function (skipAnimation) {
-      $.Velocity.animate(this.$arrow, this.originalArrowMargin, {duration: skipAnimation ? 0 : 300});
-      return $.Velocity.animate(this.$container, this.originalPadding, {duration: skipAnimation ? 0 : 300});
+      this.originalPadding.duration = this.originalArrowMargin.duration = skipAnimation ? 0 : 0.3;
+      gsap.to(this.$arrow, this.originalArrowMargin);
+      return new Promise(resolve => {this.originalPadding.onComplete = function() {resolve({ finished: true});}; gsap.to(this.$container, this.originalPadding)});
     },
 
     collapse: function (skipAnimation) {
-      $.Velocity.animate(this.$arrow, {marginTop: '10px'}, {duration: skipAnimation ? 0 : 800});
-      return $.Velocity.animate(this.$container, {paddingTop: '30px', paddingRight: '10px', paddingBottom: '10px', paddingLeft: '10px'}, {duration: skipAnimation ? 0 : 800});
+      gsap.to(this.$arrow, {marginTop: "10px", duration: skipAnimation ? 0 : 0.8});
+      return new Promise(resolve => {gsap.to(this.$container, {
+        paddingTop: '30px',
+        paddingBottom: '10px',
+        duration: skipAnimation ? 0 : 0.8,
+        ease: "power1.inOut",
+        onComplete: () => {resolve({ finished: true});}  
+      })});
     },
 
     setVal: function (value) {

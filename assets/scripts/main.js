@@ -73,7 +73,7 @@
 
   $("#randomhero").click(function (e) {
     e.preventDefault();
-    $(this).velocity({ rotateZ: '+=360' });
+    gsap.fromTo(this, { rotation: 0 }, { rotation: 360, duration: 0.5 });
     var randomHero = heroes.random();
     loader.load(randomHero);
     input.setVal(randomHero);

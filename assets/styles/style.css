@@ -200,6 +200,7 @@ a:hover {
 #heroinput {
     display: inline-block;
     position: relative;
+    z-index: 100;
 }
 
 #heroinput:after {
@@ -218,7 +219,8 @@ a:hover {
 }
 
 #tipcontainer {
-    display: none;
+    display: block;
+    overflow: hidden;
 }
 
 .hero {
@@ -364,7 +366,7 @@ a:hover {
 
 .arrow {
     left: 50%;
-    border: 20px solid transparent;
+    border: 21px solid transparent;
     display: block;
     height: 0;
     width: 0;
@@ -372,7 +374,7 @@ a:hover {
     pointer-events: none;
     top: 100%;
     border-top-width: 0;
-    border-bottom: solid 20px #16171b;
+    border-bottom: solid 21px #16171b;
     margin-left: -20px;
     margin-top: 15px;
 }

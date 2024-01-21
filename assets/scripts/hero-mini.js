@@ -6,6 +6,32 @@
    * @param {HeroLoader} options.loader
    * @constructor
    */
+
+  //GSAP ScrollSmoother plugin was required, so here's a vanillajs solution
+  function smoothScrollToTop(duration) {
+    const start = window.scrollY;
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+  
+    function scrollToTop(currentTime) {
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, start, -start, duration);
+      window.scrollTo(0, run);
+  
+      if (timeElapsed < duration) {
+        requestAnimationFrame(scrollToTop);
+      }
+    }
+  
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+  
+    requestAnimationFrame(scrollToTop);
+  }
+
   function HeroMini (options) {
     var anticipationTimer = null;
 
@@ -27,7 +53,7 @@
       var hero = $(e.currentTarget).find('.herolist__hero__name').html();
       options.$typeahead.typeahead('val', hero);
       options.loader.load(hero);
-      $.Velocity.animate($('body, html'), 'scroll', {duration: 300});
+      smoothScrollToTop(300);
     });
   }
 
