@@ -22,11 +22,9 @@
 					triggered by creeps and stand inside it while farming.</li></ul>
 			<li>You can "chain" Aether Remnants together and an enemy can't even act inbetween multiple pulls.</li>
 			<li>You can't really hide Aether Remnants in fog or trees. If any part of the pull AoE is in enemy vision, they'll be able to see the entire Remnant.</li>
-			<li><s>There is logic to how Aether Remnant chooses a target when there are multiple units in its AoE.
-				Whichever target is closest in a perfect 0° line from the Remnant, it grabs first. If there are multiple
-				targets that are perfectly lined up, it'll choose the one furthest away from the Remnant.</s> Supposedly this behavior
-				was changed in <a href="https://liquipedia.net/dota2game/Version_7.32#Heroes:~:text=Now%20affects%20the%20closest%20unit%20to%20
-				the%20Remnant%20rather%20than%20the%20one%20closest%20to%20the%20center%20line">7.32</a>, but now the logic seems totally random.</li>
+			<li>There is logic to how Aether Remnant chooses a target when there are multiple units in its AoE.
+				First, it searches in a circle near the tip of the AoE. If there are multiple targets in the tip, it chooses the one furthest away.
+				If there are no targets in the tip, it starts searching from the Remnant's hand outwards, grabbing the first unit possible.</li>
 			<li>If your teammates have a Force Staff, you can try proposing the idea for them to offensively Force Staff
 				an enemy who is caught by your Aether Remnant. You can pull an enemy pretty far out of position between the Remnant
 				pull and a follow-up Force Staff.</li>
@@ -38,15 +36,17 @@
 				or Aegis <i>while banished</i> in the Dissimilate as long as what you're picking up is near the middle of your center portal.</li>
 			<li>Upon exiting a Dissimilate, your hero will always be facing outwards from the portal you chose.</li>
 			<li>You can use Dissimilate to travel up and down cliffs.</li>
-			<li>Dissimilate just straight up ignores the silence from Silencer's Last Word.</li>
 			<li>If you're getting ganked in lane and need some emergency regen, consider activating a Salve or Bottle right before going into Dissimilate.
 				Your hero will continue healing while banished.</li>
-			<li>Barriers, like from Resonant Pulse, will absorb damage <i>before</i> on-damage effects are triggered on your hero. This means that Salves,
+			<li><span class="facet"></span>Barriers will absorb damage <i>before</i> on-damage effects are triggered on your hero. This means that Salves,
 				Clarities, Bottle, Urn, Blink Dagger, and sleeps won't get broken by attacks until the barrier expires.</li>
-			<li>Resonant Pulse's barrier only absorbs damage from right clicks or instant attacks. This includes attacks from towers. It does <i>not</i> absorb
-				physical damage from spells.</li>
-			<li><span class="scepter"></span>Recasting Agh's Scepter Resonant Pulse stacks the barrier value and refreshes the buff.</li>
-			<li>Resonant Pulse counts clones, such as Meepos or Arc Warden's Tempest Double, as heroes when calculating the barrier. Illusions are not counted.</li>
+			<li><span class="facet"></span>The barrier provided by the "Symmetry" facet is weird. Despite being a "physical" barrier, it's more like a 100% damage block.
+				It only absorbs damage from right clicks or instant attacks, including attacks from towers. It does <i>not</i> absorb physical damage from spells.</li>
+			<li><span class="facet"></span>With the "Symmetry" facet, each instance of spell damage you deal will stack the barrier value and refresh the buff duration.
+				<ul><li>Only spell damage increases the barrier. Damage dealt with items <i>will not</i> add to the barrier.</li></ul>
+			<li><span class="facet"></span><span class="scepter"></span>Recasting Agh's Scepter Resonant Pulse stacks the "Sanctuary" barrier value and refreshes the buff.</li>
+			<li><span class="facet"></span>With the "Sanctuary" facet, Resonant Pulse counts clones, such as Meepos or Arc Warden's Tempest Double, as heroes when calculating the
+				barrier. Illusions are not counted.</li>
 			<li>Pay attention to the Resonant Pulse visuals when you're hunting an invisible or fogged enemy. If it connects on a hero, you'll see particles
 				coming from their direction.
 				<ul><li>Remember that Aether Remnant can catch and provide true sight on invis enemies, so you can deal a lot of damage to an invisible enemy
@@ -66,7 +66,7 @@
 			<li>Fears, like from Aether Remnant, can be removed with basic dispels such as putting a Lotus Orb on an ally.</li>
 			<li>The circles of Dissimilate are accurate to the damage AoEs. If you stand perfectly in the middle of a group of portals,
 				Void Spirit will have to gamble on which one is actually going to hit you.</li>
-			<li>You can remove the Resonant Pulse barrier off Void Spirit with basic dispels.</li>
+			<li><span class="facet"></span>You can remove the Resonant Pulse barrier off Void Spirit with basic dispels.</li>
 			<li>Void Spirit cannot cast Dissimilate or Astral Step while rooted/leashed.</li>
 			<li>Dispelling the Astral Step debuff off your hero will just make the delayed damage trigger immediately.</li>
 		</ul>

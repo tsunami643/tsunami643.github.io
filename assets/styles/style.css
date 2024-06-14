@@ -550,22 +550,36 @@ a:hover {
 .scepter {
     vertical-align: middle;
     margin-right: 8px;
-    height: 29px;
+    width: 27px;
     content:url("./scepter.svg");
 }
 
 .shard {
     vertical-align: middle;
     margin-right: 8px;
-    height: 12px;
+    width: 27px;
     content:url("./shard.svg");
 }
 
 .talent {
     vertical-align: middle;
     margin-right: 8px;
-    height: 29px;
+    width: 27px;
     content:url("./talent.svg");
+}
+
+.facet {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 27px;
+    content:url("./facet.svg");
+}
+
+.innate {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 27px;
+    content:url("./innate.svg");
 }
 
 .image-wrapper {
