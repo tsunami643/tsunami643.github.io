@@ -166,10 +166,15 @@
 .razor_arcana_alt 			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/razor_arcana_alt.png') no-repeat;   }
 .rubick_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/rubick_arcana.png') no-repeat;   }
 .shadow_fiend_arcana		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/shadow_fiend_arcana.png') no-repeat;   }
+.skywrath_mage_arcana		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/skywrath_mage_arcana.png') no-repeat;   } /*Voiceline Hero*/
+.skywrath_mage_arcana_alt	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/skywrath_mage_arcana_alt.png') no-repeat;   }
 .spectre_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/spectre_arcana.png') no-repeat;   }
 .spectre_arcana_alt			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/spectre_arcana_alt.png') no-repeat;   }
 .techies_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/techies_arcana.png') no-repeat;   }
 .terrorblade_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/terrorblade_arcana.png') no-repeat;   }
+.vengeful_spirit_arcana		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana.png') no-repeat;   } /*Voiceline Hero*/
+.vengeful_spirit_arcana_alt	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana_alt.png') no-repeat;   }
+.vengeful_spirit_arcana_alt2.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana_alt2.png') no-repeat;   }
 .windranger_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/windranger_arcana.png') no-repeat;   } /*Voiceline Hero*/
 .windranger_arcana_alt		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/windranger_arcana_alt.png') no-repeat;   }
 .wraith_king_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/wraith_king_arcana.png') no-repeat;   } /*Voiceline Hero*/
