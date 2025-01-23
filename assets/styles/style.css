@@ -708,11 +708,11 @@ button.paypal:hover{
 }
 
 #social a.twitter:hover{
-    color:#55ACEE
+    color:#FFFFFF
 }
 
 #social a.instagram:hover{
-    color: #c13584
+    color: #FF0069
 }
 
 #social a.twitch:hover{
@@ -720,7 +720,7 @@ button.paypal:hover{
 }
 
 #social a.youtube:hover{
-    color:#E52D27
+    color:#FF0000
 }
 
 @media screen and (max-width: 800px) {
