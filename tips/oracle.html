@@ -81,18 +81,27 @@
 		<ul>
 			<li>The Fortune's End projectile cannot be disjointed.</li>
 			<li>When trying to counter healing from False Promise, be aware that all the heals are calculated at the <i>end</i> of the buff. So
-				if you're applying a HP manipulation debuff, it has to be active as False Promise <i>ends</i>, not <i>during</i> the False Promise.
-				Here are some sources of heal reduction:
-				<ul><li>Items that can reduce healing: Spirit Vessel, Orb of Frost/Corrosion, Skadi, Shiva's Guard, and the "Crippling Crossbow" and "Jidi Pollen Bag" neutral item artifacts.</li>
-					<li>If applying a Spirit Vessel to a False Promised target, time it close to the end of False Promise so Oracle can't dispel it off early with Fortune's End</li>
-				<li>Spells that can reduce healing: Ancient Apparition's Ice Blast, Doom's Doom,
-					Drow Ranger's Agh's Scepter Hypothermia, Dragon Knight's "Frost Dragon" facet, and <a href="https://liquipedia.net/dota2/index.php?title=Restoration_Manipulation#Restoration_Classification">a few others.</a>
-				<li>Ice Blast can even kill an enemy who's actively False Promised if they were below the Shatter threshold.</li>
+				if you're applying a heal manipulation debuff, it has to be active as False Promise <i>ends</i>, not <i>during</i> the False Promise.
+			<li>The HP Oracle heals with spells like Purifying Flames or the cumulative heal when False Promise ends can only be reduced by sources that
+				manipulate <i>incoming heals</i>:
+				<ul><li>Debuffs that can reduce incoming heals: Spirit Vessel, Eye of Skadi, and Shiva's Guard.</li>
+					<li>To clarify, the 'incoming heal' manipulation mechanic differs from generic 'health restoration' manipulation.
+						Health restoration comes from sources like lifesteal or just passive HP/s increases (like from Tango, Healing Salve,
+						Alchemist's Chemical Rage, or Morphling STR Attribute Shifting). These can be reduced by things like Drow Ranger's Agh's Scepter Hypothermia
+						or Orb of Corrosion.</li>
+					<li>However, heals that come from burst sources like Magic Wand, Healing Lotus, Dazzle's Shadow Wave,
+						Omniknight's Purification or incremental heals like Oracle's Purifying Flames, Phoenix's Sun Ray, or Pugna's Life Drain are <i>not</i> considered
+						'health restoration' but instead 'incoming heals.'</li>
+					<li>If you're not sure what type of HP regen a debuff manipulates, the tooltip needs to say it affects 'health restoration' <i>and</i> 'incoming heals.'
+						Spirit Vessel, for example, states both.</li>
+					<li>Ancient Apparition's Ice Blast and Doom's Doom also prevent enemies from gaining any HP.</li>
 				</ul>
+			<li>When applying a Spirit Vessel to a False Promised target, time it close to the end of False Promise so Oracle can't dispel it off early with Fortune's End.</li>
 			<li>Shadow Demon Demonic Purging a False Promised target makes it difficult for Oracle to save them since most heals he'll pour
 				into his ally will get insta-dispelled.</li>
 			<li>Casting Nullifier on a False Promised target will make it very hard for Oracle to heal them
 				because of the constant dispelling.</li>
+			<li>Casting Eul's on a False Promised target can help dispel a bunch of stacks of Purifying Flame heals.</li>
 			<li>You can use certain banishes to kill an enemy who has been False Promised at critical HP.
 				Basically, whenever a False Promised target is banished, the game waits for the banish to end before False Promise does its heal/damage math.
 				<ul><li>Here's an example: Outworld Destroyer is fighting an enemy who was False Promised at 163 HP. He casts Astral Imprisonment right before
@@ -106,7 +115,6 @@
 						Shadow Poison and Demonic Purge damage to hit.</li>
 					<li>Technically, you can also do this with Eul's landing damage, but they would need to be False Promised at an <i>extremely</i> low HP for Eul's
 						damage to be lethal.</li></ul>
-			<li>Casting Eul's on a False Promised target can help dispel a bunch of stacks of Purifying Flame heals.</li>
 			<li>"Kill check" spells like Ancient Apparition's Ice Blast, Axe's Culling Blade, and Windranger's "Killshot" facet Powershot can kill through False Promise
 				if the enemy was already below the kill check HP threshold when False Promise was cast on them.</li>
 			<li>Oracle's Prognosticate innate allows him to tell his team where the next power rune will spawn. So you can probably follow
