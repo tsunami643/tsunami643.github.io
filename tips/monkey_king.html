@@ -11,7 +11,6 @@
 				<ul><li>Since Boundless Strike is an instant attack, it'll break your Smoke if it damages a unit.</li></ul>
 			<li>If you Boundless Strike Mud Golems to death, the Shard Golems will also get hit by the Boundless Strike as they spawn. Small farming
 				efficiency note.</li>
-			<li>All on-hit effects can proc from Boundless Strike except for cleave. This includes adding or consuming Jingu Mastery stacks.</li>
 			<li>No matter how many targets are hit in Boundless Strike, only one Jingu Mastery stack is consumed. If you're low on HP and have
 				Jingu active, try saving Boundless to smack an entire creep wave and lifesteal off every target.
 			</li>
@@ -25,15 +24,18 @@
 			<li>You're considered two 'levels' of high ground elevation up when perched during Tree Dance, but enemy units will have vision
 				of you at their ground level whenever you're jumping from tree to tree.
 			</li>
-			<li>Ground targeted spells will affect you normally when you're on a tree and you can still detonate Techies Proximity Mines
-				while jumping or sitting on a tree.
+			<li>Ground targeted spells will still affect you as normal when you're on a tree.
 			</li>
 			<li>Casting Boundless Strike or Mischief won't unperch you from a tree, but finishing a Wukong's Command cast will.
 				You can use items, like TP, without getting unperched.
 			</li>
 			<li>The enemy will hear your Primal Spring channeling sound at wherever the landing is targeted.</li>
-			<li>Don't attempt to Primal Spring through Disruptor's Kinetic Field or Mars's Arena. You'll get stuck on the edge and
-				won't be able to act until their spell ends and your Spring finally finishes traveling.</li>
+			<li>You can Tree Dance through a Disruptor's Kinetic Field, but you cannot Primal Spring through it.</li>
+			<li><!--bugfix-->If Mars casts an Arena within ~3000 range of your hero, you just straight up will not be allowed to cast Tree Dance on anything. You can attempt to
+				cast Primal Spring if you're already on a tree, but if the Arena is still up when the channel ends, you'll just walk off your tree and put the spell on cooldown.</li>
+			<li><span class="shard"></span>Agh's Shard Boundless Strike applies a lower strength Primal Spring debuff on enemies. However,
+				if you've already applied a stronger Primal Spring debuff onto a target, hitting them with Agh's Shard Boundless Strike will <i>refresh</i>
+				that stronger debuff.</li>
 			<li>Here are a few Mischief interactions:
 				<ul>
 				<li>When in Mischief, you won't appear on the enemy minimap at all. Handy for courier sniping or sneaking through warded areas.
@@ -58,12 +60,13 @@
 				<li>The enemy can't see the Jingu Mastery buff over your head when you're in Mischief, but debuffs (like Dust or Ursa's Fury Swipes)
 					will still show above your disguise.
 				</li>
+				<li>You can instantly lose a Troll Warlord's Battle Trance aggro by going into Mischief. This is more consistent to pull off if there are other aggro targets available
+					for him to shift focus onto.
+				</li>
 				</ul>
 			</li>
-			<li>Mechanically, Wukong's Command soldiers have your right click plus whatever items you have.
-			</li>
 			<li>Wukong's Command soldiers can't proc Basher/Abyssal or Echo Sabre, but they can proc every other on-hit item effect. They also individually carry
-				whatever auras your hero has, including Radiance.
+				whatever auras your hero has.
 				<ul><li>Wukong soldiers do not copy your neutral item.</li></ul>
 			<li>
 				<span class="scepter"></span>Agh's Scepter soldiers won't attack buildings unless the real Monkey King is within 500 range of them.
@@ -71,28 +74,29 @@
 			<li>
 				<span class="scepter"></span>Agh's Scepter soldiers will disappear when you die, even if you have an Aegis.
 			</li>
+			<li>When using Changing of the Guard, enemies won't be able to see the ring surrounding the soldier you transformed to, only allies can.</li>
+			<li>You disjoint incoming projectiles and are invulnerable while in Changing of the Guard.</li>
 		</ul>
 		<h1>Counters</h1>
 		<ul>
-			<li>Tree Dance follows a stricter set of Blink Dagger rules in terms of going on cooldown when damaged, so DoT spells or things like Urn help make Monkey King a little less slippery.
-				It's stricter than Blink Dagger because even damage from lane/neutral creeps will put it on cooldown.</li>
+			<li>Tree Dance follows a stricter set of Blink Dagger rules in terms of going on cooldown when damaged, so damage over time debuffs, like from like Urn,
+				help make Monkey King a little less slippery. It's stricter than Blink Dagger because even damage from lane/neutral creeps will put it on cooldown.</li>
 			<li>Destroying the tree Monkey King is perched on will stun him for a hefty period of time. Not many heroes can easily take advantage of
 				this, but: Beastmaster's Wild Axes, Windranger's Powershot, Storm Spirit's Ball Lightning, Phoenix's Icarus Dive and Supernova,
 				Enigma's Midnight Pulse, Keeper of the Light's Agh's Scepter Will-O-Wisp, Mars's Arena of Blood, Underlord's Fiend's Gate, Timbersaw's everything, Earth Spirit's everything,
 				Batrider's Firefly, or Kez's Echo Slash are a few examples of spells that are either fast enough or large enough to catch a Tree Dancing Monkey King by surprise.
-			</li>
-			<li>Don't forget about the tree cutting capabilities of Quelling Blade or Battle Fury late game. Force Staff can also break trees.
-			<ul><li>This is probably useless information, but Quelling Blade's active doesn't share a cooldown with Battle Fury allowing you to cut <i>double the trees!</i> The passive
-				Quell bonus damage from both items also stack...</li></ul>
-			<li>Roshan's Banner is a long range instant cast item that destroys trees in a fairly large AoE. In a late game situation, it could be worth sitting on the Banner in your inventory
-				to stun a Tree Dancing Monkey King.</li>
+			<ul><li>Don't forget about the tree cutting capabilities of Quelling Blade or Battle Fury late game.</li>
+				<li>Roshan's Banner is a long range instant cast item that destroys trees in a fairly large AoE. In a late game situation, it could be worth sitting on the Banner in your inventory
+					to stun a Tree Dancing Monkey King.</li>
+				<li>Force Staffed units can destroy trees.</li>
+				<li>Harpoon can target trees and will destroy all trees in your travel path.</li>
+			</ul>
 			<li>You'll need vision of him to even know what tree he's on to begin with. Heroes with vision providing spells like
-				Razor's Plasma Field, Disruptor's Thunder Strike, Puck's Illusory Orb, or Drow Ranger's Agh's Shard Glacier can be handy.
-				Shiva's Guard's active also provides a lot of flying vision.</li>
-			<li>Nature's Prophet's Agh's Shard Curse of the Oldgrowth can easily reveal a nearby Monkey King who's jumping around in trees.</li>
+				Razor's Plasma Field, Disruptor's Thunder Strike, Puck's Illusory Orb, Drow Ranger's Agh's Shard Glacier, or Nature's Prophet's Agh's Shard Curse of the Oldgrowth can be handy.
+			<ul><li>For items that provide vision, Essence Distiller can be ground targeted and provide vision in its AoE and Shiva's Guard's active also provides a lot of flying vision.</li></ul>
 			<li>Monkey's Jingu Mastery damage+lifesteal buff can be removed with basic dispels. This makes heroes like Oracle with Fortune's End or Enchantress with Enchant useful
 				in the laning phase or Shadow Demon with Demonic Purge useful in the late game.
-			</li>
+				<ul><li><span class="talent"></span>However, be aware that Monkey King has a "Jingu Mastery Undispellable" talent.</li></ul>
 			<li>The audio cue from Primal Spring is played based on your camera placement. For example, if you hear the guzheng to your left, he
 				targeted the Spring on the left side of whatever your camera's looking at.
 			</li>
@@ -100,7 +104,8 @@
 			</li>
 			<li>You can try shoving Monkey King out of his Wukong's Command circle to end the spell with a Force Staff if he's near the edge or use spells that Fear or spells that
 				apply forced movement or knockback like Batrider's Flamebreak or Keeper of the Light's Blinding Light.</li>
-			<li>Glyphing the creep wave can be an effective way to minimize the amount of lifesteal MK gets from a Boundless Strike if he has Jingu ready.</li>
+			<li>Glyphing the creep wave can be an effective way to minimize the amount of lifesteal MK gets from a Boundless Strike if he has Jingu ready. This is mainly relevant
+				when you're laning against him. Just be sure you have a hotkey assigned to your Glyph to pull this trick off quickly.</li>
 		</ul>
 	</div>
 </div>

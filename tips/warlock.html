@@ -5,57 +5,49 @@
 	<div class="tips">
 		<h1>Tips</h1>
 		<ul>
-			<li><span class="facet"></span>The Black Grimoire item can be moved out of the neutral slot to a normal inventory slot.</li>
-			<li><span class="facet"></span>To use the Black Grimoire, you have to right click on the item and select "Consume Item."</li>
 			<li>For some reason the targeting cursor doesn't show it and the tooltip doesn't mention it, but Fatal Bonds
 				does have a logic to how it chooses secondary Bonds. Basically, it'll search for the nearest unit in vision (any unit,
-				including creeps/neutrals) within 700 range. Once it finds a valid unit, it'll continue searching for the next closest target
-				within 700 range around the new unit until it runs out of bounces or runs out of targets.
+				including creeps/neutrals) within the "bind radius" range. Once it finds a valid unit, it'll continue searching for the next closest target
+				within that same bind radius range around the new unit until it runs out of bounces or runs out of targets.
 				<ul><li>If refreshed, Fatal Bonds will attempt to search for new targets that don't have a Fatal Bonds debuff first
-					before reverting back to the proximity rule.</li></ul>
+					within the bind radius before reverting back to the proximity rule.</li></ul>
 			<li>Damage shared through Fatal Bonds is dealt with the same damage type as the original source of damage. The shared damage
 				calculates reductions (from armor or magic resistance) independently on each target.</li>
 			<li>Damage taken through Fatal Bonds can disable Blink Daggers.</li>
-			<li>"Overkill" damage on Fatally Bonded targets will spread the full damage of the killing damage instance. So if Lina
-				Laguna Blades a Fatally Bonded 10HP ranged creep, the full Laguna Blade damage will still spread to all other Bonded targets.</li>
-			<li>You get a better heal for your buck than the DoT with Shadow Word because healing ignores magic
+			<li>"Overkill" damage on Fatally Bonded targets will spread the full damage of the killing damage instance. So if Lion
+				Finger of Death's a Fatally Bonded 10HP ranged creep, the full Finger of Death damage will still spread to all other Bonded targets.</li>
+			<li>You get a better heal for your buck than the damage over time with Shadow Word because healing ignores magic
 				resistance. Warlock's damage/animation/range are so good you could possibly end up being able to deal
 				more net damage by spending the heal on yourself in lane and right clicking the enemy.</li>
 			<li>Upheaval is a proactive slow, not a reactive one. This makes it a great area denial spell.
 				You just need to predict where enemies want to go in the next few seconds.
-			<ul><li>This also makes it a good spell for discouraging encounters. If your team is Roshing, don't sit there
-				plinking away with your weak ass auto attacks. Start channeling your slow on a choke point. If you think
+			<ul><li>This also makes it a good spell for discouraging encounters. If your team is Roshing and you think the enemy team is coming to
+				contest, don't sit there plinking away with your weak ass auto attacks. Start channeling your slow on a choke point. If you think
 				the enemy team is about to push up high ground, start channeling Upheaval on the stairs. If your
 				teammate is getting chased, cast the circle in front of their path from a safe distance so you can get
 				some charge time on the slow.</li></ul>
-			<li><span class="talent"></span>The "Upheaval Attack Speed on Allies" talent works on summons (like your Golem) and lane creeps.
-				<ul><li>This talent synergizes with your Eldritch Summoning innate and makes allied units spawn Imps when they die
+			<li><span class="talent"></span>The "Upheaval Attack Speed on Allies" talent works on all allies, including allied summons (like your Golem)
+				and lane creeps.
+				<ul><li><!--bugfix-->This talent synergizes with your Eldritch Summoning innate and makes allied units spawn Imps when they die
 					because they are now affected by Upheaval.</li></ul>
 			<li><span class="shard"></span>In a pinch, you can try spawning an Imp with Agh's Shard Upheaval on a cliff to help provide
 				vision for a deward. The spawn location is random, but it's worth a shot if you're desperate.</li>
 			<li>When you drop the Golem on the enemy team and win the fight, remember to keep using it. The Golem is
 				especially good at cutting off a creep wave during a tower push since its Flaming Fist ability deals
 				damage in an AoE.
-			<ul><li>Don't feed your Golem, though. It drops a substantial gold bounty.</li></ul>
+			<ul><li>Don't feed your Golem, though. It drops a substantial gold bounty if an enemy hero last hits it.</li></ul>
 			<li>You can use Shadow Word to heal your Golem. You can also use Urn of Shadows to heal it. Hell,
 				you can Salve, Bottle, or even Clarity it too.</li>
-			<li>The stun from Chaotic Offering can disable debuff immune/BKB'd enemies.</li>
 			<li>You can try to get your allies to cast buffs on your Golem for giggles. Examples: Dark Seer's Surge or Ion Shell,
-				Legion Commander's Press the Attack, Lich's Frost Shield, Magnus's Empower, Invoker's Alacrity, Ogre Magi's Bloodlust,
+				Largo's Croak of Genius, Legion Commander's Press the Attack, Lich's Frost Shield, Magnus's Empower, Invoker's Alacrity, Ogre Magi's Bloodlust,
 				Abaddon's Aphotic Shield, and Mjollnir's Static Shield are a few choice examples that make the Golem especially deadly.
 				Even Dazzle can Shallow Grave the Golem.</li>
 			<li>The Golem has 1800 day/night vision.</li>
+			<li>The stun from Chaotic Offering goes through debuff immunity/BKB.</li>
 			<li><span class="talent"></span>The "Summon Golem on Death" talent won't summon a Golem for an Aegis death, only a real death.</li>
 			<li><span class="talent"></span><span class="scepter"></span>If you take the "Summon Golem on Death" talent and have an Agh's Scepter,
 				try to backpack your Scepter if you know you're about to die. When you die with the talent, only one Golem spawns, but it'll have
 				the weaker Scepter Golem stats.</li>
-			<li><span class="facet"></span>With the "Champion of Gorroth" facet, certain types of temporary regen behave differently when increasing Pemanent Immolation
-				damage.
-				<ul><li>Regen from your fountain, Healing Salve, Clarity, or Bottle <i>does not</i> increase Immolation damage.</li>
-					<li>Regen from Tango and some other items, like Tranquil Boots or Urn, does increase Immolation damage.</li>
-					<li>Activating the "Pollywog Charm" neutral item artifact does increase Immolation damage.</li>
-					<li>Certain heals, like from your own Shadow Word, <i>do not</i> increase Immolation damage.</li>
-					<li>Warlock under Naga Siren's Song of the Siren gets regen that does increase Immolation damage.</li></ul>
 			<li>Warlock is a fantastic hero to get a Refresher on since Fatal Bonds and Shadow Word fully stack when Refreshed.
 				Oh yeah and two Chaotic Offerings is pretty sweet, too.</li>
 		</ul>
@@ -66,10 +58,12 @@
 				<li>Imps won't explode if killed by a hero.</li></ul>
 			<li>Pay attention to who you're sharing Fatal Bonds with in the late game. You may inadvertently be killing your
 				support who narrowly escaped death while you're busy trying to finish off Rosh.</li>
-			<li>Fatal Bonds can be dispelled. Offensive or defensive Shadow Words can both be dispelled.</li>
+			<li>Fatal Bonds and Shadow Word can be removed with basic dispels.
+				<ul><li>Shadow Word on Warlock's allies can also be dispelled.</li></ul>
 			<li>The strength of Upheaval's slow isn't determined by how long you've been standing in it, but by how long
-				Warlock has been channeling it. Don't think you can just quickly run into an established Upheaval and get out.</li>
-			<li>Both of Warlock's Golem's passives (Flaming Fists and Permanent Immolation) can be disabled by debuffing the Golem with Breaks.</li>
+				Warlock has been channeling it. Don't think you can just quickly run into an established Upheaval and easily get out.</li>
+			<li>Both of Warlock's Golem's passives (Flaming Fists and Permanent Immolation) can be disabled by debuffing the Golem
+				with <a href="https://liquipedia.net/dota2/Break#Sources">breaks.</a></li>
 		</ul>
 	</div>
 </div>

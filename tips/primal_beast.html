@@ -5,14 +5,16 @@
 	<div class="tips">
 		<h1>Tips</h1>
 		<ul>
-			<li>Onslaught movement can be canceled at any point using the 'stop' hotkey.</li>
+			<li>Onslaught movement can be canceled at any point using the 'Cancel Current Action'/stop hotkey.</li>
 			<li>If you want a very short and quick Onslaught, don't use the spell hotkey to cancel the wind up animation.
-				Instead, use your 'stop' hotkey to immediately cancel the wind up. This bypasses the mini-cooldown
-				the spell goes on to prevent accidental mashing.
+				Instead, use your 'Cancel Current Action'/stop hotkey. This bypasses the mini-cooldown the spell goes on to prevent accidental button mashing on the hotkey.
 				<ul><li>If you shift+queue Onslaught and a stop command during Pulverize, an enemy won't even be able to BKB
 					in between the spells.</li>
 					<li><span class="shard"></span>You can layer Agh's Shard Rock Throw on top for even
-						<a href="https://www.youtube.com/watch?v=OEJI-0sD_dU">MORE chain stunning.</a></li></ul>
+						<a href="https://www.youtube.com/watch?v=OEJI-0sD_dU">MORE chain stunning.</a></li>
+					<li><!--bugfix-->There is an (almost certainly bugged) interaction with Force Staff as well. If you Pulverize, shift+queue
+						a self-Force Staff, shift+queue Onslaught, and shift+queue a stop command, you'll do a zero range Onslaught straight
+						out of Pulverize and then immediately start channeling a second Onslaught right after.</li></ul>
 			<li>Onslaught will bump enemies and allies in your path. The bump does not disable allies nor cancel their channels.
 				<ul><li>You can use this bump to push allies out of things like Disruptor's Kinetic Field or Slark's Pounce leash.</li></ul>			
 			<li>You can slightly influence the direction of an Onslaught by right clicking where you want to steer it. It doesn't change
@@ -25,12 +27,11 @@
 			<li>You can cast non-targeted spells and items at any point in Onslaught without canceling the charge. This means you can
 				activate Trample at any point during Onslaught and keep moving.
 				<ul><li>Casting targeting items will immediately cancel the charge.</li></ul>
+			<li>If you are dispelled by an enemy while traveling in Onslaught, the spell is immediately canceled.
+				<ul><li>This means Onslaught movement will get instantly canceled if you're debuffed by a Nullifier.</li></ul>
 			<li>Trample destroys trees you walk over.</li>
 			<li>Trample won't proc while you're being moved from Force Staff.</li>
 			<li>Trample will proc a few times while spinning in a Eul's cyclone. Even more during a Wind Waker if you're moving around.</li>
-			<li><span class="talent"></span>The "Cannot be slowed or rooted during Trample" talent can be activated while these debuffs
-				are applied to you and your hero will ignore them, but it won't dispel the debuff.
-				<ul><li>The talent bypasses roots, but leashes won't be ignored.</li></ul>
 			<li>You can activate Trample or Uproar while channeling, such as when channeling Onslaught, Pulverize, or a TP.</li>
 			<li>You gain Uproar stacks from damage applied by heroes or player owned summons.
 				<ul><li>Even allied hero damage works. If you have an Oracle on your team, Purifying Flames will add Uproar stacks.</li></ul>
@@ -42,12 +43,7 @@
 				you can <a href="https://www.reddit.com/r/DotA2/comments/10z7dhn/i_hope_all_of_you_primal_beast_players_are/">modify the angle of the fragmented rocks.</a></li>
 			<li><span class="shard"></span>Agh's Shard Rock Throw builds Uproar stacks for each hero hit by a Rock. It counts illusions and creep-heroes as
 				valid targets to add Uproar stacks.</li>
-			<li><span class="shard"></span>You can pollute the map with Agh's Shard Rocks by moving somewhere and shift+queueing Rock Throw
-				on precisely the same spot you're walking to without moving your mouse at all. You'll throw a Rock that'll just vibrate in the air without ever touching the
-				ground. Completely useless, but great at irritating people.</li>
 			<li>Pulverize ignores status resistance.</li>
-			<li><span class="facet"></span>The AoE bonuses provided by the "Ferocity" facet fully stack if Pulverize is refreshed and cast again.
-				<ul><li><span class="talent"></span>The "Pulverize Duration" talent also increases the number of AoE buffing stacks.</li></ul>
 		</ul>
 		<h1>Counters</h1>
 		<ul>
@@ -61,16 +57,16 @@
 				Onslaught prematurely.</li>
 				<li>Silences won't cancel an Onslaught that's already started winding up.</li></ul>
 			<li>Onslaught movement can be canceled by applying dispels on Primal while he's galloping. Spells like Enchantress's Enchant,
-				Techies' Reactive Tazer explosion, Shadow Demon's Demonic Purge, or Nullifier can stop him in his tracks mid-Onslaught.
+				Largo's Catchy Lick, Techies' Reactive Tazer explosion, Shadow Demon's Demonic Purge, or Nullifier can stop him in his tracks mid-Onslaught.
 				These dispels have to be applied <i>after</i> he starts moving, though. They won't cancel while he's winding up Onslaught.</li>
 			<li>The Uproar active buff can be dispelled off Primal Beast.</li>
 			<li><span class="scepter"></span>You can dispel the break debuff from Agh's Scepter Uproar, but new lines will immediately reapply it.</li>
-			<li>Pulverize is a channeled disable, so stunning or silencing Primal Beast during the channel will end the spell.</li>
+			<li>Pulverize is a channeled disable, so stunning or silencing Primal Beast during the channel will end the spell.
+				<ul><li>Pulverize can also be cancelled if Primal is affected by forced movement or knockbacks during the channel. This differs from basically every other
+					channeled disable, Primal is just weird. So if your ally if they're getting their head smashed in, you can Force Staff Primal to end it.</li></ul>
 			<li>Lotus Orb prevents Primal Beast from casting Pulverize on a target without it getting canceled instantly.</li>
-			<li>Primal Beast will stop Pulverizing if he's affected by forced movement or knockbacks. So don't Force Staff your ally if they're getting their head
-				smashed in, Force Primal instead.</li>
 			<li>Clockwerk makes life extremely unpleasant for Primal Beast with how often he can stun and interrupt Primal's spells.</li>
-			<li>Glyphing the creep wave can be an effective way to annoy a Primal Beast who's trying to quickly clear a wave mid with Trample.</li>
+			<li>Glyphing the creep wave can be an effective way to annoy a Primal Beast who's trying to quickly clear a wave with Trample.</li>
 		</ul>
 	</div>
 </div>
