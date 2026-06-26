@@ -1,6 +1,8 @@
 {
+    "id": "/",
     "name": "howdoiplay",
     "short_name": "howdoiplay",
+    "description": "A collection of tips, counters, and guides for Dota 2 heroes.",
     "icons": [
         {
             "src": "/assets/media/icons/android-chrome-192x192.png",
@@ -14,7 +16,8 @@
         }
     ],
     "theme_color": "#ee3c37",
-    "background_color": "#ffffff",
-    "start_url": "https://howdoiplay.com",
+    "background_color": "#1f2025",
+    "start_url": "/",
+    "scope": "/",
     "display": "standalone"
 }

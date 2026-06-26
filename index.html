@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8W0GX01LX"></script>
   <script>
@@ -13,14 +12,14 @@
 
   gtag('config', 'G-W8W0GX01LX');
   </script>
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <meta name="Description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643."/>
-  
-  <meta http-equiv="X-Content-Type-Options" content="'nosniff' always">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643.">
 
   <title>Tsunami's Dota Hero Tips and Counters</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin&family=Fjalla+One&family=Hind&family=Kalam&display=swap">
   <link rel="stylesheet" href="./assets/styles/style.css"/>
   <link rel="stylesheet" href="./assets/styles/minimap-sprites.css"/>
 
@@ -33,21 +32,24 @@
 
   <meta name="apple-mobile-web-app-title" content="howdoiplay">
   <meta name="application-name" content="howdoiplay">
-  <meta name="msapplication-config" content="./assets/media/icons/browserconfig.xml">
   <meta name="theme-color" content="#ee3c37">
 
-  <meta property="og:image" content="./assets/media/icons/android-chrome-512x512.png">
-  <meta property="og:image:width" content="279">
-  <meta property="og:image:height" content="279">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="howdoiplay">
+  <meta property="og:image" content="https://howdoiplay.com/assets/media/icons/android-chrome-512x512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="howdoiplay logo">
   <meta property="og:description" content="A collection of tips, counters, and guides for Dota 2 heroes.">
   <meta property="og:title" content="Tsunami's Dota Hero Tips and Counters">
-  <meta property="og:url" content="http://howdoiplay.com">
+  <meta property="og:url" content="https://howdoiplay.com/">
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@tsunami643" />
   <meta name="twitter:title" content="Tsunami's Dota Hero Tips and Counters" />
   <meta name="twitter:description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643." />
-  <meta name="twitter:image" content="http://howdoiplay.com/assets/media/icons/android-chrome-512x512.png" />
+  <meta name="twitter:image" content="https://howdoiplay.com/assets/media/icons/android-chrome-512x512.png" />
+  <meta name="twitter:image:alt" content="howdoiplay logo" />
 
   <link rel="search" type="application/opensearchdescription+xml" href="./assets/opensearch.xml" title="howdoiplay.com Search">
 
@@ -73,44 +75,45 @@
                 'Windranger', 'Winter Wyvern', 'Witch Doctor', 'Wraith King', 'Zeus'
             ];
 
-            global.JOKEMODE = false;
+            function isAprilFoolWindow(date) {
+                let year = date.getFullYear();
+                let start = new Date(year, 2, 31, 18);
+                let end = new Date(year, 3, 2, 12);
+
+                return date >= start && date < end;
+            }
+
+            global.APRIL_FOOL_WINDOW = isAprilFoolWindow(new Date());
+            global.JOKEMODE = global.APRIL_FOOL_WINDOW;
+
+            global.setJokeModeManually = function (enabled) {
+                global.JOKEMODE = enabled;
+            };
+
+            if (global.APRIL_FOOL_WINDOW) {
+                document.documentElement.classList.add('april-fool-window');
+            }
         }(window);
     </script>
 </head>
 
 <body>
 
-<div class="wrapper">
-    <noscript>
-        <style>
-            #noscript {
-                margin: 0;
-                padding: 18px 15px;
-                background-color: #ee3c37;
-                color: #fff;
-                text-align: center;
-                font-family: "Arial";
-                font-size: 25px;
-                }
-        </style>
-        <p id="noscript">You need to enable JavaScript to use this site</p>
-    </noscript>
-
+<main class="wrapper">
     <div id="inputline">
         <form id="heroinput-form" action="/" method="get">
         <span id="hero-input-quote-start"></span>
         <span id="heroinput">
-            <input class="typeahead" type="text" placeholder="Hero Name" autocomplete="off" aria-label="Hero Name">
-            <span id="randomhero"><a href="#" title="Random Hero (No Bonus Mango)"></a></span>
+            <input class="hero-search-input" type="search" placeholder="Hero Name" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="none" aria-label="Hero Name">
+            <button id="randomhero" type="button" title="Random Hero (No Bonus Mango)" aria-label="Random Hero (No Bonus Mango)"></button>
             <span class="arrow"></span>
         </span>
         <span id="hero-input-quote-end"></span>
-        <input type="submit" value="" style="visibility: hidden; position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; overflow: hidden"/>
         </form>
 
         <script>
             !function (document) {
-                var quotes = [
+                const quotes = [
                     ["I JUST RANDOMED", ". NOW WHAT?"],
                     ["MY CAPTAIN PICKED ME", "AND NOW I'M PANICKING."],
                     ["I TOLD MY TEAM I KNOW HOW TO PLAY", "BUT I REALLY DON'T."],
@@ -143,7 +146,10 @@
                     ["I NEED THE MASTER TIER VOICE LINE ON", "."],
                     ["JUST LOST TO A SMURF PLAYING", ". MUST BE A FREE WIN HERO."],
                     ["ALL THE BOOSTERS ARE SPAMMING", "? THEY MUST BE ON TO SOMETHING."],
-                    ["TURBO MODE IS THE BEST PLACE TO LEARN", "."]/*
+                    ["TURBO MODE IS THE BEST PLACE TO LEARN", "."]
+                ];
+
+                const foolQuotes = [
                     ["<img src='./assets/media/OSfrog.png' alt='OSfrog'>", "MY FINEST CREATION <img src='./assets/media/OSfrog.png' alt='OSfrog'>"],
                     ["GOOD TIPS MATE REAL USEFUL, SEE U AT", "J"],
                     ["U", "-PLAYING PUNKS ARE NEVER SATISFIED ARE YOU?"],
@@ -159,10 +165,11 @@
                     ["But is it as good as +6", "🤔?"],
                     ["one", "and im die"],
                     ["IS THAT BALANCED? YOU HOOK A", "WITH AEGIS?"],
-                    ["THE BIGGEST OVERSIGHT WITH", "IS THAT THEY'RE UNBELIEVABLY SEXY"]*/
-                ];
+                    ["THE BIGGEST OVERSIGHT WITH", "IS THAT THEY'RE UNBELIEVABLY SEXY"]
+                ]
 
-                var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                const quotePool = window.APRIL_FOOL_WINDOW ? foolQuotes : quotes;
+                const randomQuote = quotePool[Math.floor(Math.random() * quotePool.length)];
 
                 document.getElementById('hero-input-quote-start').innerHTML = randomQuote[0];
                 document.getElementById('hero-input-quote-end').innerHTML = randomQuote[1];
@@ -173,174 +180,36 @@
     <div class="grey">
         <div id="tipcontainer"></div>
 
-        <ul class="herolist">
-            <li class="herolist__hero abaddon"><a class="herolist__hero__link" title="Abaddon" href="/?Abaddon"><span class="herolist__hero__name">Abaddon</span></a></li>
-            <li class="herolist__hero alchemist"><a class="herolist__hero__link" title="Alchemist" href="/?Alchemist"><span class="herolist__hero__name">Alchemist</span></a></li>
-            <li class="herolist__hero ancient_apparition"><a class="herolist__hero__link" title="Ancient Apparition" href="/?Ancient+Apparition"><span class="herolist__hero__name">Ancient Apparition</span></a></li>
-            <li class="herolist__hero antimage"><a class="herolist__hero__link" title="Anti-Mage" href="/?Anti-Mage"><span class="herolist__hero__name">Anti-Mage</span></a></li>
-            <li class="herolist__hero arc_warden"><a class="herolist__hero__link" title="Arc Warden" href="/?Arc+Warden"><span class="herolist__hero__name">Arc Warden</span></a></li>
-            <li class="herolist__hero axe"><a class="herolist__hero__link" title="Axe" href="/?Axe"><span class="herolist__hero__name">Axe</span></a></li>
-            <li class="herolist__hero bane"><a class="herolist__hero__link" title="Bane" href="/?Bane"><span class="herolist__hero__name">Bane</span></a></li>
-            <li class="herolist__hero batrider"><a class="herolist__hero__link" title="Batrider" href="/?Batrider"><span class="herolist__hero__name">Batrider</span></a></li>
-            <li class="herolist__hero beastmaster"><a class="herolist__hero__link" title="Beastmaster" href="/?Beastmaster"><span class="herolist__hero__name">Beastmaster</span></a></li>
-            <li class="herolist__hero bloodseeker"><a class="herolist__hero__link" title="Bloodseeker" href="/?Bloodseeker"><span class="herolist__hero__name">Bloodseeker</span></a></li>
-            <li class="herolist__hero bounty_hunter"><a class="herolist__hero__link" title="Bounty Hunter" href="/?Bounty+Hunter"><span class="herolist__hero__name">Bounty Hunter</span></a></li>
-            <li class="herolist__hero brewmaster"><a class="herolist__hero__link" title="Brewmaster" href="/?Brewmaster"><span class="herolist__hero__name">Brewmaster</span></a></li>
-            <li class="herolist__hero bristleback"><a class="herolist__hero__link" title="Bristleback" href="/?Bristleback"><span class="herolist__hero__name">Bristleback</span></a></li>
-            <li class="herolist__hero broodmother"><a class="herolist__hero__link" title="Broodmother" href="/?Broodmother"><span class="herolist__hero__name">Broodmother</span></a></li>
-            <li class="herolist__hero centaur_warrunner"><a class="herolist__hero__link" title="Centaur Warrunner" href="/?Centaur+Warrunner"><span class="herolist__hero__name">Centaur Warrunner</span></a></li>
-            <li class="herolist__hero chaos_knight"><a class="herolist__hero__link" title="Chaos Knight" href="/?Chaos+Knight"><span class="herolist__hero__name">Chaos Knight</span></a></li>
-            <li class="herolist__hero chen"><a class="herolist__hero__link" title="Chen" href="/?Chen"><span class="herolist__hero__name">Chen</span></a></li>
-            <li class="herolist__hero clinkz"><a class="herolist__hero__link" title="Clinkz" href="/?Clinkz"><span class="herolist__hero__name">Clinkz</span></a></li>
-            <li class="herolist__hero clockwerk"><a class="herolist__hero__link" title="Clockwerk" href="/?Clockwerk"><span class="herolist__hero__name">Clockwerk</span></a></li>
-            <li class="herolist__hero crystal_maiden"><a class="herolist__hero__link" title="Crystal Maiden" href="/?Crystal+Maiden"><span class="herolist__hero__name">Crystal Maiden</span></a></li>
-            <li class="herolist__hero dark_seer"><a class="herolist__hero__link" title="Dark Seer" href="/?Dark+Seer"><span class="herolist__hero__name">Dark Seer</span></a></li>
-            <li class="herolist__hero dark_willow"><a class="herolist__hero__link" title="Dark Willow" href="/?Dark+Willow"><span class="herolist__hero__name">Dark Willow</span></a></li>
-			<li class="herolist__hero dawnbreaker"><a class="herolist__hero__link" title="Dawnbreaker" href="/?Dawnbreaker"><span class="herolist__hero__name">Dawnbreaker</span></a></li>
-            <li class="herolist__hero dazzle"><a class="herolist__hero__link" title="Dazzle" href="/?Dazzle"><span class="herolist__hero__name">Dazzle</span></a></li>
-            <li class="herolist__hero death_prophet"><a class="herolist__hero__link" title="Death Prophet" href="/?Death+Prophet"><span class="herolist__hero__name">Death Prophet</span></a></li>
-            <li class="herolist__hero disruptor"><a class="herolist__hero__link" title="Disruptor" href="/?Disruptor"><span class="herolist__hero__name">Disruptor</span></a></li>
-            <li class="herolist__hero doom"><a class="herolist__hero__link" title="Doom" href="/?Doom"><span class="herolist__hero__name">Doom</span></a></li>
-            <li class="herolist__hero dragon_knight"><a class="herolist__hero__link" title="Dragon Knight" href="/?Dragon+Knight"><span class="herolist__hero__name">Dragon Knight</span></a></li>
-            <li class="herolist__hero drow_ranger"><a class="herolist__hero__link" title="Drow Ranger" href="/?Drow+Ranger"><span class="herolist__hero__name">Drow Ranger</span></a></li>
-            <li class="herolist__hero earth_spirit"><a class="herolist__hero__link" title="Earth Spirit" href="/?Earth+Spirit"><span class="herolist__hero__name">Earth Spirit</span></a></li>
-            <li class="herolist__hero earthshaker"><a class="herolist__hero__link" title="Earthshaker" href="/?Earthshaker"><span class="herolist__hero__name">Earthshaker</span></a></li>
-            <li class="herolist__hero elder_titan"><a class="herolist__hero__link" title="Elder Titan" href="/?Elder+Titan"><span class="herolist__hero__name">Elder Titan</span></a></li>
-            <li class="herolist__hero ember_spirit"><a class="herolist__hero__link" title="Ember Spirit" href="/?Ember+Spirit"><span class="herolist__hero__name">Ember Spirit</span></a></li>
-            <li class="herolist__hero enchantress"><a class="herolist__hero__link" title="Enchantress" href="/?Enchantress"><span class="herolist__hero__name">Enchantress</span></a></li>
-            <li class="herolist__hero enigma"><a class="herolist__hero__link" title="Enigma" href="/?Enigma"><span class="herolist__hero__name">Enigma</span></a></li>
-            <li class="herolist__hero faceless_void"><a class="herolist__hero__link" title="Faceless Void" href="/?Faceless+Void"><span class="herolist__hero__name">Faceless Void</span></a></li>
-            <li class="herolist__hero grimstroke"><a class="herolist__hero__link" title="Grimstroke" href="/?Grimstroke"><span class="herolist__hero__name">Grimstroke</span></a></li>
-            <li class="herolist__hero gyrocopter"><a class="herolist__hero__link" title="Gyrocopter" href="/?Gyrocopter"><span class="herolist__hero__name">Gyrocopter</span></a></li>
-			<li class="herolist__hero hoodwink"><a class="herolist__hero__link" title="Hoodwink" href="/?Hoodwink"><span class="herolist__hero__name">Hoodwink</span></a></li>
-            <li class="herolist__hero huskar"><a class="herolist__hero__link" title="Huskar" href="/?Huskar"><span class="herolist__hero__name">Huskar</span></a></li>
-            <li class="herolist__hero invoker"><a class="herolist__hero__link" title="Invoker" href="/?Invoker"><span class="herolist__hero__name">Invoker</span></a></li>
-            <li class="herolist__hero io"><a class="herolist__hero__link" title="Io" href="/?Io"><span class="herolist__hero__name">Io</span></a></li>
-            <li class="herolist__hero jakiro"><a class="herolist__hero__link" title="Jakiro" href="/?Jakiro"><span class="herolist__hero__name">Jakiro</span></a></li>
-            <li class="herolist__hero juggernaut"><a class="herolist__hero__link" title="Juggernaut" href="/?Juggernaut"><span class="herolist__hero__name">Juggernaut</span></a></li>
-            <li class="herolist__hero keeper_of_the_light"><a class="herolist__hero__link" title="Keeper of the Light" href="/?Keeper+of+the+Light"><span class="herolist__hero__name">Keeper of the Light</span></a></li>
-            <li class="herolist__hero kez"><a class="herolist__hero__link" title="Kez" href="/?Kez"><span class="herolist__hero__name">Kez</span></a></li>
-            <li class="herolist__hero kunkka"><a class="herolist__hero__link" title="Kunkka" href="/?Kunkka"><span class="herolist__hero__name">Kunkka</span></a></li>
-            <li class="herolist__hero largo"><a class="herolist__hero__link" title="Largo" href="/?Largo"><span class="herolist__hero__name">Largo</span></a></li>
-            <li class="herolist__hero legion_commander"><a class="herolist__hero__link" title="Legion Commander" href="/?Legion+Commander"><span class="herolist__hero__name">Legion Commander</span></a></li>
-            <li class="herolist__hero leshrac"><a class="herolist__hero__link" title="Leshrac" href="/?Leshrac"><span class="herolist__hero__name">Leshrac</span></a></li>
-            <li class="herolist__hero lich"><a class="herolist__hero__link" title="Lich" href="/?Lich"><span class="herolist__hero__name">Lich</span></a></li>
-            <li class="herolist__hero lifestealer"><a class="herolist__hero__link" title="Lifestealer" href="/?Lifestealer"><span class="herolist__hero__name">Lifestealer</span></a></li>
-            <li class="herolist__hero lina"><a class="herolist__hero__link" title="Lina" href="/?Lina"><span class="herolist__hero__name">Lina</span></a></li>
-            <li class="herolist__hero lion"><a class="herolist__hero__link" title="Lion" href="/?Lion"><span class="herolist__hero__name">Lion</span></a></li>
-            <li class="herolist__hero lone_druid"><a class="herolist__hero__link" title="Lone Druid" href="/?Lone+Druid"><span class="herolist__hero__name">Lone Druid</span></a></li>
-            <li class="herolist__hero luna"><a class="herolist__hero__link" title="Luna" href="/?Luna"><span class="herolist__hero__name">Luna</span></a></li>
-            <li class="herolist__hero lycan"><a class="herolist__hero__link" title="Lycan" href="/?Lycan"><span class="herolist__hero__name">Lycan</span></a></li>
-            <li class="herolist__hero magnus"><a class="herolist__hero__link" title="Magnus" href="/?Magnus"><span class="herolist__hero__name">Magnus</span></a></li>
-            <li class="herolist__hero marci"><a class="herolist__hero__link" title="Marci" href="/?Marci"><span class="herolist__hero__name">Marci</span></a></li>
-            <li class="herolist__hero mars"><a class="herolist__hero__link" title="Mars" href="/?Mars"><span class="herolist__hero__name">Mars</span></a></li>
-            <li class="herolist__hero medusa"><a class="herolist__hero__link" title="Medusa" href="/?Medusa"><span class="herolist__hero__name">Medusa</span></a></li>
-            <li class="herolist__hero meepo"><a class="herolist__hero__link" title="Meepo" href="/?Meepo"><span class="herolist__hero__name">Meepo</span></a></li>
-            <li class="herolist__hero mirana"><a class="herolist__hero__link" title="Mirana" href="/?Mirana"><span class="herolist__hero__name">Mirana</span></a></li>
-            <li class="herolist__hero monkey_king"><a class="herolist__hero__link" title="Monkey King" href="/?Monkey+King"><span class="herolist__hero__name">Monkey King</span></a></li>
-            <li class="herolist__hero morphling"><a class="herolist__hero__link" title="Morphling" href="/?Morphling"><span class="herolist__hero__name">Morphling</span></a></li>
-            <li class="herolist__hero muerta"><a class="herolist__hero__link" title="Muerta" href="/?Muerta"><span class="herolist__hero__name">Muerta</span></a></li>
-            <li class="herolist__hero naga_siren"><a class="herolist__hero__link" title="Naga Siren" href="/?Naga+Siren"><span class="herolist__hero__name">Naga Siren</span></a></li>
-            <li class="herolist__hero natures_prophet"><a class="herolist__hero__link" title="Nature's Prophet" href="/?Nature's+Prophet"><span class="herolist__hero__name">Nature's Prophet</span></a></li>
-            <li class="herolist__hero necrophos"><a class="herolist__hero__link" title="Necrophos" href="/?Necrophos"><span class="herolist__hero__name">Necrophos</span></a></li>
-            <li class="herolist__hero night_stalker"><a class="herolist__hero__link" title="Night Stalker" href="/?Night+Stalker"><span class="herolist__hero__name">Night Stalker</span></a></li>
-            <li class="herolist__hero nyx_assassin"><a class="herolist__hero__link" title="Nyx Assassin" href="/?Nyx+Assassin"><span class="herolist__hero__name">Nyx Assassin</span></a></li>
-            <li class="herolist__hero ogre_magi"><a class="herolist__hero__link" title="Ogre Magi" href="/?Ogre+Magi"><span class="herolist__hero__name">Ogre Magi</span></a></li>
-            <li class="herolist__hero omniknight"><a class="herolist__hero__link" title="Omniknight" href="/?Omniknight"><span class="herolist__hero__name">Omniknight</span></a></li>
-            <li class="herolist__hero oracle"><a class="herolist__hero__link" title="Oracle" href="/?Oracle"><span class="herolist__hero__name">Oracle</span></a></li>
-            <li class="herolist__hero outworld_destroyer"><a class="herolist__hero__link" title="Outworld Destroyer" href="/?Outworld+Destroyer"><span class="herolist__hero__name">Outworld Destroyer</span></a></li>
-            <li class="herolist__hero pangolier"><a class="herolist__hero__link" title="Pangolier" href="/?Pangolier"><span class="herolist__hero__name">Pangolier</span></a></li>
-            <li class="herolist__hero phantom_assassin"><a class="herolist__hero__link" title="Phantom Assassin" href="/?Phantom+Assassin"><span class="herolist__hero__name">Phantom Assassin</span></a></li>
-            <li class="herolist__hero phantom_lancer"><a class="herolist__hero__link" title="Phantom Lancer" href="/?Phantom+Lancer"><span class="herolist__hero__name">Phantom Lancer</span></a></li>
-            <li class="herolist__hero phoenix"><a class="herolist__hero__link" title="Phoenix" href="/?Phoenix"><span class="herolist__hero__name">Phoenix</span></a></li>
-            <li class="herolist__hero primal_beast"><a class="herolist__hero__link" title="Primal Beast" href="/?Primal+Beast"><span class="herolist__hero__name">Primal Beast</span></a></li>
-            <li class="herolist__hero puck"><a class="herolist__hero__link" title="Puck" href="/?Puck"><span class="herolist__hero__name">Puck</span></a></li>
-            <li class="herolist__hero pudge"><a class="herolist__hero__link" title="Pudge" href="/?Pudge"><span class="herolist__hero__name">Pudge</span></a></li>
-            <li class="herolist__hero pugna"><a class="herolist__hero__link" title="Pugna" href="/?Pugna"><span class="herolist__hero__name">Pugna</span></a></li>
-            <li class="herolist__hero queen_of_pain"><a class="herolist__hero__link" title="Queen of Pain" href="/?Queen+of+Pain"><span class="herolist__hero__name">Queen of Pain</span></a></li>
-            <li class="herolist__hero razor"><a class="herolist__hero__link" title="Razor" href="/?Razor"><span class="herolist__hero__name">Razor</span></a></li>
-            <li class="herolist__hero riki"><a class="herolist__hero__link" title="Riki" href="/?Riki"><span class="herolist__hero__name">Riki</span></a></li>
-            <li class="herolist__hero ringmaster"><a class="herolist__hero__link" title="Ringmaster" href="/?Ringmaster"><span class="herolist__hero__name">Ringmaster</span></a></li>
-            <li class="herolist__hero rubick"><a class="herolist__hero__link" title="Rubick" href="/?Rubick"><span class="herolist__hero__name">Rubick</span></a></li>
-            <li class="herolist__hero sand_king"><a class="herolist__hero__link" title="Sand King" href="/?Sand+King"><span class="herolist__hero__name">Sand King</span></a></li>
-            <li class="herolist__hero shadow_demon"><a class="herolist__hero__link" title="Shadow Demon" href="/?Shadow+Demon"><span class="herolist__hero__name">Shadow Demon</span></a></li>
-            <li class="herolist__hero shadow_fiend"><a class="herolist__hero__link" title="Shadow Fiend" href="/?Shadow+Fiend"><span class="herolist__hero__name">Shadow Fiend</span></a></li>
-            <li class="herolist__hero shadow_shaman"><a class="herolist__hero__link" title="Shadow Shaman" href="/?Shadow+Shaman"><span class="herolist__hero__name">Shadow Shaman</span></a></li>
-            <li class="herolist__hero silencer"><a class="herolist__hero__link" title="Silencer" href="/?Silencer"><span class="herolist__hero__name">Silencer</span></a></li>
-            <li class="herolist__hero skywrath_mage"><a class="herolist__hero__link" title="Skywrath Mage" href="/?Skywrath+Mage"><span class="herolist__hero__name">Skywrath Mage</span></a></li>
-            <li class="herolist__hero slardar"><a class="herolist__hero__link" title="Slardar" href="/?Slardar"><span class="herolist__hero__name">Slardar</span></a></li>
-            <li class="herolist__hero slark"><a class="herolist__hero__link" title="Slark" href="/?Slark"><span class="herolist__hero__name">Slark</span></a></li>
-            <li class="herolist__hero snapfire"><a class="herolist__hero__link" title="Snapfire" href="/?Snapfire"><span class="herolist__hero__name">Snapfire</span></a></li>
-            <li class="herolist__hero sniper"><a class="herolist__hero__link" title="Sniper" href="/?Sniper"><span class="herolist__hero__name">Sniper</span></a></li>
-            <li class="herolist__hero spectre"><a class="herolist__hero__link" title="Spectre" href="/?Spectre"><span class="herolist__hero__name">Spectre</span></a></li>
-            <li class="herolist__hero spirit_breaker"><a class="herolist__hero__link" title="Spirit Breaker" href="/?Spirit+Breaker"><span class="herolist__hero__name">Spirit Breaker</span></a></li>
-            <li class="herolist__hero storm_spirit"><a class="herolist__hero__link" title="Storm Spirit" href="/?Storm+Spirit"><span class="herolist__hero__name">Storm Spirit</span></a></li>
-            <li class="herolist__hero sven"><a class="herolist__hero__link" title="Sven" href="/?Sven"><span class="herolist__hero__name">Sven</span></a></li>
-            <li class="herolist__hero techies"><a class="herolist__hero__link" title="Techies" href="/?Techies"><span class="herolist__hero__name">Techies</span></a></li>
-            <li class="herolist__hero templar_assassin"><a class="herolist__hero__link" title="Templar Assassin" href="/?Templar+Assassin"><span class="herolist__hero__name">Templar Assassin</span></a></li>
-            <li class="herolist__hero terrorblade"><a class="herolist__hero__link" title="Terrorblade" href="/?Terrorblade"><span class="herolist__hero__name">Terrorblade</span></a></li>
-            <li class="herolist__hero tidehunter"><a class="herolist__hero__link" title="Tidehunter" href="/?Tidehunter"><span class="herolist__hero__name">Tidehunter</span></a></li>
-            <li class="herolist__hero timbersaw"><a class="herolist__hero__link" title="Timbersaw" href="/?Timbersaw"><span class="herolist__hero__name">Timbersaw</span></a></li>
-            <li class="herolist__hero tinker"><a class="herolist__hero__link" title="Tinker" href="/?Tinker"><span class="herolist__hero__name">Tinker</span></a></li>
-            <li class="herolist__hero tiny"><a class="herolist__hero__link" title="Tiny" href="/?Tiny"><span class="herolist__hero__name">Tiny</span></a></li>
-            <li class="herolist__hero treant_protector"><a class="herolist__hero__link" title="Treant Protector" href="/?Treant+Protector"><span class="herolist__hero__name">Treant Protector</span></a></li>
-            <li class="herolist__hero troll_warlord"><a class="herolist__hero__link" title="Troll Warlord" href="/?Troll+Warlord"><span class="herolist__hero__name">Troll Warlord</span></a></li>
-            <li class="herolist__hero tusk"><a class="herolist__hero__link" title="Tusk" href="/?Tusk"><span class="herolist__hero__name">Tusk</span></a></li>
-            <li class="herolist__hero underlord"><a class="herolist__hero__link" title="Underlord" href="/?Underlord"><span class="herolist__hero__name">Underlord</span></a></li>
-            <li class="herolist__hero undying"><a class="herolist__hero__link" title="Undying" href="/?Undying"><span class="herolist__hero__name">Undying</span></a></li>
-            <li class="herolist__hero ursa"><a class="herolist__hero__link" title="Ursa" href="/?Ursa"><span class="herolist__hero__name">Ursa</span></a></li>
-            <li class="herolist__hero vengeful_spirit"><a class="herolist__hero__link" title="Vengeful Spirit" href="/?Vengeful+Spirit"><span class="herolist__hero__name">Vengeful Spirit</span></a></li>
-            <li class="herolist__hero venomancer"><a class="herolist__hero__link" title="Venomancer" href="/?Venomancer"><span class="herolist__hero__name">Venomancer</span></a></li>
-            <li class="herolist__hero viper"><a class="herolist__hero__link" title="Viper" href="/?Viper"><span class="herolist__hero__name">Viper</span></a></li>
-            <li class="herolist__hero visage"><a class="herolist__hero__link" title="Visage" href="/?Visage"><span class="herolist__hero__name">Visage</span></a></li>
-            <li class="herolist__hero void_spirit"><a class="herolist__hero__link" title="Void Spirit" href="/?Void+Spirit"><span class="herolist__hero__name">Void Spirit</span></a></li>
-            <li class="herolist__hero warlock"><a class="herolist__hero__link" title="Warlock" href="/?Warlock"><span class="herolist__hero__name">Warlock</span></a></li>
-            <li class="herolist__hero weaver"><a class="herolist__hero__link" title="Weaver" href="/?Weaver"><span class="herolist__hero__name">Weaver</span></a></li>
-            <li class="herolist__hero windranger"><a class="herolist__hero__link" title="Windranger" href="/?Windranger"><span class="herolist__hero__name">Windranger</span></a></li>
-            <li class="herolist__hero winter_wyvern"><a class="herolist__hero__link" title="Winter Wyvern" href="/?Winter+Wyvern"><span class="herolist__hero__name">Winter Wyvern</span></a></li>
-            <li class="herolist__hero witch_doctor"><a class="herolist__hero__link" title="Witch Doctor" href="/?Witch+Doctor"><span class="herolist__hero__name">Witch Doctor</span></a></li>
-            <li class="herolist__hero wraith_king"><a class="herolist__hero__link" title="Wraith King" href="/?Wraith+King"><span class="herolist__hero__name">Wraith King</span></a></li>
-            <li class="herolist__hero zeus"><a class="herolist__hero__link" title="Zeus" href="/?Zeus"><span class="herolist__hero__name">Zeus</span></a></li>
-        </ul>
+        <ul class="herolist"></ul>
     </div>
+
+<script type="text/javascript" src="./assets/scripts/hero-input.js"></script>
+<script type="text/javascript" src="./assets/scripts/hero-loader.js"></script>
+<script type="text/javascript" src="./assets/scripts/hero-mini.js"></script>
+<script type="text/javascript" src="./assets/scripts/main.js"></script>
 
 
     <div id="links">
-    <!--
-        <div>
-        <b><span style="font-size: x-large;">What day is it today?</span></b>
-        <br>
-        <br>If you need actual hero tips now, just type <font face="courier new"><i>april fool</i></font> in the hero search field
-        or click on the 😂 emoji.
-        <br>These toggles work all year long.
-        <br><br><br>
-        </div>
-    -->
-    <!--
-        <div>
-            <b><span style="font-size: x-large;"><i>HEY!</i> Where'd all the memes go?</span></b>
+        <div id="april_fool">
+            <b><span class="april-fool-heading">What day is it today?</span></b>
             <br>
-            <br>Type <font face="courier new"><i>april fool</i></font> in the hero search field if you don't want the actual tips to get better at Dota.
-            <br><br><br>
-            </div>
-    -->
+            <br>If you need actual hero tips now, just type <span class="april-fool-command"><i>april fool</i></span> in the hero search field
+            or click on the 😂 emoji.
+            <br>These toggles work all year long.
+        </div>
+
     <!--
-        <div style="font-size: 20px;">
+        <div id="blog">
             Latest blog post - <b><a href="https://howdoiplay.com/blog/2025/09/04/ti14-team-guide.html">The International 2025: A Practical Guide to All 16 Teams
             </a></b>
         </div>
     -->
-<!--
-        <span id="donation-quote"></span>
-        <hr style="height:2px; visibility:hidden;" />
-        <button id="paypal-button" class="paypal" title="Help support the site!" onclick="window.location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9YV8EDYT2T3NS'"><span class="paypal-button-logo"></span></button>
--->
 
-    <div style="font-size: 17px;">
-        <i>Check out the <a href="https://shop.howdoiplay.com/" target="_blank">howdoiplay merch shop</a> to support the site</i>
-        <br>
-        <br>
-        <a href="https://shop.howdoiplay.com/" target="_blank"><img class="image-wrapper" src="./assets/media/merchshop_s2.jpg" width="420"></a>
+        <div id ="merch">
+            <i>Check out the <a href="https://shop.howdoiplay.com/" target="_blank">howdoiplay merch shop</a> to support the site</i>
+            <div id ="merch_img">
+                <a href="https://shop.howdoiplay.com/" target="_blank"><img title="howdoiplay merch banner" src="./assets/media/merchshop_s2.webp" width="800" height="480" alt="howdoiplay merch shop banner"></a>
+        </div>
     </div>
 
     </div>
@@ -349,60 +218,24 @@
 
     <div id="social">
         <a target="_blank" rel="noopener" title="Twitter" href="https://x.com/tsunami643" class="twitter"></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a target="_blank" rel="noopener" title="Instagram" href="https://instagram.com/tsunami643" class="instagram"></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a target="_blank" rel="noopener" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a target="_blank" rel="noopener" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
     </div>
-</div>
-<!--
-<script type="text/javascript">
-    !function (document) {
-        var donationquotearray = [
-            "You don't even need to donate, <audio id='tts' preload='none'><source src='./assets/media/texttospeech.mp3' type='audio/mpeg'><source src='./assets/media/texttospeech.ogg' type='audio/ogg'></audio><a title='The Ballad of Admiral Bulldog' href='#' onclick='tts.play();return false;'>I'll give you the text-to-speech for free</a>",
-            "This button makes a last hit sound. For me, not for you",
-            "Quick, donate all your unreliable cash before you die! It's not morbid, it's efficiency",
-            "This button is tradeable, marketable, and giftable",
-            "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly Sven set. Now wasn't that easier?",
-            "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly Axe set. Now wasn't that easier?",
-            "Here, pretend this button is a chest. SPINSPINSPINSPIN--you got an ugly TA set. Now wasn't that easier?",
-            "Stack my camps IRL. Don't worry, I'll ignore the gesture just like a real carry"
-        ];
-        document.getElementById('donation-quote').innerHTML = donationquotearray[Math.floor(Math.random() * donationquotearray.length)];
-    }(document);
-</script>
--->
+</main>
+
 <script type="application/ld+json">
-	{
-  	"@context": "http://schema.org",
-  	"@type": "WebSite",
-  	"url": "http://howdoiplay.com/",
-  	"potentialAction": {
-    		"@type": "SearchAction",
-    		"target": "http://howdoiplay.com/?{search_term_string}",
-    		"query-input": "required name=search_term_string"
-  		}
-	}
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://howdoiplay.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://howdoiplay.com/?{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
 </script>
-
-<!--[if lt IE 9]>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--<![endif]-->
-<script type="text/javascript" src="./assets/scripts/lib/lib.min.js"></script>
-
-<script type="text/javascript" src="./assets/scripts/hero-input.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-list.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-loader.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-state.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-mini.js"></script>
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
-
-<link href='https://fonts.googleapis.com/css?family=Cabin|Hind|Fjalla+One|Kalam' rel='stylesheet' type='text/css'>
 
 </body>
 

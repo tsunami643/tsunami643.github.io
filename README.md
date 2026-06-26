@@ -2,11 +2,11 @@
 
 What are you doing here?
 
-This is all the resources to my "Tsunami's Dota Tips and Counters" site aka www.howdoiplay.com
+This is all the resources to my "Tsunami's Dota Tips and Counters" site aka [howdoiplay.com](https://howdoiplay.com)
 
-The typeahead that I use is https://github.com/corejavascript/typeahead.js
+~~The typeahead that I use is https://github.com/corejavascript/typeahead.js~~
 
-I guess I use... some jQuery too? Man I don't know, I'm not a coder. This is just a pet project of mine.
+~~I guess I use... some jQuery too?~~ Not anymore! As of June 2026 it's all vanilla JS with no libraries.
 
 Maintained by
 

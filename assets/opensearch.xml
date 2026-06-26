@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
 <ShortName>howdoiplay.com</ShortName>
 <Description>Search Tsunami's Dota Hero Tips and Counters.</Description>
-<Image height="16" width="16" type="image/x-icon">http://howdoiplay.com/assets/media/icons/favicon.ico</Image>
-<Url type="text/html" method="get" template="http://howdoiplay.com/?{searchTerms}" />
-<moz:SearchForm>http://howdoiplay.com</moz:SearchForm>
+<Image height="16" width="16" type="image/x-icon">https://howdoiplay.com/assets/media/icons/favicon.ico</Image>
+<Url type="text/html" method="get" template="https://howdoiplay.com/?{searchTerms}" />
+<moz:SearchForm>https://howdoiplay.com</moz:SearchForm>
 </OpenSearchDescription>
