@@ -426,6 +426,27 @@
           if (patch) {
             patch.outerHTML = jokePatchHtml();
           }
+
+          // Allow loading for twitter/reddit/tumblr embed scripts
+          const activatedSources = new Set();
+
+          this.content.querySelectorAll('script[src]').forEach(function (oldScript) {
+            const source = oldScript.src;
+
+            if (activatedSources.has(source)) {
+              oldScript.remove();
+              return;
+            }
+
+            const newScript = document.createElement('script');
+
+            Array.from(oldScript.attributes).forEach(function (attribute) {
+              newScript.setAttribute(attribute.name, attribute.value);
+            });
+
+            activatedSources.add(source);
+            oldScript.replaceWith(newScript);
+          });
         }
       }
 
