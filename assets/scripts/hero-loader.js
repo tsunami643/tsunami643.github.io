@@ -3,14 +3,10 @@
     return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  function cachedImage(src) {
+  function preloadImage(src) {
     const imgEle = document.createElement('img');
     imgEle.src = src;
-    return imgEle.complete || (imgEle.width + imgEle.height) > 0;
-  }
-
-  function preloadImage(src) {
-    const cached = cachedImage(src);
+    const cached = imgEle.complete || (imgEle.width + imgEle.height) > 0;
 
     if (cached) {
       return Promise.resolve({ src: src, cached: cached });
@@ -407,78 +403,69 @@
       const portraitContainer = this.content.querySelector('.portrait');
       const frame = this.content.querySelector('.portrait-frame');
 
-      if (portraitContainer) {
-        portraitContainer.insertBefore(createNavButton('prevhero', '<', 'Previous Hero'), portraitContainer.firstChild);
-        portraitContainer.appendChild(createNavButton('nexthero', '>', 'Next Hero'));
+      portraitContainer.insertBefore(createNavButton('prevhero', '<', 'Previous Hero'), portraitContainer.firstChild);
+      portraitContainer.appendChild(createNavButton('nexthero', '>', 'Next Hero'));
+
+      const gamePatch = parseFloat(this.patch).toFixed(2);
+
+      if (gamePatch !== this.patch) {
+        frame.insertAdjacentHTML('afterbegin', outdatedPatchHtml(gamePatch));
+      } else {
+        frame.insertAdjacentHTML('afterbegin', patchHtml(gamePatch));
       }
 
-      if (frame) {
-        const gamePatch = parseFloat(this.patch).toFixed(2);
-
-        if (gamePatch !== this.patch) {
-          frame.insertAdjacentHTML('afterbegin', outdatedPatchHtml(gamePatch));
-        } else {
-          frame.insertAdjacentHTML('afterbegin', patchHtml(gamePatch));
+      if (global.JOKEMODE === true) {
+        const patch = this.content.querySelector('.patch');
+        if (patch) {
+          patch.outerHTML = jokePatchHtml();
         }
 
-        if (global.JOKEMODE === true) {
-          const patch = this.content.querySelector('.patch');
-          if (patch) {
-            patch.outerHTML = jokePatchHtml();
+        // Allow loading for twitter/reddit/tumblr embed scripts
+        const activatedSources = new Set();
+
+        this.content.querySelectorAll('script[src]').forEach(function (oldScript) {
+          const source = oldScript.src;
+
+          if (activatedSources.has(source)) {
+            oldScript.remove();
+            return;
           }
 
-          // Allow loading for twitter/reddit/tumblr embed scripts
-          const activatedSources = new Set();
+          const newScript = document.createElement('script');
 
-          this.content.querySelectorAll('script[src]').forEach(function (oldScript) {
-            const source = oldScript.src;
+          Array.from(oldScript.attributes).forEach(function (attribute) {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
 
-            if (activatedSources.has(source)) {
-              oldScript.remove();
-              return;
-            }
+          activatedSources.add(source);
+          oldScript.replaceWith(newScript);
+        });
+      }
 
-            const newScript = document.createElement('script');
+      const src = portrait.getAttribute('data-src');
+      const alt = portrait.getAttribute('alt') || hero;
+      const frameInner = this.content.querySelector('.portrait-frame-inner');
 
-            Array.from(oldScript.attributes).forEach(function (attribute) {
-              newScript.setAttribute(attribute.name, attribute.value);
-            });
+      preloadImage(src).then(function (data) {
+        if (!frameInner || !frame || !_this.content.contains(frameInner)) {
+          return;
+        }
 
-            activatedSources.add(source);
-            oldScript.replaceWith(newScript);
+        if (data.cached) {
+          frameInner.querySelectorAll('.portrait-img').forEach(function (img) {
+            img.classList.add('from-cache');
           });
         }
-      }
 
-      if (portrait) {
-        const src = portrait.getAttribute('data-src');
-        const alt = portrait.getAttribute('alt') || hero;
-
-        if (src) {
-          const frameInner = this.content.querySelector('.portrait-frame-inner');
-
-          preloadImage(src).then(function (data) {
-            if (!frameInner || !frame || !_this.content.contains(frameInner)) {
-              return;
-            }
-
-            if (data.cached) {
-              frameInner.querySelectorAll('.portrait-img').forEach(function (img) {
-                img.classList.add('from-cache');
-              });
-            }
-
-            const loadedImage = document.createElement('img');
-            loadedImage.className = 'portrait-img portrait-image-loaded';
-            loadedImage.width = 256;
-            loadedImage.height = 144;
-            loadedImage.src = data.src;
-            loadedImage.alt = alt;
-            frameInner.insertBefore(loadedImage, frameInner.firstChild);
-            frame.classList.add('portrait-frame-loaded');
-          }).catch(function () {});
-        }
-      }
+        const loadedImage = document.createElement('img');
+        loadedImage.className = 'portrait-img portrait-image-loaded';
+        loadedImage.width = 256;
+        loadedImage.height = 144;
+        loadedImage.src = data.src;
+        loadedImage.alt = alt;
+        frameInner.insertBefore(loadedImage, frameInner.firstChild);
+        frame.classList.add('portrait-frame-loaded');
+      }).catch(function () {});
 
       _this.expand(skipAnimation);
     },
