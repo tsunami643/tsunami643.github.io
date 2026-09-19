@@ -218,7 +218,6 @@
 
     this.heroes = options.heroes;
     this.patch = options.patch;
-    this.currentController = null;
     this.cache = new Map();
     this.currentHero = null;
     this.urlFor = options.urlFor;
@@ -247,7 +246,7 @@
   }
 
   HeroLoader.prototype = {
-    fetchHtml: function (url, signal) {
+    fetchHtml: function (url) {
       const cached = this.cache.get(url);
       const _this = this;
 
@@ -259,7 +258,8 @@
         return cached;
       }
 
-      const request = fetch(url, { signal: signal })
+      // Share requests with preloads and later selections, even if the current selection changes.
+      const request = fetch(url)
         .then(function (response) {
           if (!response.ok) {
             throw new Error('Unable to load ' + url + ': ' + response.status);
@@ -293,7 +293,7 @@
         return;
       }
 
-      this.load(this.heroes.next(this.currentHero));
+      this.load(this.heroes.next(this.currentHero)).catch(function () {});
     },
 
     prev: function () {
@@ -301,7 +301,7 @@
         return;
       }
 
-      this.load(this.heroes.prev(this.currentHero));
+      this.load(this.heroes.prev(this.currentHero)).catch(function () {});
     },
 
     reloadCurrent: function () {
@@ -328,10 +328,11 @@
 
     collapse: function (skipAnimation, clearAfter) {
       const _this = this;
-
+      const loadId = clearAfter === false ? this.loadId : ++this.loadId;
       this.currentHero = null;
+
       return transitionHeight(this.el, false, skipAnimation).then(function (result) {
-        if (clearAfter !== false && result.finished) {
+        if (clearAfter !== false && result.finished && loadId === _this.loadId) {
           _this.clearContent();
         }
 
@@ -347,51 +348,42 @@
       const _this = this;
       const url = this.urlFor(hero);
       const loadId = ++this.loadId;
-      const controller = new AbortController();
 
       if (this.currentHero === hero && !forceReload) {
         return Promise.resolve({ name: hero });
       }
 
-      if (this.currentController) {
-        this.currentController.abort();
-      }
-
-      this.currentController = controller;
-
       const collapse = this.collapse(skipAnimation, false);
 
-      return this.fetchHtml(url, controller.signal)
-        .then(function (data) {
-          return collapse.then(function () {
-            if (loadId !== _this.loadId) {
-              const staleError = new Error('Stale hero load');
-              staleError.name = 'AbortError';
-              throw staleError;
-            }
+      function throwIfStale() {
+        if (loadId !== _this.loadId) {
+          const staleError = new Error('Stale hero load');
+          staleError.name = 'AbortError';
+          throw staleError;
+        }
+      }
 
-            _this.clearContent();
-            _this.render(hero, data, skipAnimation);
-            _this.currentHero = hero;
-            _this.loadCallbacks.forEach(function (callback) {
-              callback({ name: hero });
-            });
-
-            return { name: hero };
+      return Promise.all([this.fetchHtml(url), collapse])
+        .then(function (results) {
+          throwIfStale();
+          _this.clearContent();
+          _this.render(hero, results[0], skipAnimation);
+          _this.currentHero = hero;
+          _this.loadCallbacks.forEach(function (callback) {
+            callback({ name: hero });
           });
+
+          return { name: hero };
         })
         .catch(function (error) {
+          throwIfStale();
+
           if (error.name !== 'AbortError') {
             _this.cache.delete(url);
             _this.collapse();
           }
 
           throw error;
-        })
-        .finally(function () {
-          if (_this.currentController === controller) {
-            _this.currentController = null;
-          }
         });
     },
 

@@ -52,7 +52,12 @@
       return '';
     }
 
-    return decodeURIComponent(search.slice(1)).replace(/\+/g, ' ');
+    try {
+      return decodeURIComponent(search.slice(1).replace(/\+/g, ' '));
+    } catch {
+      // Let the normal unknown-hero handling reset malformed links.
+      return search.slice(1);
+    }
   }
 
   function trackPageView(path) {
@@ -103,7 +108,6 @@
   const input = new HeroInput({
     el: heroInput,
     container: document.getElementById('inputline'),
-    arrow: heroInputShell.querySelector('.arrow'),
     heroes: heroes
   });
 
@@ -147,7 +151,11 @@
   const matchedDeepLinkedHero = deepLinkedHero && heroes.find(deepLinkedHero);
 
   if (matchedDeepLinkedHero) {
-    loader.load(matchedDeepLinkedHero, true).catch(function () {
+    loader.load(matchedDeepLinkedHero, true).catch(function (error) {
+      if (error.name === 'AbortError') {
+        return;
+      }
+
       input.setVal('');
       setHeroState('', baseTitle);
     });

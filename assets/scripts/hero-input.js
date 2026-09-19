@@ -7,10 +7,6 @@
   const SECRET_PHRASES = ['dank memes', 'memes', 'shitpost', 'april fool'];
   const MAX_SUGGESTIONS = 5;
 
-  function prefersReducedMotion() {
-    return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }
-
   function normalize(value) {
     return String(value || '')
       .toLowerCase()
@@ -66,36 +62,6 @@
     ].join('');
   }
 
-  function waitForTransition(element, propertyName, skipAnimation, fallbackMs) {
-    return new Promise(function (resolve) {
-      let done = false;
-
-      function finish() {
-        if (done) {
-          return;
-        }
-
-        done = true;
-        element.removeEventListener('transitionend', onTransitionEnd);
-        resolve({ finished: true });
-      }
-
-      function onTransitionEnd(event) {
-        if (event.target === element && event.propertyName === propertyName) {
-          finish();
-        }
-      }
-
-      if (skipAnimation || prefersReducedMotion()) {
-        finish();
-        return;
-      }
-
-      element.addEventListener('transitionend', onTransitionEnd);
-      global.setTimeout(finish, fallbackMs);
-    });
-  }
-
   function restartClass(element, className) {
     element.classList.remove(className);
     void element.offsetWidth;
@@ -107,7 +73,6 @@
 
     this.el = options.el;
     this.container = options.container;
-    this.arrow = options.arrow;
     this.heroes = options.heroes;
     this.callbacks = {};
     this.callbacks[EVENTS.SELECT] = [];
@@ -254,7 +219,6 @@
 
       if (exactHero) {
         this.setVal(exactHero);
-        this.closeMenu();
         this.emit(EVENTS.SELECT, { name: exactHero });
       }
     },
@@ -308,19 +272,16 @@
 
       restartClass(this.inputShell, 'hero-input--shake');
       this.setVal('');
-      this.closeMenu();
       this.emit(EVENTS.CLEAR);
     },
 
     renderSuggestions: function (query) {
       const _this = this;
 
+      this.closeMenu();
       this.suggestions = this.search(query);
-      this.activeIndex = -1;
-      this.menu.innerHTML = '';
 
       if (!this.suggestions.length) {
-        this.closeMenu();
         return;
       }
 
@@ -345,11 +306,8 @@
     },
 
     closeMenu: function () {
-      this.menu.querySelectorAll('.tt-selectable').forEach(function (item) {
-        item.classList.remove('tt-cursor');
-        item.setAttribute('aria-selected', 'false');
-      });
-
+      this.suggestions = [];
+      this.menu.innerHTML = '';
       this.menu.classList.remove('tt-open');
       this.menu.classList.add('tt-empty');
       this.el.setAttribute('aria-expanded', 'false');
@@ -392,11 +350,13 @@
     },
 
     selectActiveOrFirst: function () {
-      let hero = this.activeIndex >= 0 ? this.suggestions[this.activeIndex] : this.suggestions[0];
-
-      if (!hero && this.el.value) {
-        hero = this.heroes.find(this.el.value);
+      if (!normalize(this.el.value)) {
+        return false;
       }
+
+      const hero = this.isOpen()
+        ? this.suggestions[this.activeIndex >= 0 ? this.activeIndex : 0]
+        : this.search(this.el.value)[0];
 
       if (!hero) {
         return false;
@@ -414,28 +374,21 @@
       }
 
       this.setVal(found);
-      this.closeMenu();
       this.emit(EVENTS.SELECT, { name: found });
     },
 
     selectFirstSuggestion: function () {
-      if (!this.suggestions.length) {
-        this.renderSuggestions(this.el.value);
-      }
-
       return this.selectActiveOrFirst();
     },
 
     expand: function (skipAnimation) {
       this.container.style.setProperty('--inputline-transition-duration', skipAnimation ? '0s' : '0.3s');
       this.container.classList.remove('inputline--collapsed');
-      return waitForTransition(this.container, 'padding-top', skipAnimation, 350);
     },
 
     collapse: function (skipAnimation) {
       this.container.style.setProperty('--inputline-transition-duration', skipAnimation ? '0s' : '0.8s');
       this.container.classList.add('inputline--collapsed');
-      return waitForTransition(this.container, 'padding-top', skipAnimation, 850);
     },
 
     setVal: function (value) {
