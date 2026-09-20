@@ -397,8 +397,7 @@ a:hover {
 
 #merch_img a {
     display: inline-block;
-    width: min(100%, 400px);
-    aspect-ratio: 800 / 480;
+    width: min(100%, 600px);
     margin: 20px auto 0;
 }
 
@@ -406,7 +405,6 @@ a:hover {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 800 / 480;
 }
 
 .arrow {

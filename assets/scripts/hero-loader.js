@@ -4,23 +4,13 @@
   }
 
   function preloadImage(src) {
-    const imgEle = document.createElement('img');
-    imgEle.src = src;
-    const cached = imgEle.complete || (imgEle.width + imgEle.height) > 0;
+    const img = document.createElement('img');
+    img.decoding = 'async';
+    img.src = src;
+    const cached = img.complete && img.naturalWidth > 0;
 
-    if (cached) {
-      return Promise.resolve({ src: src, cached: cached });
-    }
-
-    return new Promise(function (resolve, reject) {
-      const img = new Image();
-
-      img.onload = function () {
-        resolve({ src: src, cached: cached });
-      };
-
-      img.onerror = reject;
-      img.src = src;
+    return img.decode().then(function () {
+      return { image: img, cached: cached };
     });
   }
 
@@ -453,11 +443,10 @@
           });
         }
 
-        const loadedImage = document.createElement('img');
+        const loadedImage = data.image;
         loadedImage.className = 'portrait-img portrait-image-loaded';
         loadedImage.width = 256;
         loadedImage.height = 144;
-        loadedImage.src = data.src;
         loadedImage.alt = alt;
         frameInner.insertBefore(loadedImage, frameInner.firstChild);
         frame.classList.add('portrait-frame-loaded');

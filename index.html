@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="preload" href="./assets/media/heroes/minimap/hero_sprites.webp" as="image" type="image/webp">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8W0GX01LX"></script>
   <script>
@@ -116,13 +117,12 @@
             !function (document) {
                 const quotes = [
                     ["I JUST RANDOMED", ". NOW WHAT?"],
-                    ["MY CAPTAIN PICKED ME", "AND NOW I'M PANICKING."],
                     ["I TOLD MY TEAM I KNOW HOW TO PLAY", "BUT I REALLY DON'T."],
                     ["I'M GETTING OWNED BY", ". WHAT DO?"],
                     ["CREEPS ARE SPAWNING. QUICK, TELL ME HOW TO", "."],
                     ["FILTHY", "PICKERS."],
                     ["WHAT THE HELL IS A", "?"],
-                    ["GOD DAMN IT, I'M SICK OF LOSING TO", "."],
+                    ["I'M SICK OF LOSING TO", "."],
                     ["I'VE NEVER PLAYED", "BEFORE. GUESS I'LL LEARN IN RANKED."],
                     ["OF COURSE I KNOW HOW TO PLAY", ". I'M JUST REFRESHING MY MEMORY."],
                     ["HOW DO I COUNTER", "? DAGON 5, RIGHT?"],
@@ -131,10 +131,8 @@
                     ["ICEFROG PLS NERF", "."],
                     ["ICEFROG PLS BUFF", "."],
                     ["NO MORE 0% DOTABUFF WIN RATE ON", "FROM NOW ON."],
-                    ["WHY DOES", "EVEN EXIST? GARBAGE HERO IMO."],
-                    ["ALL THE PROS ARE SPAMMING", "THESE DAYS, SO I WILL TOO."],
+                    ["ALL THE PROS ARE SPAMMING", ", SO I WILL TOO."],
                     ["EXPANDING MY HERO PUDDLE TO INCLUDE", "."],
-                    ["OH BOY, MY FIRST DRAFT!", "IS WEAK AGAINST GRASS TYPE, RIGHT?"],
                     ["BLESSED BE THY", ". GUIDE ME ON THIS RIGHTEOUS PATH TO IMMORTAL."],
                     ["MY STACK BANNED ME FROM PLAYING", ", BUT I'LL SHOW 'EM."],
                     ["ANYONE WANT TO SWAP FOR", "? NO? WELL THAT'S NOT GOOD."],
@@ -144,10 +142,13 @@
                     ["I'M PLAYING", "? <font color='green'>+30</font>, HERE I COME."],
                     ["I'M PLAYING", "? <font color='indianred'>-30</font>, HERE I COME."],
                     ["WHO NEEDS VERSATILITY? I'M THE", "MASTER."],
-                    ["I NEED THE MASTER TIER VOICE LINE ON", "."],
+                    ["I WANT THE GRANDMASTER TIER VOICE LINE ON", "."],
                     ["JUST LOST TO A SMURF PLAYING", ". MUST BE A FREE WIN HERO."],
                     ["ALL THE BOOSTERS ARE SPAMMING", "? THEY MUST BE ON TO SOMETHING."],
-                    ["TURBO MODE IS THE BEST PLACE TO LEARN", "."]
+                    ["TURBO MODE IS THE BEST PLACE TO LEARN", "."],
+                    ["APPARENTLY", "IS A SUPPORT NOW?"],
+                    ["APPARENTLY", "IS A CORE NOW?"],
+                    ["I BANNED", ", BUT THEY'RE STILL IN THE POOL."]
                 ];
 
                 const foolQuotes = [
@@ -209,7 +210,7 @@
         <div id ="merch">
             <i>Check out the <a href="https://shop.howdoiplay.com/" target="_blank">howdoiplay merch shop</a> to support the site</i>
             <div id ="merch_img">
-                <a href="https://shop.howdoiplay.com/" target="_blank"><img title="howdoiplay merch banner" src="./assets/media/merchshop_s2.webp" loading="lazy" width="800" height="480" alt="howdoiplay merch shop banner"></a>
+                <a href="https://shop.howdoiplay.com/" target="_blank" rel="noopener"><img title="howdoiplay merch banner" src="./assets/media/merchshop_long.webp" loading="lazy" decoding="async" width="600" height="120" alt="howdoiplay merch shop banner"></a>
         </div>
     </div>
 
