@@ -225,6 +225,7 @@
     this.content = ensureContentElement(this.el);
     this.loadId = 0;
     this.loadCallbacks = [];
+    this.errorCallbacks = [];
 
     this.el.addEventListener('click', function (event) {
       const jokeToggle = event.target.closest('#joketoggle');
@@ -381,6 +382,9 @@
           if (error.name !== 'AbortError') {
             _this.cache.delete(url);
             _this.collapse();
+            _this.errorCallbacks.forEach(function (callback) {
+              callback(error);
+            });
           }
 
           throw error;
@@ -464,6 +468,10 @@
 
     onLoad: function (callback) {
       this.loadCallbacks.push(callback);
+    },
+
+    onError: function (callback) {
+      this.errorCallbacks.push(callback);
     }
   };
 

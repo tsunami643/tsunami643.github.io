@@ -75,20 +75,41 @@
   }
 
   function setHeroState(hero, baseTitle) {
+    const heroUrl = hero ? encodeURIComponent(hero).replace(/%20/g, '+') : '';
+    const metadata = hero ? {
+      title: hero + ' Tips and Counters — Dota 2 | howdoiplay',
+      description: hero + ' spell interactions and counters.',
+      url: homeUrl + '?' + heroUrl
+    } : null;
+
+    document.title = hero ? metadata.title : baseTitle;
+    metadataTags.forEach(function (tag) {
+      tag.element.setAttribute('content', hero ? metadata[tag.field] : tag.homeContent);
+    });
+
     if (hero) {
-      const heroUrl = encodeURIComponent(hero).replace(/%20/g, '+');
-      document.title = hero + ' - ' + baseTitle;
       global.history.replaceState(null, document.title, '?' + heroUrl);
       trackPageView('/' + heroUrl);
       return;
     }
 
-    document.title = baseTitle;
     global.history.replaceState(null, baseTitle, '?');
   }
 
   const heroes = new HeroList(HEROES.concat().sort());
   const baseTitle = document.title;
+  const homeUrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
+  const metadataTags = [
+    { selector: 'meta[name="description"]', field: 'description' },
+    { selector: 'meta[property="og:title"]', field: 'title' },
+    { selector: 'meta[property="og:description"]', field: 'description' },
+    { selector: 'meta[property="og:url"]', field: 'url' },
+    { selector: 'meta[name="twitter:title"]', field: 'title' },
+    { selector: 'meta[name="twitter:description"]', field: 'description' }
+  ].map(function (tag) {
+    const element = document.querySelector(tag.selector);
+    return { element: element, field: tag.field, homeContent: element.getAttribute('content') };
+  });
   const tipContainer = document.getElementById('tipcontainer');
   const heroInputShell = document.getElementById('heroinput');
   const heroInput = heroInputShell.querySelector('.hero-search-input');
@@ -112,14 +133,12 @@
   });
 
   input.onSelect(function (hero) {
-    loader.load(hero.name).catch(function (error) {
-      if (error.name === 'AbortError') {
-        return;
-      }
+    loader.load(hero.name).catch(function () {});
+  });
 
-      input.setVal('');
-      setHeroState('', baseTitle);
-    });
+  loader.onError(function () {
+    input.setVal('');
+    setHeroState('', baseTitle);
   });
 
   loader.onLoad(function (hero) {
@@ -151,14 +170,7 @@
   const matchedDeepLinkedHero = deepLinkedHero && heroes.find(deepLinkedHero);
 
   if (matchedDeepLinkedHero) {
-    loader.load(matchedDeepLinkedHero, true).catch(function (error) {
-      if (error.name === 'AbortError') {
-        return;
-      }
-
-      input.setVal('');
-      setHeroState('', baseTitle);
-    });
+    loader.load(matchedDeepLinkedHero, true).catch(function () {});
     input.collapse(true);
     input.setVal(matchedDeepLinkedHero);
   } else if (deepLinkedHero) {
