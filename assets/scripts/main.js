@@ -77,8 +77,8 @@
   function setHeroState(hero, baseTitle) {
     const heroUrl = hero ? encodeURIComponent(hero).replace(/%20/g, '+') : '';
     const metadata = hero ? {
-      title: hero + ' Tips and Counters — Dota 2 | howdoiplay',
-      description: hero + ' spell interactions and counters.',
+      title: hero + `- Tsunami's Dota Hero Tips and Counters`,
+      description: hero + ' spell interactions and counters from howdoiplay.com',
       url: homeUrl + '?' + heroUrl
     } : null;
 
