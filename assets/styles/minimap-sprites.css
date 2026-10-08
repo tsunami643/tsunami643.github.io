@@ -174,6 +174,9 @@
 .spectre_arcana_alt			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/spectre_arcana_alt.png') no-repeat;   }
 .techies_arcana				.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/techies_arcana.png') no-repeat;   }
 .terrorblade_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/terrorblade_arcana.png') no-repeat;   }
+.tidehunter_arcana			.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/tidehunter_arcana.png') no-repeat;   }
+.tidehunter_arcana_alt		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/tidehunter_arcana_alt.png') no-repeat;   }
+.tidehunter_arcana_alt2		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/tidehunter_arcana_alt2.png') no-repeat;   }
 .vengeful_spirit_arcana		.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana.png') no-repeat;   } /*Voiceline Hero*/
 .vengeful_spirit_arcana_alt	.herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana_alt.png') no-repeat;   }
 .vengeful_spirit_arcana_alt2 .herolist__hero__link:before 			{ background: url('../media/heroes/minimap/icons/custom/vengeful_spirit_arcana_alt2.png') no-repeat;   } /*Voiceline Hero*/
