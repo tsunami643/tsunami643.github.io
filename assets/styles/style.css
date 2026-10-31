@@ -189,6 +189,7 @@ a:hover {
     transition: padding var(--inputline-transition-duration, 0.8s) ease-in-out;
 }
 
+.hero-loading #inputline,
 #inputline.inputline--collapsed {
     padding-top: 30px;
     padding-bottom: 10px;
@@ -219,6 +220,27 @@ a:hover {
     width: 100%;
     margin-top: 19px;
     background-color: #16171b;
+}
+
+.hero-loading .grey {
+    min-height: 100vh;
+}
+
+.hero-loading #hero-loading {
+    display: block;
+    padding: 30px 16px;
+    font: 18px/1.65 sans-serif;
+}
+
+.hero-loading .herolist,
+.hero-loading #links,
+.hero-loading #social {
+    visibility: hidden;
+}
+
+.hero-loading #inputline,
+.hero-loading .arrow {
+    transition: none;
 }
 
 #tipcontainer {
@@ -423,6 +445,7 @@ a:hover {
     transition: margin-top var(--inputline-transition-duration, 0.8s) ease-in-out;
 }
 
+.hero-loading .arrow,
 .inputline--collapsed .arrow {
     margin-top: 10px;
 }

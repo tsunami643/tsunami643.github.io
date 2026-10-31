@@ -1,4 +1,25 @@
 !function (global, document, HEROES, PATCH) {
+  let analyticsScheduled = false;
+
+  function loadAnalyticsWhenReady() {
+    if (analyticsScheduled || document.readyState !== 'complete' ||
+        document.documentElement.classList.contains('hero-loading')) {
+      return;
+    }
+
+    analyticsScheduled = true;
+
+    // Let the loaded sprite and initial hero content paint before analytics starts.
+    global.requestAnimationFrame(function () {
+      global.requestAnimationFrame(function () {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-W8W0GX01LX';
+        document.head.appendChild(script);
+      });
+    });
+  }
+
   function isTouchDevice() {
     return (global.matchMedia && global.matchMedia('(pointer: coarse)').matches) ||
       (global.navigator && global.navigator.maxTouchPoints > 0);
@@ -45,26 +66,104 @@
     element.classList.add(className);
   }
 
-  function getHeroFromLocation() {
-    const search = global.location.search;
+  function smoothScrollToTop(duration) {
+    const start = global.scrollY;
+    const startTime = 'now' in global.performance ? performance.now() : new Date().getTime();
 
-    if (!search || search === '?') {
-      return '';
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
     }
 
-    try {
-      return decodeURIComponent(search.slice(1).replace(/\+/g, ' '));
-    } catch {
-      // Let the normal unknown-hero handling reset malformed links.
-      return search.slice(1);
+    function scrollToTop(currentTime) {
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, start, -start, duration);
+      global.scrollTo(0, run);
+
+      if (timeElapsed < duration) {
+        global.requestAnimationFrame(scrollToTop);
+      }
     }
+
+    if (global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      global.scrollTo(0, 0);
+      return;
+    }
+
+    global.requestAnimationFrame(scrollToTop);
+  }
+
+  function getHeroLink(target, container) {
+    const link = target.closest('.herolist__hero__link');
+    return link && container.contains(link) ? link : null;
+  }
+
+  function getHeroName(link) {
+    const name = link.querySelector('.herolist__hero__name');
+    return name ? name.textContent : '';
+  }
+
+  function isTrueMouseEnter(event, link) {
+    return !event.relatedTarget || !link.contains(event.relatedTarget);
+  }
+
+  function initHeroGrid(el, input, loader) {
+    let anticipationTimer = null;
+
+    el.addEventListener('mouseover', function (event) {
+      const link = getHeroLink(event.target, el);
+
+      if (!link || !isTrueMouseEnter(event, link)) {
+        return;
+      }
+
+      clearTimeout(anticipationTimer);
+      anticipationTimer = global.setTimeout(function () {
+        loader.preload(getHeroName(link));
+      }, 200);
+    });
+
+    el.addEventListener('mouseout', function (event) {
+      const link = getHeroLink(event.target, el);
+
+      if (!link || !isTrueMouseEnter(event, link)) {
+        return;
+      }
+
+      clearTimeout(anticipationTimer);
+    });
+
+    el.addEventListener('click', function (event) {
+      const link = getHeroLink(event.target, el);
+
+      if (!link || event.defaultPrevented || event.button !== 0 ||
+          event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      event.preventDefault();
+      clearTimeout(anticipationTimer);
+
+      const hero = getHeroName(link);
+      input.setVal(hero);
+      loader.load(hero).catch(function () {});
+      smoothScrollToTop(300);
+    });
+  }
+
+  function finishInitialHeroLoad() {
+    document.documentElement.classList.remove('hero-loading');
+    loadAnalyticsWhenReady();
   }
 
   function trackPageView(path) {
     if (typeof global.gtag === 'function') {
       global.gtag('event', 'page_view', {
         page_path: path,
-        page_title: document.title
+        page_title: document.title,
+        page_location: global.location.href
       });
       return;
     }
@@ -74,7 +173,15 @@
     }
   }
 
-  function setHeroState(hero, baseTitle) {
+  function getHeroFromLocation() {
+    try {
+      return heroes.find(decodeURIComponent(global.location.search.slice(1).replace(/\+/g, ' '))) || '';
+    } catch {
+      return '';
+    }
+  }
+
+  function setHeroState(hero, baseTitle, replaceHistory) {
     const heroUrl = hero ? encodeURIComponent(hero).replace(/%20/g, '+') : '';
     const metadata = hero ? {
       title: hero + ` - Tsunami's Dota Hero Tips and Counters`,
@@ -87,13 +194,17 @@
       tag.element.setAttribute('content', hero ? metadata[tag.field] : tag.homeContent);
     });
 
-    if (hero) {
-      global.history.replaceState(null, document.title, '?' + heroUrl);
-      trackPageView('/' + heroUrl);
-      return;
+    const search = hero ? '?' + heroUrl : '';
+
+    if (global.location.search !== search) {
+      // Restores already have the target hero in the URL; only new selections push.
+      const method = replaceHistory || hero === getHeroFromLocation() ? 'replaceState' : 'pushState';
+      global.history[method](null, document.title, hero ? search : global.location.pathname);
     }
 
-    global.history.replaceState(null, baseTitle, '?');
+    if (hero) {
+      trackPageView('/' + heroUrl);
+    }
   }
 
   const heroes = new HeroList(HEROES.concat().sort());
@@ -138,7 +249,8 @@
 
   loader.onError(function () {
     input.setVal('');
-    setHeroState('', baseTitle);
+    setHeroState('', baseTitle, true);
+    finishInitialHeroLoad();
   });
 
   loader.onLoad(function (hero) {
@@ -151,30 +263,40 @@
     if (isTouchDevice()) {
       input.blur();
     }
+
+    finishInitialHeroLoad();
   });
 
   input.onClear(function () {
     setHeroState('', baseTitle);
     loader.collapse();
     input.expand();
+    finishInitialHeroLoad();
   });
 
-  new HeroMini({
-    el: heroList,
-    heroes: heroes,
-    input: input,
-    loader: loader
-  });
+  initHeroGrid(heroList, input, loader);
 
-  const deepLinkedHero = getHeroFromLocation();
-  const matchedDeepLinkedHero = deepLinkedHero && heroes.find(deepLinkedHero);
+  function restoreHeroFromLocation() {
+    const hero = getHeroFromLocation();
 
-  if (matchedDeepLinkedHero) {
-    loader.load(matchedDeepLinkedHero, true).catch(function () {});
-    input.collapse(true);
-    input.setVal(matchedDeepLinkedHero);
-  } else if (deepLinkedHero) {
-    setHeroState('', baseTitle);
+    if (hero) {
+      loader.load(hero, true).catch(function () {});
+      input.collapse(true);
+      input.setVal(hero);
+      return;
+    }
+
+    loader.collapse(true);
+    input.setVal('');
+    input.expand(true);
+    setHeroState('', baseTitle, true);
+    finishInitialHeroLoad();
+  }
+
+  global.addEventListener('popstate', restoreHeroFromLocation);
+
+  if (global.location.search) {
+    restoreHeroFromLocation();
   }
 
   randomHero.addEventListener('click', function (event) {
@@ -187,4 +309,7 @@
   });
 
   input.focus();
+
+  global.addEventListener('load', loadAnalyticsWhenReady, { once: true });
+  loadAnalyticsWhenReady();
 }(this, this.document, this.HEROES, this.PATCH);

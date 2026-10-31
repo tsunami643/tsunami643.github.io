@@ -4,19 +4,21 @@
 <head>
   <meta charset="utf-8">
   <link rel="preload" href="./assets/media/heroes/minimap/hero_sprites.webp" as="image" type="image/webp">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8W0GX01LX"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W8W0GX01LX');
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A collection of tips, counters, and guides for Dota 2 heroes. Written by @tsunami643.">
 
   <title>Tsunami's Dota Hero Tips and Counters</title>
+
+  <!-- Queue analytics calls; main.js loads the tag after the initial UI is ready. -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W8W0GX01LX', {
+    page_location: window.location.href,
+    page_title: document.title
+  });
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +78,23 @@
                 'Underlord', 'Undying', 'Ursa', 'Vengeful Spirit', 'Venomancer', 'Viper', 'Visage', 'Void Spirit', 'Warlock', 'Weaver',
                 'Windranger', 'Winter Wyvern', 'Witch Doctor', 'Wraith King', 'Zeus'
             ];
+
+            let requestedHero = global.location.search.slice(1).replace(/\+/g, ' ');
+
+            try {
+                requestedHero = decodeURIComponent(requestedHero);
+            } catch {
+                // Malformed links follow the normal unknown-hero handling.
+            }
+
+            global.INITIAL_HERO = global.HEROES.find(function (hero) {
+                return hero.toLowerCase() === requestedHero.toLowerCase();
+            }) || '';
+
+            // Establish the direct-link layout before the homepage can paint.
+            if (global.INITIAL_HERO) {
+                document.documentElement.classList.add('hero-loading');
+            }
 
             function isAprilFoolWindow(date) {
                 let year = date.getFullYear();
@@ -175,19 +194,60 @@
 
                 document.getElementById('hero-input-quote-start').innerHTML = randomQuote[0];
                 document.getElementById('hero-input-quote-end').innerHTML = randomQuote[1];
+
+                if (window.INITIAL_HERO) {
+                    document.querySelector('.hero-search-input').value = window.INITIAL_HERO;
+                }
             }(document);
         </script>
     </div>
 
     <div class="grey">
+        <div id="hero-loading" role="status" hidden>Loading hero tips…</div>
         <div id="tipcontainer"></div>
 
         <ul class="herolist"></ul>
+        <script>
+            // Build the grid before waiting for the external interaction scripts.
+            !function (document, heroes) {
+                function heroClassName(hero) {
+                    return hero.toLowerCase()
+                        .replace(/['\u2019-]/g, '')
+                        .replace(/[^a-z0-9]+/g, '_')
+                        .replace(/^_+|_+$/g, '');
+                }
+
+                function heroHref(hero) {
+                    return '/?' + encodeURIComponent(hero).replace(/%20/g, '+');
+                }
+
+                const fragment = document.createDocumentFragment();
+
+                heroes.slice().sort().forEach(function (hero) {
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    const name = document.createElement('span');
+
+                    item.className = 'herolist__hero ' + heroClassName(hero);
+                    link.className = 'herolist__hero__link';
+                    link.title = hero;
+                    link.setAttribute('aria-label', hero);
+                    link.href = heroHref(hero);
+                    name.className = 'herolist__hero__name';
+                    name.textContent = hero;
+
+                    link.appendChild(name);
+                    item.appendChild(link);
+                    fragment.appendChild(item);
+                });
+
+                document.querySelector('.herolist').appendChild(fragment);
+            }(document, window.HEROES);
+        </script>
     </div>
 
 <script type="text/javascript" src="./assets/scripts/hero-input.js"></script>
 <script type="text/javascript" src="./assets/scripts/hero-loader.js"></script>
-<script type="text/javascript" src="./assets/scripts/hero-mini.js"></script>
 <script type="text/javascript" src="./assets/scripts/main.js"></script>
 
 
@@ -219,10 +279,10 @@
     <div class="push"></div>
 
     <div id="social">
-        <a target="_blank" rel="noopener" title="Twitter" href="https://x.com/tsunami643" class="twitter"></a>
-        <a target="_blank" rel="noopener" title="Instagram" href="https://instagram.com/tsunami643" class="instagram"></a>
-        <a target="_blank" rel="noopener" title="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
-        <a target="_blank" rel="noopener" title="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
+        <a target="_blank" rel="noopener" title="Twitter" aria-label="Twitter" href="https://x.com/tsunami643" class="twitter"></a>
+        <a target="_blank" rel="noopener" title="Instagram" aria-label="Instagram" href="https://instagram.com/tsunami643" class="instagram"></a>
+        <a target="_blank" rel="noopener" title="Twitch" aria-label="Twitch" href="https://twitch.tv/tsunami643" class="twitch"></a>
+        <a target="_blank" rel="noopener" title="YouTube" aria-label="YouTube" href="https://youtube.com/tsunami643" class="youtube"></a>
     </div>
 </main>
 
