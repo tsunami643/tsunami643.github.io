@@ -12,7 +12,7 @@
 				<li>Blink Dagger behaves a little strangely when cast during channels. As long as you Blink within
 					Blink Dagger cast range, you'll continue channeling. If you target Blink outside of max cast range,
 					it'll cancel the channel.</li>
-				<li>You can only have one active channel at a time. So you can't Life Drain a target and then also start
+				<li>You can only have one type of channel active at a time. So you can't Life Drain a target and then also start
 					channeling a Meteor Hammer simultaneously, for example.</li></ul>
 			<li>Nether Blast damages towers and creeps. You don't get bonus damage for engulfing the whole tower,
 				which is what some Pugnas seem to think. Keep the tower on the edge of the Blast AoE and focus the
@@ -39,7 +39,10 @@
 			<li>Decrepify slows enemies, but not allies.</li>
 			<li>Decrepify's ethereal state does not work if the target is debuff immune/BKB'd because debuff immunity removes ethereal states.
 				This is true for any hero if they activate Ghost Scepter or Ethereal Blade during BKB.</li>
-			<li>Decrepify amplifies incoming heals. Cast Decrepify on yourself (or allies) to increase the HP gained from Life Drain.</li>
+			<li>Decrepify amplifies outgoing and incoming heals on allies. Cast Decrepify on yourself (or onto allies) to increase the HP gained
+				from Life Drain.
+				<ul><li><span class="scepter"></span>With Agh's Scepter Oblivion Savant, you can cast Decrepify on both you and the ally to
+					increase the heal even more.</li></ul>
 			<li>You can Decrepify the Nether Ward, effectively making it invulnerable for a few seconds. You can also Decrepify
 				Undying's Tombstone.</li>
 			<li>Cast range bonuses, like from Aether Lens, can be pretty cute on Pugna since they allow you to dump your Nether Ward inside trees.</li>
@@ -52,14 +55,15 @@
 			<li>Life Drain provides true sight on targets.</li>
 			<li><span class="shard"></span>Agh's Shard Life Drain only finds secondary targets on cast. If more enemies walk into the AoE after
 				you've started channeling, Life Drain won't acquire any new targets.</li>
-			<li>You can target Life Drain on allies to heal their HP at the cost of your own HP.
-				<ul><li>Since Life Drain works on non-hero units, you can deny yourself in a pinch by Life Draining yourself
-				into an allied creep.</li></ul>
-			<li>Life Drain's heal is completely independent from the actual damage an enemy takes. So Decrepifying an enemy will only
-				increase the damage they take, but not the amount you'll heal from Life Draining them. Conversely, if you're Life Draining
-				a BKB'd enemy or someone with a Pipe magic damage barrier, you'll still heal for the full value even though they're taking reduced damage.
-				<ul><li>The heal being separate from damage is also true when healing allies with Life Drain. For example, if you put a Glimmer Cape
-					barrier on yourself, you'll fully heal allies while your barrier tanks the damage.</li></ul>
+			<li>You can target Life Drain on allies to heal their HP at the cost of your own HP.</li>
+			<li>Life Drain's heal is calculated differently depending on if you're targeting an enemy or an ally.
+				<ul><li>When targeting an enemy, the amount Pugna heals is based on the damage dealt to the enemy's HP. For example, if the enemy has a
+					Glimmer Cape magic damage barrier, you won't heal from Life Drain until the barrier is removed. But if the enemy has lower magic
+					resistance (like from Decrepify), then they'll take more damage which in turn will heal you more.</li>
+					<li>When targeting an ally, Pugna receives damage based on the amount of HP the ally is healing. For example, if you
+					put a Glimmer Cape barrier on yourself, you'll fully heal allies while your barrier tanks the damage.</li>
+					<li>Healing allies is non-lethal. You can continue fully healing allies even if you're at 1 HP.</li>
+				</ul>
 		</ul>
 		<h1>Counters</h1>
 		<ul>
@@ -71,7 +75,7 @@
 			<li>Pipe of Insight's Barrier works on buildings to reduce Nether Blast damage.</li>
 			<li>The HP Pugna heals with Life Drain can be reduced by debuffs that affect health restoration:
 				<ul><li>Items that can reduce health restoration: Spirit Vessel, Orb of Frost/Corrosion, Eye of Skadi, Crella's Crozier,
-					as well as the "Crippling Crossbow" and "Jidi Pollen Bag" neutral item artifacts.</li>
+					as well as the "Crippling Crossbow", "Jidi Pollen Bag", and "Vile Phial" neutral item artifacts.</li>
 					<li>Spells that can reduce health restoration: Abaddon's Withering Mist innate, Ancient Apparition's Ice Blast, Doom's Doom,
 						Drow Ranger's Agh's Scepter Hypothermia, Pudge's Agh's Scepter Rot, Slark's Saltwater Shiv, and
 						<a href="https://liquipedia.net/dota2/index.php?title=Restoration_Manipulation#Restoration_Classification">a few others.</a></li>
